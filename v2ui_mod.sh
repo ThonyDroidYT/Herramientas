@@ -222,13 +222,13 @@ install_v2-ui() {
     systemctl enable v2-ui
     systemctl start v2-ui
     echo -e "${green}v2-ui v${last_version}${plain} 安装完成，面板已启动，"
-    echo -e ""
+    echo -e "Hi"
     echo -e "Si es una instalación nueva，El puerto web predeterminado es ${green}65432${plain}，El nombre de usuario y la contraseña son ambos predeterminados ${green}admin${plain}"
     echo -e "Asegúrese de que este puerto no esté ocupado por otros programas，${yellow}Y asegúrate 65432 El puerto ha sido liberado${plain}"
     echo -e "Si quieres 65432 Modificar a otros puertos，entrar v2-ui Comando para modificar，También asegúrese de que el puerto que modifica también esté permitido"
-    echo -e ""
+    echo -e "Hello"
     echo -e "Si es un panel de actualización，Luego acceda al panel como lo hizo antes"
-    echo -e ""
+    echo -e "Helli"
     curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
     chmod +x /usr/bin/v2-ui
     echo -e "v2-ui Cómo usar scripts de administración:"
