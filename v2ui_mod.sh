@@ -247,7 +247,7 @@ install_v2-ui() {
     echo -e "----------------------------------------------"
 }
 
-echo -e "${green}iniciar la instalación${plain}"
+echo -e "${green}Iniciar Instalación${plain}"
 install_base
 uninstall_old_v2ray
 close_firewall
