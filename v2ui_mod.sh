@@ -252,3 +252,4 @@ install_base
 uninstall_old_v2ray
 close_firewall
 install_v2-ui $1
+}
