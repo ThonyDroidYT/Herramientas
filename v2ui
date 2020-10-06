@@ -232,6 +232,7 @@ install_v2-ui() {
     curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
     chmod +x /usr/bin/v2-ui
     echo -e "v2-ui Cómo usar scripts de administración: "
+    echo -e "v2-ui Lista de comando Panel v2ray: "
     echo -e "----------------------------------------------"
     echo -e "v2-ui              - Mostrar menú de gestión (Más funciones)"
     echo -e "v2-ui start        - Poner en marcha v2-ui panel"
