@@ -3,6 +3,9 @@
 
 ## Panel v2ray ui
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui.sh)
+# Panek v2ray mod 
+
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui.sh)
 
 ## Wireguard Install
 
