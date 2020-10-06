@@ -8,7 +8,7 @@ plain='\033[0m'
 cur_dir=$(pwd)
 
 # check root
-[[ $EUID -ne 0 ]] && echo -e "${red}错误：${plain} 必须使用root用户运行此脚本！\n" && exit 1
+[[ $EUID -ne 0 ]] && echo -e "${red}error：${plain}Este script debe ejecutarse como usuario root！\n" && exit 1
 
 # check os
 if [[ -f /etc/redhat-release ]]; then
@@ -26,7 +26,7 @@ elif cat /proc/version | grep -Eqi "ubuntu"; then
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
 else
-    echo -e "${red}未检测到系统版本，请联系脚本作者！${plain}\n" && exit 1
+    echo -e "${red}No se detectó una versión del sistema, comuníquese con el autor del script！${plain}\n" && exit 1
 fi
 
 if [ $(getconf WORD_BIT) != '32' ] && [ $(getconf LONG_BIT) != '64' ] ; then
@@ -205,10 +205,10 @@ install_v2-ui() {
     else
         last_version=$1
         url="https://github.com/sprov065/v2-ui/releases/download/${last_version}/v2-ui-linux.tar.gz"
-        echo -e "开始安装 v2-ui v$1"
+        echo -e "iniciar la instalación v2-ui v$1"
         wget -N --no-check-certificate -O /usr/local/v2-ui-linux.tar.gz ${url}
         if [[ $? -ne 0 ]]; then
-            echo -e "${red}下载 v2-ui v$1 失败，请确保此版本存在${plain}"
+            echo -e "${red}Descarga v2-ui v$1 Falló, asegúrese de que esta versión exista${plain}"
             exit 1
         fi
     fi
@@ -237,13 +237,13 @@ install_v2-ui() {
     echo -e "v2-ui start        - puesta en marcha v2-ui panel"
     echo -e "v2-ui stop         - detener v2-ui panel"
     echo -e "v2-ui restart      - Reiniciar v2-ui panel
-    echo -e "v2-ui status       - 查看 v2-ui 状态"
-    echo -e "v2-ui enable       - 设置 v2-ui 开机自启"
-    echo -e "v2-ui disable      - 取消 v2-ui 开机自启"
-    echo -e "v2-ui log          - 查看 v2-ui 日志"
-    echo -e "v2-ui update       - 更新 v2-ui 面板"
-    echo -e "v2-ui install      - 安装 v2-ui 面板"
-    echo -e "v2-ui uninstall    - 卸载 v2-ui 面板"
+    echo -e "v2-ui status       - Ver v2-ui estado"
+    echo -e "v2-ui enable       - Preparar v2-ui Autoinicio"
+    echo -e "v2-ui disable      - cancelar v2-ui Autoinicio"
+    echo -e "v2-ui log          - Ver v2-ui Registro"
+    echo -e "v2-ui update       - Actualizar v2-ui panel"
+    echo -e "v2-ui install      - Instalar v2-ui panel"
+    echo -e "v2-ui uninstall    - Desinstalar v2-ui panel"
     echo -e "----------------------------------------------"
 }
 
