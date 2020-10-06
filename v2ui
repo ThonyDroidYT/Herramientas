@@ -227,11 +227,11 @@ install_v2-ui() {
     echo -e "请自行确保此端口没有被其他程序占用，${yellow}并且确保 65432 端口已放行${plain}"
     echo -e "若想将 65432 修改为其它端口，输入 v2-ui 命令进行修改，同样也要确保你修改的端口也是放行的"
     echo -e ""
-    echo -e "如果是更新面板，则按你之前的方式访问面板"
+    echo -e "Si es para actualizar el panel，acceda al panel como lo hizo antes"
     echo -e ""
     curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
     chmod +x /usr/bin/v2-ui
-    echo -e "v2-ui 管理脚本使用方法: "
+    echo -e "v2-ui Cómo usar scripts de administración: "
     echo -e "----------------------------------------------"
     echo -e "v2-ui              - Mostrar menú de gestión (Más funciones)"
     echo -e "v2-ui start        - Poner en marcha v2-ui panel"
@@ -242,7 +242,7 @@ install_v2-ui() {
     echo -e "v2-ui disable      - cancelar v2-ui Autoinicio"
     echo -e "v2-ui log          - Ver v2-ui Registro"
     echo -e "v2-ui update       - Actualizar v2-ui Panel"
-    echo -e "v2-ui install      - Isntalar v2-ui Panel"
+    echo -e "v2-ui install      - Instalar v2-ui Panel"
     echo -e "v2-ui uninstall    - Desinstalar v2-ui Panel"
     echo -e "----------------------------------------------"
 }
