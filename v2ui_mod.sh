@@ -231,11 +231,11 @@ install_v2-ui() {
     echo -e ""
     curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
     chmod +x /usr/bin/v2-ui
-    echo -e "v2-ui Cómo usar scripts de administración: "
+    echo -e "v2-ui Cómo usar scripts de administración:"
     echo -e "----------------------------------------------"
     echo -e "v2-ui              - Mostrar menú de gestión (Más funciones)"
-    echo -e "v2-ui start        - puesta en marcha v2-ui panel"
-    echo -e "v2-ui stop         - detener v2-ui panel"
+    echo -e "v2-ui start        - Poner en marcha v2-ui panel"
+    echo -e "v2-ui stop         - Detener v2-ui panel"
     echo -e "v2-ui restart      - Reiniciar v2-ui panel
     echo -e "v2-ui status       - Ver v2-ui estado"
     echo -e "v2-ui enable       - Preparar v2-ui Autoinicio"
