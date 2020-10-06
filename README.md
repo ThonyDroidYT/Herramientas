@@ -10,6 +10,8 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 
 ## Wireguard Install
 
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.sh)
+
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.sh -O wireguard-install.sh && bash wireguard-install.sh
 
 ## Wireguard ui Panel - Descontinuado
