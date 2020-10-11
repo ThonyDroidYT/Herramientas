@@ -19,7 +19,7 @@ wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.
 ### Wireguard Mod Install
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh)
 
-wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh -O wg.sh && bash wg.sh
+wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh -O wg.sh; chmod 777 wg.sh && bash wg.sh
 
 #### Wireguard ui Panel - Descontinuado
 curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardui.sh | sudo bash
