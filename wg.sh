@@ -100,10 +100,10 @@ new_client_dns () {
 	echo -e "\033[1;32m   4) OpenDNS"
 	echo -e "\033[1;32m   5) Quad9"
 	echo -e "\033[1;32m   6) AdGuard"
-	read -p "\033[1;33m DNS Server [Por defecto 1]: 》 " dns
+	read -p " DNS Server [Por defecto 1]: 》 " dns
 	until [[ -z "$dns" || "$dns" =~ ^[1-6]$ ]]; do
 		echo -e "\033[1;31m $dns: Selección invalida!."
-		read -p "\033[1;33m DNS Server [Por defecto 1]: 》 " dns
+		read -p " DNS Server [Por defecto 1]: 》 " dns
 	done
 		# DNS
 	case "$dns" in
@@ -233,12 +233,12 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	read -p "Puerto [Por defecto 51820]: 》 " port
 	until [[ -z "$port" || "$port" =~ ^[0-9]+$ && "$port" -le 65535 ]]; do
 		echo "$port: invalid port."
-		read -p "\033[1;33mPuerto [Por defecto 51820]: 》 " port
+		read -p "Puerto [Por defecto 51820]: 》 " port
 	done
 	[[ -z "$port" ]] && port="51820"
 	echo
 	echo -e "\033[1;32mIngrese un nombre para el primer cliente:"
-	read -p "\033[1;33m Nombre [cliente]: 》 " unsanitized_client
+	read -p " Nombre [cliente]: 》 " unsanitized_client
 	# Allow a limited set of characters to avoid conflicts
 	client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 	[[ -z "$client" ]] && client="client"
@@ -507,21 +507,21 @@ else
 	echo -e "\033[1;32m   2) Remover un cliente existente"
 	echo -e "\033[1;32m   3) Remover WireGuard"
 	echo -e "\033[1;32m   4) Salir"
-	read -p "\033[1;33mOpción: 》 " option
+	read -p "Opción: 》 " option
 	until [[ "$option" =~ ^[1-4]$ ]]; do
 		echo -e "\033[1;31m $option: Selección Invalida."
-		read -p "\033[1;33mOpción: 》 " option
+		read -p "Opción: 》 " option
 	done
 	case "$option" in
 		1)
 			echo
 			echo -e "\033[1;34mProporcione un nombre para el cliente:"
-			read -p "\033[1;33mNombre: 》" unsanitized_client
+			read -p "Nombre: 》" unsanitized_client
 			# Allow a limited set of characters to avoid conflicts
 			client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			while [[ -z "$client" ]] || grep -q "^# BEGIN_PEER $client$" /etc/wireguard/wg0.conf; do
 				echo -e "\033[1;31m $client: Nombre Inválido."
-				read -p "\033[1;33mNombre: 》" unsanitized_client
+				read -p "Nombre: 》" unsanitized_client
 				client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			done
 			echo
@@ -533,7 +533,7 @@ else
 			qrencode -t UTF8 < ~/"$client.conf"
 			echo -e '\xE2\x86\x91 Este es un código QR que contiene la configuración de su cliente.'
 			echo
-			echo -e "\033[1;34m $client agregado. Configuración disponible en:" ~/"$client.conf"
+			echo -e "\033[1;34m Cliente $client agregado con éxito. Configuración disponible en:" ~/"$client.conf"
 			exit
 		;;
 		2)
@@ -548,10 +548,10 @@ else
 			echo
 			echo -e "\033[1;36mSeleccione el cliente para eliminar: 》"
 			grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | nl -s ') '
-			read -p "\033[1;33mCliente: 》" client_number
+			read -p "Cliente: 》" client_number
 			until [[ "$client_number" =~ ^[0-9]+$ && "$client_number" -le "$number_of_clients" ]]; do
 				echo "$client_number: invalid selection."
-				read -p "\033[1;33mCliente: 》" client_number
+				read -p "Cliente: 》" client_number
 			done
 			client=$(grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | sed -n "$client_number"p)
 			echo
