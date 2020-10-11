@@ -513,17 +513,23 @@ EOF
 	echo "${blue}Se pueden agregar nuevos clientes ejecutando este script nuevamente."
 else
 	clear
+        echo -e "$BARRA"
 	echo "${red}WireGuard ya está instalado."
+        echo -e "$BARRA"
 	echo
 	echo "${blue}Seleccione una opción:"
 	echo "${green}   1) Agregar un nuevo cliente"
 	echo "${green}   2) Remover un cliente existente"
 	echo "${green}   3) Remover WireGuard"
 	echo "${green}   4) Salir"
+        echo -e "$BARRA"
 	read -p "${yellow}Opción: 》 " option
+        echo -e "$BARRA"
 	until [[ "$option" =~ ^[1-4]$ ]]; do
-		echo "$option: invalid selection."
+		echo "${red} $option: Selección Invalida."
+                echo -e "$BARRA"
 		read -p "${yellow}Opción: 》 " option
+                echo -e "$BARRA"
 	done
 	case "$option" in
 		1)
@@ -533,7 +539,7 @@ else
 			# Allow a limited set of characters to avoid conflicts
 			client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			while [[ -z "$client" ]] || grep -q "^# BEGIN_PEER $client$" /etc/wireguard/wg0.conf; do
-				echo "$client: invalid name."
+				echo "${red} $client: Nombre Inválido."
 				read -p "${yellow}Nombre: 》" unsanitized_client
 				client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			done
