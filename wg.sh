@@ -17,7 +17,7 @@ cyan='\033[1;36m'
 white='\033[1;37m'
 
 #Barra
-BARRA="\033[1;34m======================================================\033[0m"
+BARRA='\033[1;34m======================================================\033[0m'
 
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
