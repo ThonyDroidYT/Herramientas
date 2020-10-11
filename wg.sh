@@ -500,9 +500,11 @@ EOF
 	echo -e "\033[1;34mSe pueden agregar nuevos clientes ejecutando este script nuevamente."
 else
 	clear
-	echo -e "\033[1;34mWireGuard ya está instalado."
+        echo -e "\033[1;35m======================================================\033[0m"
+	echo -e "\033[1;34mWireGuard [NEW-ADM-PLUS] ya está instalado."
+        echo -e "\033[1;35m======================================================\033[0m"
 	echo
-	echo -e "\033[1;32mSeleccione una opción:"
+	echo -e "\033[1;33mSeleccione una opción"
 	echo -e "\033[1;32m [1] \033[1;31m>\033[1;36m Agregar un nuevo cliente"
 	echo -e "\033[1;32m [2] \033[1;31m>\033[1;36m Remover un cliente existente"
 	echo -e "\033[1;32m [3] \033[1;31m>\033[1;36m Remover WireGuard"
