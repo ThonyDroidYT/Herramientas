@@ -15,9 +15,6 @@ blue='\033[1;34m'
 purple='\033[1;35m
 cyan='\033[1;36m'
 
-#Barra
-BARRA='${blue}======================================================'
-
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
 	echo 'This installer needs to be run with "bash", not "sh".'
@@ -189,9 +186,9 @@ EOF
 
 if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	clear
-        echo -e "$BARRA"
+        echo "\033[1;35m======================================================\033[0m"
 	echo '${green}Bienvenido este es el instalador de WireGuard de [NEW-ADM-PLUS]!'
-	echo -e "$BARRA"
+	echo "\033[1;35m======================================================\033[0m"
         # If system has a single IPv4, it is selected automatically. Else, ask the user
 	if [[ $(ip -4 addr | grep inet | grep -vEc '127(\.[0-9]{1,3}){3}') -eq 1 ]]; then
 		ip=$(ip -4 addr | grep inet | grep -vE '127(\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\.[0-9]{1,3}){3}')
@@ -512,23 +509,17 @@ EOF
 	echo "${blue}Se pueden agregar nuevos clientes ejecutando este script nuevamente."
 else
 	clear
-        echo -e "$BARRA"
 	echo "${red}WireGuard ya está instalado."
-        echo -e "$BARRA"
 	echo
 	echo "${blue}Seleccione una opción:"
 	echo "${green}   1) Agregar un nuevo cliente"
 	echo "${green}   2) Remover un cliente existente"
 	echo "${green}   3) Remover WireGuard"
 	echo "${green}   4) Salir"
-        echo -e "$BARRA"
 	read -p "${yellow}Opción: 》 " option
-        echo -e "$BARRA"
 	until [[ "$option" =~ ^[1-4]$ ]]; do
 		echo "${red} $option: Selección Invalida."
-                echo -e "$BARRA"
 		read -p "${yellow}Opción: 》 " option
-                echo -e "$BARRA"
 	done
 	case "$option" in
 		1)
