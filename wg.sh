@@ -5,15 +5,6 @@
 # Copyright (c) 2020 Nyr. Released under the MIT License.
 #
 # Traducido y Mejorado By: @Thony_DroidYT
-#
-#Colors
-plain="\033[0m"
-red="\033[0;31m"
-green="\033[0;32m"
-yellow="\033[0;33m"
-blue="\033[1;34m"
-purple="\033[1;35m"
-cyan="\033[1;36m"
 
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
