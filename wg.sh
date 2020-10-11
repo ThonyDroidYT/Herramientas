@@ -26,7 +26,7 @@ read -N 999999 -t 0.001
 
 # Detect OpenVZ 6
 if [[ $(uname -r | cut -d "." -f 1) -eq 2 ]]; then
-	echo "El sistema está ejecutando un kernel antiguo, que es incompatible con este instalador.!"
+	echo "\033[1;31mEl sistema está ejecutando un kernel antiguo, que es incompatible con este instalador.!"
 	exit
 fi
 
@@ -83,7 +83,7 @@ Upgrade the kernel using "dnf upgrade kernel" and restart.'
 fi
 
 if [[ "$EUID" -ne 0 ]]; then
-	echo "${red}Este instalador debe ejecutarse con privilegios de superusuario.!"
+	echo "\033[1;31mEste instalador debe ejecutarse con privilegios de superusuario.!"
 	exit
 fi
 
@@ -102,17 +102,17 @@ TUN needs to be enabled before running this installer."
 fi
 
 new_client_dns () {
-	echo "${blue}Seleccione un servidor DNS para el cliente:"
-	echo "${green}   1) Actuales en el Sistema"
-	echo "${green}   2) Google"
-	echo "${green}   3) 1.1.1.1"
-	echo "${green}   4) OpenDNS"
-	echo "${green}   5) Quad9"
-	echo "${green}   6) AdGuard"
-	read -p "${yellow}DNS Server [Por defecto 1]: 》 " dns
+	echo "\033[1;34m Seleccione un servidor DNS para el cliente:"
+	echo "\033[1;32m   1) Actuales en el Sistema"
+	echo "\033[1;32m   2) Google"
+	echo "\033[1;32m   3) 1.1.1.1"
+	echo "\033[1;32m   4) OpenDNS"
+	echo "\033[1;32m   5) Quad9"
+	echo "\033[1;32m   6) AdGuard"
+	read -p "\033[1;33m DNS Server [Por defecto 1]: 》 " dns
 	until [[ -z "$dns" || "$dns" =~ ^[1-6]$ ]]; do
-		echo "${red} $dns: Selección invalida!."
-		read -p "${yellow}DNS Server [Por defecto 1]: 》 " dns
+		echo "\033[1;31m $dns: Selección invalida!."
+		read -p "\033[1;33m DNS Server [Por defecto 1]: 》 " dns
 	done
 		# DNS
 	case "$dns" in
@@ -154,7 +154,7 @@ new_client_setup () {
 	done
 	# Don't break the WireGuard configuration in case the address space is full
 	if [[ "$octet" -eq 255 ]]; then
-		echo "${red}253 clientes ya están configurados. La subred interna de WireGuard está llena!"
+		echo "\033[1;31m253 clientes ya están configurados. La subred interna de WireGuard está llena!"
 		exit
 	fi
 	key=$(wg genkey)
@@ -187,7 +187,7 @@ EOF
 if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	clear
         echo "\033[1;35m======================================================\033[0m"
-	echo '${green}Bienvenido este es el instalador de WireGuard de [NEW-ADM-PLUS]!'
+	echo '\033[1;32mBienvenido este es el instalador de WireGuard de [NEW-ADM-PLUS]!'
 	echo "\033[1;35m======================================================\033[0m"
         # If system has a single IPv4, it is selected automatically. Else, ask the user
 	if [[ $(ip -4 addr | grep inet | grep -vEc '127(\.[0-9]{1,3}){3}') -eq 1 ]]; then
@@ -246,8 +246,8 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	done
 	[[ -z "$port" ]] && port="51820"
 	echo
-	echo "${green}Ingrese un nombre para el primer cliente:"
-	read -p "Nombre [cliente]: 》 " unsanitized_client
+	echo "\033[1;32mIngrese un nombre para el primer cliente:"
+	read -p "\033[1;33m Nombre [cliente]: 》 " unsanitized_client
 	# Allow a limited set of characters to avoid conflicts
 	client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 	[[ -z "$client" ]] && client="client"
@@ -271,7 +271,7 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 		fi
 	fi
 	echo
-	echo "${green}La instalación de WireGuard está lista para comenzar."
+	echo "\033[1;32mLa instalación de WireGuard está lista para comenzar."
 	# Install a firewall in the rare case where one is not already available
 	if ! systemctl is-active --quiet firewalld.service && ! hash iptables 2>/dev/null; then
 		if [[ "$os" == "centos" || "$os" == "fedora" ]]; then
@@ -284,7 +284,7 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 			firewall="iptables"
 		fi
 	fi
-	read -n1 -r -p "${yellow}Pulse cualquier tecla para continuar..."
+	read -n1 -r -p "\033[1;33mPulse cualquier tecla para continuar..."
 	# Install WireGuard
 	# If not running inside a container, set up the WireGuard kernel module
 	if [[ ! "$is_container" -eq 0 ]]; then
@@ -459,7 +459,7 @@ WantedBy=multi-user.target" >> /etc/systemd/system/wg-iptables.service
 latest=$(wget -qO- https://wg.nyr.be/1/latest 2>/dev/null || curl -sL https://wg.nyr.be/1/latest 2>/dev/null)
 # If server did not provide an appropriate response, exit
 if ! head -1 <<< "$latest" | grep -qiE "^boringtun.+[0-9]+\.[0-9]+.*$"; then
-	echo "${red}Actualización de Servidor no disponible!"
+	echo "\033[1;31mActualización de Servidor no disponible!"
 	exit
 fi
 current=$(boringtun -V)
@@ -472,9 +472,9 @@ if [[ "$current" != "$latest" ]]; then
 		rm -f /usr/local/sbin/boringtun
 		mv "$xdir"/boringtun /usr/local/sbin/boringtun
 		systemctl start wg-quick@wg0.service
-		echo "${blue}Actualizado con éxito a $(boringtun -V)"
+		echo "\033[1;34mActualizado con éxito a $(boringtun -V)"
 	else
-		echo "${red}La actualización de boringtun falló"
+		echo "\033[1;31mLa actualización de boringtun falló"
 	fi
 	rm -rf "$xdir"
 else
@@ -499,38 +499,38 @@ EOF
 		elif [[ "$os" == "debian" && "$os_version" -eq 10 ]]; then
 		echo "Upgrade the kernel with \"apt-get install linux-image-$architecture\" and restart."
 		elif [[ "$os" == "centos" && "$os_version" -le 8 ]]; then
-			echo "${red}Reinicie el sistema para cargar el kernel más reciente."
+			echo "\033[1;31mReinicie el sistema para cargar el kernel más reciente."
 		fi
 	else
-		echo "${blue}Finalizado!"
+		echo "\033[1;34mFinalizado!"
 	fi
 	echo
-	echo "$red}La configuración del cliente está disponible en:" ~/"$client.conf"
-	echo "${blue}Se pueden agregar nuevos clientes ejecutando este script nuevamente."
+	echo "\033[1;34mLa configuración del cliente está disponible en:" ~/"$client.conf"
+	echo "\033[1;34mSe pueden agregar nuevos clientes ejecutando este script nuevamente."
 else
 	clear
-	echo "${red}WireGuard ya está instalado."
+	echo "\033[1;34mWireGuard ya está instalado."
 	echo
-	echo "${blue}Seleccione una opción:"
-	echo "${green}   1) Agregar un nuevo cliente"
-	echo "${green}   2) Remover un cliente existente"
-	echo "${green}   3) Remover WireGuard"
-	echo "${green}   4) Salir"
-	read -p "${yellow}Opción: 》 " option
+	echo "\033[1;32mSeleccione una opción:"
+	echo "\033[1;32m   1) Agregar un nuevo cliente"
+	echo "\033[1;32m   2) Remover un cliente existente"
+	echo "\033[1;32m   3) Remover WireGuard"
+	echo "\033[1;32m   4) Salir"
+	read -p "\033[1;33mOpción: 》 " option
 	until [[ "$option" =~ ^[1-4]$ ]]; do
-		echo "${red} $option: Selección Invalida."
-		read -p "${yellow}Opción: 》 " option
+		echo "\033[1;31m $option: Selección Invalida."
+		read -p "\033[1;33mOpción: 》 " option
 	done
 	case "$option" in
 		1)
 			echo
-			echo "${blue}Proporcione un nombre para el cliente:"
-			read -p "${yellow}Nombre: 》" unsanitized_client
+			echo "\033[1;34mProporcione un nombre para el cliente:"
+			read -p "\033[1;33mNombre: 》" unsanitized_client
 			# Allow a limited set of characters to avoid conflicts
 			client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			while [[ -z "$client" ]] || grep -q "^# BEGIN_PEER $client$" /etc/wireguard/wg0.conf; do
-				echo "${red} $client: Nombre Inválido."
-				read -p "${yellow}Nombre: 》" unsanitized_client
+				echo "\033[1;31m $client: Nombre Inválido."
+				read -p "\033[1;33mNombre: 》" unsanitized_client
 				client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			done
 			echo
@@ -542,7 +542,7 @@ else
 			qrencode -t UTF8 < ~/"$client.conf"
 			echo -e '\xE2\x86\x91 Este es un código QR que contiene la configuración de su cliente.'
 			echo
-			echo "$client agregado. Configuración disponible en:" ~/"$client.conf"
+			echo "\033[1;34m $client agregado. Configuración disponible en:" ~/"$client.conf"
 			exit
 		;;
 		2)
@@ -551,23 +551,23 @@ else
 			number_of_clients=$(grep -c '^# BEGIN_PEER' /etc/wireguard/wg0.conf)
 			if [[ "$number_of_clients" = 0 ]]; then
 				echo
-				echo "${red}No hay clientes existentes!"
+				echo "\033[1;31mNo hay clientes existentes!"
 				exit
 			fi
 			echo
-			echo "${cyan}Seleccione el cliente para eliminar: 》"
+			echo "\033[1;36mSeleccione el cliente para eliminar: 》"
 			grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | nl -s ') '
-			read -p "${yellow}Cliente: 》" client_number
+			read -p "\033[1;33mCliente: 》" client_number
 			until [[ "$client_number" =~ ^[0-9]+$ && "$client_number" -le "$number_of_clients" ]]; do
 				echo "$client_number: invalid selection."
-				read -p "${yellow}Cliente: 》" client_number
+				read -p "\033[1;33mCliente: 》" client_number
 			done
 			client=$(grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | sed -n "$client_number"p)
 			echo
-			read -p "${red}Confirmar eliminación  de $client ? [y/N]: " remove
+			read -p "\033[1;31mConfirmar eliminación  de $client ? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
 				echo "$remove: invalid selection."
-				read -p "${red}Confirmar eliminación  de $client ? [y/N]: " remove
+				read -p "\033[1;31mConfirmar eliminación  de $client ? [y/N]: " remove
 			done
 			if [[ "$remove" =~ ^[yY]$ ]]; then
 				# The following is the right way to avoid disrupting other active connections:
@@ -576,19 +576,19 @@ else
 				# Remove from the configuration file
 				sed -i "/^# BEGIN_PEER $client/,/^# END_PEER $client/d" /etc/wireguard/wg0.conf
 				echo
-				echo "$client removido!"
+				echo "\033[1;34m $client removido!"
 			else
 				echo
-				echo "${red} $client eliminación abortada!"
+				echo "\033[1;31m $client eliminación abortada!"
 			fi
 			exit
 		;;
 		3)
 			echo
-			read -p "${red}Confirmar eliminación de WireGuard? [y/N]: " remove
+			read -p "\033[1;31mConfirmar eliminación de WireGuard? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
-				echo "$remove: invalid selection."
-				read -p "${red}Confirmar eliminación de WireGuard ? [y/N]: " remove
+				echo "\033[1;31m $remove: Selección Inválida!."
+				read -p "\033[1;31m Confirmar eliminación de WireGuard ? [y/N]: " remove
 			done
 			if [[ "$remove" =~ ^[yY]$ ]]; then
 				port=$(grep '^ListenPort' /etc/wireguard/wg0.conf | cut -d " " -f 3)
@@ -664,10 +664,10 @@ else
 					rm -f /usr/local/sbin/boringtun /usr/local/sbin/boringtun-upgrade
 				fi
 				echo
-				echo "${green}WireGuard removido!"
+				echo "\033[1;32mWireGuard removido!"
 			else
 				echo
-				echo "${red}Eliminación de WireGuard  abortada!"
+				echo "\033[1;31mEliminación de WireGuard  abortada!"
 			fi
 			exit
 		;;
