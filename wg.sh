@@ -177,9 +177,9 @@ EOF
 
 if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	clear
-        echo -e "\033[1;35m======================================================\033[0m"
-	echo '\033[1;32mBienvenido este es el instalador de WireGuard de [NEW-ADM-PLUS]!'
-	echo -e "\033[1;35m======================================================\033[0m"
+        echo -e "\033[1;34m======================================================\033[0m"
+	echo '\033[1;33mBienvenido este es el instalador de WireGuard de [NEW-ADM-PLUS]!'
+	echo -e "\033[1;34m======================================================\033[0m"
         # If system has a single IPv4, it is selected automatically. Else, ask the user
 	if [[ $(ip -4 addr | grep inet | grep -vEc '127(\.[0-9]{1,3}){3}') -eq 1 ]]; then
 		ip=$(ip -4 addr | grep inet | grep -vE '127(\.[0-9]{1,3}){3}' | cut -d '/' -f 1 | grep -oE '[0-9]{1,3}(\.[0-9]{1,3}){3}')
@@ -500,9 +500,9 @@ EOF
 	echo -e "\033[1;34mSe pueden agregar nuevos clientes ejecutando este script nuevamente."
 else
 	clear
-        echo -e "\033[1;35m======================================================\033[0m"
-	echo -e "\033[1;34mWireGuard [NEW-ADM-PLUS] ya está instalado."
-        echo -e "\033[1;35m======================================================\033[0m"
+        echo -e "\033[1;34m======================================================\033[0m"
+	echo -e "\033[1;33m     WireGuard [NEW-ADM-PLUS] ya está instalado. "
+        echo -e "\033[1;34m======================================================\033[0m"
 	echo
 	echo -e "\033[1;33mSeleccione una opción"
 	echo -e "\033[1;32m [1] \033[1;31m>\033[1;36m Agregar un nuevo cliente"
