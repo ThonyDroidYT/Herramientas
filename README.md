@@ -14,7 +14,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.sh -O wireguard-install.sh && bash wireguard-install.sh
 
 ### Wireguard Mod Install
-bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh)
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh -O wg.sh; chmod 777 wg.sh && bash wg.sh
 
