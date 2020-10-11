@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-red='\033[0;31m'
+red='\033[1;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
@@ -221,7 +221,9 @@ install_v2-ui() {
     systemctl daemon-reload
     systemctl enable v2-ui
     systemctl start v2-ui
+    clear
     echo -e "${green}v2-ui v${last_version}${plain} La instalación se ha completado，El panel está activado，"
+    echo -e "${blue}Puedes Acceder Al panel web desde: \033[1;32m http://$(wget -qO- ipv4.icanhazip.com):65432"
     echo -e ""
     echo -e "Si es una instalación nueva，El puerto web predeterminado es ${green}65432${plain}，El nombre de usuario y la contraseña son ambos predeterminados ${green}admin${plain}"
     echo -e "Asegúrese de que este puerto no esté ocupado por otros programas，${yellow}Y asegúrate que El puerto 65432 ha sido liberado${plain}"
@@ -232,7 +234,7 @@ install_v2-ui() {
     curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
     chmod +x /usr/bin/v2-ui
     echo -e "v2-ui Cómo usar scripts de administración: "
-    echo -e "Lista de comandos Panel v2ray: "
+    echo -e "Lista comandos Panel v2ray By @Thony_DroidYT: "
     echo -e "----------------------------------------------"
     echo -e "v2-ui              - Mostrar menú de gestión (Más funciones)"
     echo -e "v2-ui start        - Poner en marcha panel v2-ui"
