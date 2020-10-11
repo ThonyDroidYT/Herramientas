@@ -238,11 +238,11 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 		ip6=$(ip -6 addr | grep 'inet6 [23]' | cut -d '/' -f 1 | grep -oE '([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4}' | sed -n "$ip6_number"p)
 	fi
 	echo
-	echo "${yellow}¿Qué puerto debería escuchar WireGuard?"
+	echo "\033[1;33m¿Qué puerto debería escuchar WireGuard?"
 	read -p "Puerto [Por defecto 51820]: 》 " port
 	until [[ -z "$port" || "$port" =~ ^[0-9]+$ && "$port" -le 65535 ]]; do
 		echo "$port: invalid port."
-		read -p "${yellow}Puerto [Por defecto 51820]: 》 " port
+		read -p "\033[1;33mPuerto [Por defecto 51820]: 》 " port
 	done
 	[[ -z "$port" ]] && port="51820"
 	echo
