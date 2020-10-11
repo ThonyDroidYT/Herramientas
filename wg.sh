@@ -246,7 +246,7 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	read -p "Puerto [Por defecto 51820]: 》 " port
 	until [[ -z "$port" || "$port" =~ ^[0-9]+$ && "$port" -le 65535 ]]; do
 		echo "$port: invalid port."
-		read -p "Puerto [Por defecto 51820]: 》 " port
+		read -p "${yellow}Puerto [Por defecto 51820]: 》 " port
 	done
 	[[ -z "$port" ]] && port="51820"
 	echo
@@ -520,21 +520,21 @@ else
 	echo "${green}   2) Remover un cliente existente"
 	echo "${green}   3) Remover WireGuard"
 	echo "${green}   4) Salir"
-	read -p "Opción: 》 " option
+	read -p "${yellow}Opción: 》 " option
 	until [[ "$option" =~ ^[1-4]$ ]]; do
 		echo "$option: invalid selection."
-		read -p "Opción: 》 " option
+		read -p "${yellow}Opción: 》 " option
 	done
 	case "$option" in
 		1)
 			echo
-			echo "Proporcionar un nombre para el cliente:"
-			read -p "Nombre: 》" unsanitized_client
+			echo "${blue}Proporcione un nombre para el cliente:"
+			read -p "${yellow}Nombre: 》" unsanitized_client
 			# Allow a limited set of characters to avoid conflicts
 			client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			while [[ -z "$client" ]] || grep -q "^# BEGIN_PEER $client$" /etc/wireguard/wg0.conf; do
 				echo "$client: invalid name."
-				read -p "Name: " unsanitized_client
+				read -p "${yellow}Nombre: 》" unsanitized_client
 				client=$(sed 's/[^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-]/_/g' <<< "$unsanitized_client")
 			done
 			echo
@@ -555,23 +555,23 @@ else
 			number_of_clients=$(grep -c '^# BEGIN_PEER' /etc/wireguard/wg0.conf)
 			if [[ "$number_of_clients" = 0 ]]; then
 				echo
-				echo "No hay clientes existentes!"
+				echo "${red}No hay clientes existentes!"
 				exit
 			fi
 			echo
-			echo "Seleccione el cliente para eliminar: 》"
+			echo "${cyan}Seleccione el cliente para eliminar: 》"
 			grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | nl -s ') '
-			read -p "Client: " client_number
+			read -p "${yellow}Cliente: 》" client_number
 			until [[ "$client_number" =~ ^[0-9]+$ && "$client_number" -le "$number_of_clients" ]]; do
 				echo "$client_number: invalid selection."
-				read -p "Client: " client_number
+				read -p "${yellow}Cliente: 》" client_number
 			done
 			client=$(grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | sed -n "$client_number"p)
 			echo
-			read -p "Confirmar eliminación  de $client ? [y/N]: " remove
+			read -p "${red}Confirmar eliminación  de $client ? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
 				echo "$remove: invalid selection."
-				read -p "Confirmar eliminación  de $client ? [y/N]: " remove
+				read -p "${red}Confirmar eliminación  de $client ? [y/N]: " remove
 			done
 			if [[ "$remove" =~ ^[yY]$ ]]; then
 				# The following is the right way to avoid disrupting other active connections:
@@ -583,7 +583,7 @@ else
 				echo "$client removido!"
 			else
 				echo
-				echo "$client eliminación abortada!"
+				echo "${red} $client eliminación abortada!"
 			fi
 			exit
 		;;
@@ -592,7 +592,7 @@ else
 			read -p "${red}Confirmar eliminación de WireGuard? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
 				echo "$remove: invalid selection."
-				read -p "Confirmar eliminación de WireGuard ? [y/N]: " remove
+				read -p "${red}Confirmar eliminación de WireGuard ? [y/N]: " remove
 			done
 			if [[ "$remove" =~ ^[yY]$ ]]; then
 				port=$(grep '^ListenPort' /etc/wireguard/wg0.conf | cut -d " " -f 3)
@@ -668,7 +668,7 @@ else
 					rm -f /usr/local/sbin/boringtun /usr/local/sbin/boringtun-upgrade
 				fi
 				echo
-				echo "${red}WireGuard removido!"
+				echo "${green}WireGuard removido!"
 			else
 				echo
 				echo "${red}Eliminación de WireGuard  abortada!"
