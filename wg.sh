@@ -94,12 +94,12 @@ fi
 
 new_client_dns () {
 	echo -e "\033[1;34m Seleccione un servidor DNS para el cliente:"
-	echo -e "\033[1;32m [1] >\033[1;36m Actuales en el Sistema"
-	echo -e "\033[1;32m [2] >\033[1;36m Google"
-	echo -e "\033[1;32m [3] >\033[1;36m 1.1.1.1"
-	echo -e "\033[1;32m [4] >\033[1;36m OpenDNS"
-	echo -e "\033[1;32m [5] >\033[1;36m Quad9"
-	echo -e "\033[1;32m [6] >\033[1;36m AdGuard"
+	echo -e "\033[1;32m [1] \033[1;31m>\033[1;36m Actuales en el Sistema"
+	echo -e "\033[1;32m [2] \033[1;31m>\033[1;36m Google"
+	echo -e "\033[1;32m [3] \033[1;31m>\033[1;36m 1.1.1.1"
+	echo -e "\033[1;32m [4] \033[1;31m>\033[1;36m OpenDNS"
+	echo -e "\033[1;32m [5] \033[1;31m>\033[1;36m Quad9"
+	echo -e "\033[1;32m [6] \033[1;31m>\033[1;36m AdGuard"
 	read -p " DNS Server [Por defecto 1]: 》 " dns
 	until [[ -z "$dns" || "$dns" =~ ^[1-6]$ ]]; do
 		echo -e "\033[1;31m $dns: Selección invalida!."
@@ -503,10 +503,10 @@ else
 	echo -e "\033[1;34mWireGuard ya está instalado."
 	echo
 	echo -e "\033[1;32mSeleccione una opción:"
-	echo -e "\033[1;32m [1] >\033[1;36m Agregar un nuevo cliente"
-	echo -e "\033[1;32m [2] >\033[1;36m Remover un cliente existente"
-	echo -e "\033[1;32m [3] >\033[1;36m Remover WireGuard"
-	echo -e "\033[1;32m [4] >\033[1;36m Salir"
+	echo -e "\033[1;32m [1] \033[1;31m>\033[1;36m Agregar un nuevo cliente"
+	echo -e "\033[1;32m [2] \033[1;31m>\033[1;36m Remover un cliente existente"
+	echo -e "\033[1;32m [3] \033[1;31m>\033[1;36m Remover WireGuard"
+	echo -e "\033[1;32m [4] \033[1;31m>\033[1;36m Salir"
 	read -p "Opción: 》 " option
 	until [[ "$option" =~ ^[1-4]$ ]]; do
 		echo -e "\033[1;31m $option: Selección Invalida."
