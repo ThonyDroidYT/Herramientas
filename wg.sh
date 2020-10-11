@@ -13,7 +13,7 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 blue='\033[1;34m'
 purple='\033[1;35m
-cyan='\033[1;36m''
+cyan='\033[1;36m'
 white='\033[1;37m'
 
 #Barra
