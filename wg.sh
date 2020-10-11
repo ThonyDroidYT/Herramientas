@@ -14,10 +14,9 @@ yellow='\033[0;33m'
 blue='\033[1;34m'
 purple='\033[1;35m
 cyan='\033[1;36m'
-white='\033[1;37m'
 
 #Barra
-BARRA="${blue}======================================================"
+BARRA='${blue}======================================================'
 
 # Discard stdin. Needed when running from an one-liner which includes a newline
 read -N 999999 -t 0.001
