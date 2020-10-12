@@ -374,7 +374,7 @@ Update_Shell(){
 start_menu(){
 clear
 echo -e "\033[1;34m[======================================================]"
-echo -e " TCP Aceleración (BBR/Plus) MOD By @Thony_DroidYT ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+echo -e "\033[1;33mTCP Aceleración (BBR/Plus) MOD By @Thony_DroidYT ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 ${Green_font_prefix}0.${Font_color_suffix} Script de actualización
 ————————————Gestión del Núcleo————————————
  ${Green_font_prefix}1.${Font_color_suffix} Instalación BBR/BBR Kernel Mágico
