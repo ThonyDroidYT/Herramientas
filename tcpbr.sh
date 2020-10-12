@@ -341,7 +341,7 @@ Update_Shell(){
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Error al detectar la última versión !" && start_menu
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 		echo -e "Descubre nueva versión[ ${sh_new_ver} ]，Ya sea para actualizar？[Y/n]"
-		read -p "(Por defecto: y):" yn
+		read -p "Por defecto y:" yn
 		[ -z "${yn}" ] && yn="y"
 		if [[ ${yn} == [Yy] ]]; then
 			wget -N --no-check-certificate http://${github}/tcp.sh && chmod +x tcp.sh
