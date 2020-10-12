@@ -1,7 +1,6 @@
 #!/bin/bash
 #19/12/2019
 clear
-msg -bar 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
@@ -16,7 +15,7 @@ purple='\033[1;35m
 cyan='\033[1;36m'
 white='\033[1;37m'
 #Barra
-"-bar2"|"-bar")cor="${blue}======================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+"-bar2"|"-bar")"${blue}======================================================"
 BARRA1="\e[0;31m--------------------------------------------------------------------\e[0m"
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #=================================================
