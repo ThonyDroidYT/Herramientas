@@ -15,7 +15,7 @@ purple='\033[1;35m
 cyan='\033[1;36m'
 white='\033[1;37m'
 #Barra
-"-bar2"|"-bar")"${blue}======================================================"
+-bar="${blue}======================================================"
 BARRA1="\e[0;31m--------------------------------------------------------------------\e[0m"
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #=================================================
@@ -550,7 +550,7 @@ check_sys_bbr(){
 			echo -e "${Error} BBR El núcleo no es compatible con el sistema actual ${release} ${version} ${bit} !" && exit 1
 		fi
 	else
-		echo -e "${Error} BBR El núcleo no es compatible con el sistema actual ${release} ${version} ${bit} !" && exit 1
+		echo -e "${Error} BBR El núcleo no es compatible con el sistema actual. ${release} ${version} ${bit} !" && exit 1
 	fi
 }
 
