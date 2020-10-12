@@ -275,7 +275,7 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 			firewall="iptables"
 		fi
 	fi
-	read -n1 -r -p "\033[1;33mPulse cualquier tecla para continuar..."
+	read -n1 -r -p "Pulse cualquier tecla para continuar..."
 	# Install WireGuard
 	# If not running inside a container, set up the WireGuard kernel module
 	if [[ ! "$is_container" -eq 0 ]]; then
@@ -476,9 +476,10 @@ EOF
 		# Add cron job to run the updater daily at a random time between 3:00 and 5:59
 		{ crontab -l 2>/dev/null; echo "$(( $RANDOM % 60 )) $(( $RANDOM % 3 + 3 )) * * * /usr/local/sbin/boringtun-upgrade &>/dev/null" ; } | crontab -
 	fi
+        clear
 	echo
 	qrencode -t UTF8 < ~/"$client.conf"
-	echo -e '\xE2\x86\x91 That is a QR code containing the client configuration.'
+	echo -e '\xE2\x86\x91 Este es un código QR que contiene la configuración del cliente.'
 	echo
 	# If the kernel module didn't load, system probably had an outdated kernel
 	# We'll try to help, but will not will not force a kernel upgrade upon the user
