@@ -5,6 +5,18 @@ msg -bar
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
+#Color
+NEGRITO='\e[1m'
+SEMCOR='\e[0m'
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+blue='\033[1;34m'
+purple='\033[1;35m
+cyan='\033[1;36m'
+white='\033[1;37m'
+#Barra
+"-bar2"|"-bar")cor="${blue}======================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
 BARRA1="\e[0;31m--------------------------------------------------------------------\e[0m"
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #=================================================
@@ -12,6 +24,7 @@ SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #	Description: BBR+BBRVersión mágica+BBRplus+Lotserver
 #	Version: 1.3.1
 #	Author: Mil sombras,cx9208
+#       Traductor: @Thony_DroidYT Y @Rofu99
 #	Blog: https://www.94ish.me/
 #=================================================
 
@@ -346,7 +359,7 @@ Update_Shell(){
 start_menu(){
 clear
 msg -bar
-echo -e " TCP Aceleración (BBR/Plus) MOD By Tello ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+echo -e " TCP Aceleración (BBR/Plus) MOD By @Thony_DroidYT ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 $(msg -bar)
  ${Green_font_prefix}0.${Font_color_suffix} Script de actualización
 ————————————Gestión del Núcleo————————————
