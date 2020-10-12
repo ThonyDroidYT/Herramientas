@@ -21,4 +21,4 @@ curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardu
 
 ### TCP ACELERACION BBR/PLUS
 
-wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh; chmod 777 tcpbr.sh; ./tcpbr.sh
+rm tcpbr.sh; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh; chmod 777 tcpbr.sh; ./tcpbr.sh
