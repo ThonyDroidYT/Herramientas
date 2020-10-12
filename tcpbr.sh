@@ -24,8 +24,9 @@ SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #	Description: BBR+BBRVersión mágica+BBRplus+Lotserver
 #	Version: 1.3.1
 #	Author: Mil sombras,cx9208
+#       Blog: https://www.94ish.me/
 #       Traductor: @Thony_DroidYT Y @Rofu99
-#	Blog: https://www.94ish.me/
+#	Blog: bit.ly/thonyblog
 #=================================================
 
 sh_ver="1.3.1"
