@@ -1,12 +1,11 @@
 #!/bin/bash
 #19/12/2019
 clear
-msg -bar 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 SEMCOR='\e[0m'
-"-bar2"|"-bar"cor="${COLOR[4]}======================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+"-bar2"|"-bar"cor="${COLOR[4]}======================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}"
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #=================================================
 #	System Required: CentOS 6/7,Debian 8/9,Ubuntu 16+
