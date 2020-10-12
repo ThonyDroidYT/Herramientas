@@ -1,31 +1,19 @@
 #!/bin/bash
 #19/12/2019
 clear
+msg -bar 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
-#Color
-NEGRITO='\e[1m'
 SEMCOR='\e[0m'
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-blue='\033[1;34m'
-purple='\033[1;35m
-cyan='\033[1;36m'
-white='\033[1;37m'
-#Barra
--bar="${blue}======================================================"
-BARRA1="\e[0;31m--------------------------------------------------------------------\e[0m"
+"-bar2"|"-bar")cor="${COLOR[4]}======================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 #=================================================
 #	System Required: CentOS 6/7,Debian 8/9,Ubuntu 16+
 #	Description: BBR+BBRVersión mágica+BBRplus+Lotserver
 #	Version: 1.3.1
 #	Author: Mil sombras,cx9208
-#       Blog: https://www.94ish.me/
-#       Traductor: @Thony_DroidYT Y @Rofu99
-#	Blog: bit.ly/thonyblog
+#	Blog: https://www.94ish.me/
 #=================================================
 
 sh_ver="1.3.1"
@@ -69,6 +57,34 @@ installbbr(){
 		echo -e "${Info} VPS se reinicia ..."
 		reboot
 	fi
+}
+
+# Funcoes Globais
+msg () {
+local colors="/etc/new-adm-color"
+if [[ ! -e $colors ]]; then
+COLOR[0]='\033[1;37m' #BRAN='\033[1;37m'
+COLOR[1]='\e[31m' #VERMELHO='\e[31m'
+COLOR[2]='\e[32m' #VERDE='\e[32m'
+COLOR[3]='\e[33m' #AMARELO='\e[33m'
+COLOR[4]='\e[34m' #AZUL='\e[34m'
+COLOR[5]='\e[35m' #MAGENTA='\e[35m'
+COLOR[6]='\033[1;35m' #MAG='\033[1;35m'
+else
+local COL=0
+for number in $(cat $colors); do
+case $number in
+1)COLOR[$COL]='\033[1;37m';;
+2)COLOR[$COL]='\e[31m';;
+3)COLOR[$COL]='\e[32m';;
+4)COLOR[$COL]='\e[33m';;
+5)COLOR[$COL]='\e[34m';;
+6)COLOR[$COL]='\e[35m';;
+7)COLOR[$COL]='\033[1;35m';;
+esac
+let COL++
+done
+fi
 }
 
 #Instale el núcleo BBRplus
@@ -341,8 +357,8 @@ Update_Shell(){
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Error al detectar la última versión !" && start_menu
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 		echo -e "Descubre nueva versión[ ${sh_new_ver} ]，Ya sea para actualizar？[Y/n]"
-		read -p "Por defecto y:" yn
-		[ -z "${yn}" ] && yn="y"
+		read -p "(Por defecto: y):" yn
+		[[ -z "${yn}" ]] && yn="y"
 		if [[ ${yn} == [Yy] ]]; then
 			wget -N --no-check-certificate http://${github}/tcp.sh && chmod +x tcp.sh
 			echo -e "El script ha sido actualizado a la última versión.[ ${sh_new_ver} ] !"
@@ -359,7 +375,7 @@ Update_Shell(){
 start_menu(){
 clear
 msg -bar
-echo -e " TCP Aceleración (BBR/Plus) MOD By @Thony_DroidYT ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+echo -e " TCP Aceleración (BBR/Plus) MOD By Tello ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 $(msg -bar)
  ${Green_font_prefix}0.${Font_color_suffix} Script de actualización
 ————————————Gestión del Núcleo————————————
@@ -550,7 +566,7 @@ check_sys_bbr(){
 			echo -e "${Error} BBR El núcleo no es compatible con el sistema actual ${release} ${version} ${bit} !" && exit 1
 		fi
 	else
-		echo -e "${Error} BBR El núcleo no es compatible con el sistema actual. ${release} ${version} ${bit} !" && exit 1
+		echo -e "${Error} BBR El núcleo no es compatible con el sistema actual ${release} ${version} ${bit} !" && exit 1
 	fi
 }
 
