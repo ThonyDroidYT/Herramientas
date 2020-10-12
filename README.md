@@ -22,3 +22,9 @@ curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardu
 ### TCP ACELERACION BBR/PLUS
 
 rm tcpbr.sh; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh; chmod 777 tcpbr.sh; ./tcpbr.sh
+
+### Trojan
+
+curl -O https://raw.githubusercontent.com/V2RaySSR/Trojan/master/Trojan.sh && chmod x trojan.sh && ./trojan.sh
+
+wget --no-check-certificate https://raw.githubusercontent.com/V2RaySSR/Trojan/master/Trojan.sh && chmod +x Trojan.sh && ./Trojan.sh
