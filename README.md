@@ -19,6 +19,6 @@ wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh -O w
 ##### Wireguard Panel WEB - Descontinuado
 curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardui.sh | sudo bash
 
-## TCP ACELERACION BBR/PLUS
+### TCP ACELERACION BBR/PLUS
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh; chmod 777 tcpbr.sh; ./tcpbr.sh
