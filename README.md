@@ -34,3 +34,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 curl -O https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod x Trojan.sh && ./Trojan
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan && chmod +x Trojan && ./Trojan
+
+### TrojanV2ray
+
+wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TrojanV2ray.sh && chmod +x TrojanV2ray.sh && ./TrojanV2ray.sh
