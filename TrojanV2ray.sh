@@ -2093,8 +2093,8 @@ function start_menu(){
     green " =================================================="
     green " 1. Instalar BBR-PLUS 4 en 1 para acelerar el Script"
     echo
-    green " 2. 安装 trojan 和 nginx 不支持CDN"
-    green " 3. 修复证书 并继续安装 trojan"
+    green " 2. La instalación de troyano y nginx no es compatible con CDN"
+    green " 3. Reparar el certificado y continúar instalando Trojan"
     green " 4. 升级 trojan 到最新版本"
     red " 5. 卸载 trojan 与 nginx"
     echo
@@ -2125,7 +2125,7 @@ function start_menu(){
     green " 33. 修改SSH 登陆端口号"
     green " 34. 设置时区为北京时间"
     green " =================================================="
-    green " 41 VPS 测网速工具"
+    green " 41 Herramienta de prueba de velocidad de Internet VPS"
     echo
     green " 0. 退出脚本"
     echo
