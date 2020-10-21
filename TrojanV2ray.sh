@@ -2093,7 +2093,7 @@ function start_menu(){
     green " =================================================="
     green " 1. Instalar BBR-PLUS 4 en 1 para acelerar el Script"
     echo
-    green " 2. La instalación de troyano y nginx no es compatible con CDN"
+    green " 2. La instalación de trojan y nginx no es compatible con CDN"
     green " 3. Reparar el certificado y continúar instalando Trojan"
     green " 4. 升级 trojan 到最新版本"
     red " 5. 卸载 trojan 与 nginx"
