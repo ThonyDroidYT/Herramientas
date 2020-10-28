@@ -1,4 +1,4 @@
-# Herramientas
+# Herramientas By: @Thony_DroidYT
 #Herramientas #Ferramentas #Tools
 
 ## Panel v2ray ui
@@ -8,7 +8,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui)
 
-## Wireguard Install
+### OpenVPN Install
+
+wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/OpenVPN-Install.sh; chmod 777 OpenVPN-Install.sh; ./OpenVPN-Install.sh
+
+### Wireguard Install
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.sh -O wireguard-install.sh && bash wireguard-install.sh
 
@@ -16,7 +20,7 @@ wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh -O wg.sh; chmod 777 wg.sh && bash wg.sh
 
-##### Wireguard Panel WEB - Descontinuado
+###### Wireguard Panel WEB - Descontinuado
 curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardui.sh | sudo bash
 
 ### TCP ACELERACION BBR/PLUS
