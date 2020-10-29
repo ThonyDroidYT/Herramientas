@@ -12,4 +12,4 @@ wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/instalar.s
 
 # Python Directo
 
-wget -O /etc/https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/SCRIPT/PDirect.py
+wget -O /etc/ger-inst https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/SCRIPT/PDirect.py
