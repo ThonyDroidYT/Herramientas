@@ -627,9 +627,9 @@ install_select(){
 }
 
 install_prepare_password(){
-    echo "Please enter password for ${software[${selected}-1]}"
-    read -p "(Default password: androidmx):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="amdroidmx"
+    echo "Por favor ingresé una contraseña para ${software[${selected}-1]}"
+    read -p "(Contraseña Por Defecto: NEW-ADM-PLUS):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="NEW-ADM-PLUS"
     echo
     echo "password = ${shadowsockspwd}"
     echo
@@ -639,8 +639,8 @@ install_prepare_port() {
     while true
     do
     dport=$(shuf -i 9000-19999 -n 1)
-    echo -e "Please enter a port for ${software[${selected}-1]} [1-65535]"
-    read -p "(Default port: ${dport}):" shadowsocksport
+    echo -e "Porfavor ingresé un puerto para ${software[${selected}-1]} [1-65535]"
+    read -p "(Puerto Por Defecto: ${dport}):" shadowsocksport
     [ -z "${shadowsocksport}" ] && shadowsocksport=${dport}
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
@@ -665,7 +665,7 @@ install_prepare_cipher(){
             hint="${common_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Qué cifrado seleccionarías(Default: ${common_ciphers[0]}):" pick
+        read -p "Qué cifrado seleccionarías(Por Defecto: ${common_ciphers[0]}):" pick
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
@@ -673,7 +673,7 @@ install_prepare_cipher(){
             continue
         fi
         if [[ "$pick" -lt 1 || "$pick" -gt ${#common_ciphers[@]} ]]; then
-            echo -e "[${red}Error${plain}] Please enter a number between 1 and ${#common_ciphers[@]}"
+            echo -e "[${red}Error${plain}] Porfavor Introduzca un número entre 1 y ${#common_ciphers[@]}"
             continue
         fi
         shadowsockscipher=${common_ciphers[$pick-1]}
@@ -682,15 +682,15 @@ install_prepare_cipher(){
             hint="${r_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Which cipher you'd select(Default: ${r_ciphers[1]}):" pick
+        read -p "Qué cifrado seleccionaras (Por Defecto: ${r_ciphers[1]}):" pick
         [ -z "$pick" ] && pick=2
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
-            echo -e "[${red}Error${plain}] Please enter a number"
+            echo -e "[${red}Error${plain}] Porfavor ingresé un número"
             continue
         fi
         if [[ "$pick" -lt 1 || "$pick" -gt ${#r_ciphers[@]} ]]; then
-            echo -e "[${red}Error${plain}] Please enter a number between 1 and ${#r_ciphers[@]}"
+            echo -e "[${red}Error${plain}] Porfavor Introduzca un número entre 1 y ${#r_ciphers[@]}"
             continue
         fi
         shadowsockscipher=${r_ciphers[$pick-1]}
@@ -703,7 +703,7 @@ install_prepare_cipher(){
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
-            echo -e "[${red}Error${plain}] Please enter a number"
+            echo -e "[${red}Error${plain}] Porfavor ingresé un número"
             continue
         fi
         if [[ "$pick" -lt 1 || "$pick" -gt ${#go_ciphers[@]} ]]; then
