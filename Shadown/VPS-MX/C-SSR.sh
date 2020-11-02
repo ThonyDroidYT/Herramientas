@@ -5,7 +5,7 @@ msg -bar
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
-BARRA1="\e[0;31m--------------------------------------------------------------------\e[0m"
+BARRA1="\e[0;34m=========================================================\e[0m"
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 sh_ver="1.0.26"
 filepath=$(cd "$(dirname "$0")"; pwd)
@@ -27,10 +27,10 @@ Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_p
 Info="${Green_font_prefix}[ INFORMACION ]${Font_color_suffix}"
 Error="${Red_font_prefix}[# ERROR #]${Font_color_suffix}"
 Tip="${Green_font_prefix}[ NOTA ]${Font_color_suffix}"
-Separator_1="——————————————————————————————"
+Separator_1="â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”"
 
 check_root(){
-	[[ $EUID != 0 ]] && echo -e "${Error} La cuenta actual no es ROOT (no tiene permiso ROOT), no puede continuar la operacion, por favor ${Green_background_prefix} sudo su ${Font_color_suffix} Venga a ROOT (le pedire que ingrese la contraseña de la cuenta actual despues de la ejecucion)" && exit 1
+	[[ $EUID != 0 ]] && echo -e "${Error} La cuenta actual no es ROOT (no tiene permiso ROOT), no puede continuar la operacion, por favor ${Green_background_prefix} sudo su ${Font_color_suffix} Venga a ROOT (le pedire que ingrese la contraseÃ±a de la cuenta actual despues de la ejecucion)" && exit 1
 }
 check_sys(){
 	if [[ -f /etc/redhat-release ]]; then
@@ -116,7 +116,7 @@ Set_iptables(){
 		chmod +x /etc/network/if-pre-up.d/iptables
 	fi
 }
-#Leer la informaci�n de configuraci�n
+#Leer la información de configuración
 Get_IP(){
 	ip=$(wget -qO- -t1 -T2 ipinfo.io/ip)
 	if [[ -z "${ip}" ]]; then
@@ -345,7 +345,7 @@ View_User_info(){
 	clear 
 	echo -e " Usuario [{user_name}] Informacion de Cuenta:"
 msg -bar
-    echo -e " PANEL VPS-MX By @Kalix1"
+    echo -e " [NEW-ADM-PLUS] BY @THONY_DROIDYT"
 	
 	echo -e " IP : ${Green_font_prefix}${ip}${Font_color_suffix}"
 
@@ -355,7 +355,7 @@ msg -bar
 
 	echo -e " Encriptacion : ${Green_font_prefix}${method}${Font_color_suffix}"
 
-	echo -e " Protocol : ${Red_font_prefix}${protocol}${Font_color_suffix}"
+	echo -e " Protocolo : ${Red_font_prefix}${protocol}${Font_color_suffix}"
 
 	echo -e " Obfs : ${Red_font_prefix}${obfs}${Font_color_suffix}"
 
@@ -415,8 +415,8 @@ Set_config_password(){
 msg -bar
 	echo -e "\e[92m 3) Por favor ingrese una contrasena para el Usuario"
 msg -bar
-	stty erase '^H' && read -p "(Predeterminado: VPS-MX):" ssr_password
-	[[ -z "${ssr_password}" ]] && ssr_password="VPS-MX"
+	stty erase '^H' && read -p "(Predeterminado: ADM-PLUS):" ssr_password
+	[[ -z "${ssr_password}" ]] && ssr_password="ADM-PLUS"
 	echo && echo -e "	contrasena : ${Green_font_prefix}${ssr_password}${Font_color_suffix}" && echo
 }
 Set_config_method(){
@@ -775,7 +775,7 @@ Set_config_all(){
 		Set_config_forbid
 	fi
 }
-#Modificar la informaci�n de configuraci�n
+#Modificar la información de configuración
 Modify_config_password(){
 	match_edit=$(python mujson_mgr.py -e -p "${ssr_port}" -k "${ssr_password}"|grep -w "edit user ")
 	if [[ -z "${match_edit}" ]]; then
@@ -797,7 +797,7 @@ Modify_config_protocol(){
 	if [[ -z "${match_edit}" ]]; then
 		echo -e "${Error} Fallo la modificacion del protocolo de usuario ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
 	else
-		echo -e "${Info} Acuerdo de usuario modificacion exito ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (Nota: la configuracion m�s reciente puede demorar unos 10 segundos)"
+		echo -e "${Info} Acuerdo de usuario modificacion exito ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (Nota: la configuracion más reciente puede demorar unos 10 segundos)"
 	fi
 }
 Modify_config_obfs(){
@@ -813,7 +813,7 @@ Modify_config_protocol_param(){
 	if [[ -z "${match_edit}" ]]; then
 		echo -e "${Error} Fallo la modificacion del parametro del protocolo del usuario (numero de dispositivos limite) ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
 	else
-		echo -e "${Info} Parametros de negociaci�n del usuario (numero de dispositivos limite) modificados correctamente ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (Nota: puede tomar aproximadamente 10 segundos aplicar la ultima configuracion)"
+		echo -e "${Info} Parametros de negociación del usuario (numero de dispositivos limite) modificados correctamente ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (Nota: puede tomar aproximadamente 10 segundos aplicar la ultima configuracion)"
 	fi
 }
 Modify_config_speed_limit_per_con(){
@@ -827,7 +827,7 @@ Modify_config_speed_limit_per_con(){
 Modify_config_speed_limit_per_user(){
 	match_edit=$(python mujson_mgr.py -e -p "${ssr_port}" -S "${ssr_speed_limit_per_user}"|grep -w "edit user ")
 	if [[ -z "${match_edit}" ]]; then
-		echo -e "${Error} Usuario Puerto la modificaci�n del limite de velocidad total fallo ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
+		echo -e "${Error} Usuario Puerto la modificación del limite de velocidad total fallo ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} " && exit 1
 	else
 		echo -e "${Info} Usuario Puerto limite de velocidad total modificado con exito ${Green_font_prefix}[Port: ${ssr_port}]${Font_color_suffix} (Nota: la configuracion mas reciente puede demorar unos 10 segundos)"
 	fi
@@ -901,7 +901,7 @@ Download_SSR(){
 	[[ ! -e ${ssr_folder} ]] && echo -e "${Error} Fallo la descarga del servidor ShadowsocksR!" && exit 1
 	# [[ ! -e "manyuser.zip" ]] && echo -e "${Error} Fallo la descarga del paquete de compresion lateral ShadowsocksR !" && rm -rf manyuser.zip && exit 1
 	# unzip "manyuser.zip"
-	# [[ ! -e "/usr/local/shadowsocksr-manyuser/" ]] && echo -e "${Error} Fallo la descompresi�n del servidor ShadowsocksR !" && rm -rf manyuser.zip && exit 1
+	# [[ ! -e "/usr/local/shadowsocksr-manyuser/" ]] && echo -e "${Error} Fallo la descompresión del servidor ShadowsocksR !" && rm -rf manyuser.zip && exit 1
 	# mv "/usr/local/shadowsocksr-manyuser/" "/usr/local/shadowsocksr/"
 	# [[ ! -e "/usr/local/shadowsocksr/" ]] && echo -e "${Error} Fallo el cambio de nombre del servidor ShadowsocksR!" && rm -rf manyuser.zip && rm -rf "/usr/local/shadowsocksr-manyuser/" && exit 1
 	# rm -rf manyuser.zip
@@ -927,7 +927,7 @@ Service_SSR(){
 		chkconfig ssrmu on
 	else
 		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/service/ssrmu_debian -O /etc/init.d/ssrmu; then
-			echo -e "${Error} Fallo la descarga de la secuencia de comandos de administraci�n de servicio de ShadowsocksR!" && exit 1
+			echo -e "${Error} Fallo la descarga de la secuencia de comandos de administración de servicio de ShadowsocksR!" && exit 1
 		fi
 		chmod +x /etc/init.d/ssrmu
 		update-rc.d -f ssrmu defaults
@@ -1003,7 +1003,7 @@ msg -bar
 }
 Update_SSR(){
 	SSR_installation_status
-	# echo -e "Debido a que el beb� roto actualiza el servidor ShadowsocksR, entonces."
+	# echo -e "Debido a que el bebé roto actualiza el servidor ShadowsocksR, entonces."
 	cd ${ssr_folder}
 	git pull
 	Restart_SSR
@@ -1087,7 +1087,7 @@ Install_Libsodium(){
 	echo && echo -e "${Info} libsodium exito de instalacion!" && echo
 msg -bar
 }
-#Mostrar informaci�n de conexi�n
+#Mostrar información de conexión
 debian_View_user_connection_info(){
 	format_1=$1
 	user_info=$(python mujson_mgr.py -l)
@@ -1195,7 +1195,7 @@ get_IP_address(){
 		done
 	fi
 }
-#Modificar la configuraci�n del usuario
+#Modificar la configuración del usuario
 Modify_port(){
 msg -bar
 	List_port_user
@@ -1216,11 +1216,11 @@ msg -bar
 Modify_Config(){
 clear
 	SSR_installation_status
-	echo && echo -e "    ###¿Que desea realizar?###Mod By @Kalix1
+	echo && echo -e "    ###Â¿Que desea realizar?###Mod By @Kalix1
 $(msg -bar)
  ${Green_font_prefix}1.${Font_color_suffix}  Agregar y Configurar Usuario
  ${Green_font_prefix}2.${Font_color_suffix}  Eliminar la Configuracion del Usuario
-————————— Modificar la Configuracion del Usuario ————
+â€”â€”â€”â€”â€”â€”â€”â€”â€” Modificar la Configuracion del Usuario â€”â€”â€”â€”
  ${Green_font_prefix}3.${Font_color_suffix}  Modificar contrasena de Usuario
  ${Green_font_prefix}4.${Font_color_suffix}  Modificar el metodo de Cifrado
  ${Green_font_prefix}5.${Font_color_suffix}  Modificar el Protocolo
@@ -1231,7 +1231,7 @@ $(msg -bar)
  ${Green_font_prefix}10.${Font_color_suffix} Modificar el Trafico Total del Usuario
  ${Green_font_prefix}11.${Font_color_suffix} Modificar los Puertos Prohibidos Del usuario
  ${Green_font_prefix}12.${Font_color_suffix} Modificar la Configuracion Completa
-————————— Otras Configuraciones —————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€” Otras Configuraciones â€”â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}13.${Font_color_suffix} Modificar la IP o el nombre de dominio que\n se muestra en el perfil del usuario
 $(msg -bar)
  ${Tip} El nombre de usuario y el puerto del usuario\n no se pueden modificar. Si necesita modificarlos, use\n el script para modificar manualmente la funcion !"
@@ -1357,7 +1357,7 @@ Del_port_user(){
 			port=${del_user_port}
 			match_del=$(python mujson_mgr.py -d -p "${del_user_port}"|grep -w "delete user ")
 			if [[ -z "${match_del}" ]]; then
-				echo -e "${Error} La eliminación del usuario falló ${Green_font_prefix}[Puerto: ${del_user_port}]${Font_color_suffix} "
+				echo -e "${Error} La eliminaciÃ³n del usuario fallÃ³ ${Green_font_prefix}[Puerto: ${del_user_port}]${Font_color_suffix} "
 			else
 				Del_iptables
 				Save_iptables
@@ -1431,16 +1431,16 @@ Clear_transfer_one(){
 	while true
 	do
 	    msg -bar
-		echo -e "Por favor ingrese el puerto de usuario para borrar el tráfico usado"
+		echo -e "Por favor ingrese el puerto de usuario para borrar el trÃ¡fico usado"
 		stty erase '^H' && read -p "(Predeterminado: Cancelar):" Clear_transfer_user_port
 		[[ -z "${Clear_transfer_user_port}" ]] && echo -e "Cancelado...\n$(msg -bar)" && exit 1
 		Clear_transfer_user=$(cat "${config_user_mudb_file}"|grep '"port": '"${Clear_transfer_user_port}"',')
 		if [[ ! -z ${Clear_transfer_user} ]]; then
 			match_clear=$(python mujson_mgr.py -c -p "${Clear_transfer_user_port}"|grep -w "clear user ")
 			if [[ -z "${match_clear}" ]]; then
-				echo -e "${Error} El usuario no ha podido utilizar la compensación de tráfico ${Green_font_prefix}[Puerto: ${Clear_transfer_user_port}]${Font_color_suffix} "
+				echo -e "${Error} El usuario no ha podido utilizar la compensaciÃ³n de trÃ¡fico ${Green_font_prefix}[Puerto: ${Clear_transfer_user_port}]${Font_color_suffix} "
 			else
-				echo -e "${Info} El usuario ha eliminado con éxito el tráfico utilizando cero. ${Green_font_prefix}[Puerto: ${Clear_transfer_user_port}]${Font_color_suffix} "
+				echo -e "${Info} El usuario ha eliminado con Ã©xito el trÃ¡fico utilizando cero. ${Green_font_prefix}[Puerto: ${Clear_transfer_user_port}]${Font_color_suffix} "
 			fi
 			break
 		else
@@ -1504,7 +1504,7 @@ clear
  * * * * * Mes * * * * *
  ${Green_font_prefix} 0 2 1 * * ${Font_color_suffix} Representante 1er, 2:00, claro, trafico usado.
 $(msg -bar)
- ${Green_font_prefix} 0 2 15 * * ${Font_color_suffix} Representativo El 1  2} representa el 15  2:00 minutos Punto de flujo usado despejado 0 minutos Borrar flujo usado�
+ ${Green_font_prefix} 0 2 15 * * ${Font_color_suffix} Representativo El 1  2} representa el 15  2:00 minutos Punto de flujo usado despejado 0 minutos Borrar flujo usado
 $(msg -bar)
  ${Green_font_prefix} 0 2 */7 * * ${Font_color_suffix} Representante 7 dias 2: 0 minutos despeja el trafico usado.
 $(msg -bar)
@@ -1555,7 +1555,7 @@ ${BARRA1}
  ${Green_font_prefix}1.${Font_color_suffix} Velocidad aguda
 $(msg -bar)
  ${Green_font_prefix}2.${Font_color_suffix} Velocidad aguda
-————————
+â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}3.${Font_color_suffix} Velocidad aguda
 $(msg -bar)
  ${Green_font_prefix}4.${Font_color_suffix} Velocidad aguda
@@ -1630,7 +1630,7 @@ $(msg -bar)
  ${Green_font_prefix}1.${Font_color_suffix} Instalar LotServer
 $(msg -bar)
  ${Green_font_prefix}2.${Font_color_suffix} Desinstalar LotServer
-————————
+â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}3.${Font_color_suffix} Iniciar LotServer
 $(msg -bar)
  ${Green_font_prefix}4.${Font_color_suffix} Detener LotServer
@@ -1702,7 +1702,7 @@ msg -bar
  echo -e "  Que vas a hacer?
 $(msg -bar)	
  ${Green_font_prefix}1.${Font_color_suffix} Instalar BBR
-————————
+â€”â€”â€”â€”â€”â€”â€”â€”
 ${Green_font_prefix}2.${Font_color_suffix} Iniciar BBR
 ${Green_font_prefix}3.${Font_color_suffix} Dejar de BBR
 ${Green_font_prefix}4.${Font_color_suffix} Ver el estado de BBR"
@@ -1764,10 +1764,10 @@ msg -ama "$(fun_trans "HERRAMIENTA DE RESTAURACION SS-SSRR -BETA")"
 msg -bar
 msg -azu "Recuerde tener minimo una cuenta ya creada"
 msg -azu "Copie el archivo mudb.json en la carpeta /root"
-read -p "     ►► Presione enter para continuar ◄◄"
+read -p "     â–ºâ–º Presione enter para continuar â—„â—„"
 msg -bar
 msg -azu "$(fun_trans "Procedimiento Hecho con Exito")"
-read -p "  ►► Presione enter para Reiniciar Panel SSRR ◄◄"
+read -p "  â–ºâ–º Presione enter para Reiniciar Panel SSRR â—„â—„"
 msg -bar
 mv /root/mudb.json /usr/local/shadowsocksr/mudb.json
 Restart_SSR
@@ -1785,15 +1785,15 @@ $(msg -bar)
   ${Green_font_prefix}3.${Font_color_suffix} Configurar LotServer (Rising Parent)
   ${Tip} Sharp / LotServer / BBR no es compatible con OpenVZ!
   ${Tip} Speed y LotServer no pueden coexistir!
-————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
   ${Green_font_prefix}4.${Font_color_suffix} Llave de bloqueo BT/PT/SPAM (iptables)
   ${Green_font_prefix}5.${Font_color_suffix} Llave de desbloqueo BT/PT/SPAM (iptables)
-————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
   ${Green_font_prefix}6.${Font_color_suffix} Cambiar modo de salida de registro ShadowsocksR
-  —— Modo bajo o verboso..
+  â€”â€” Modo bajo o verboso..
   ${Green_font_prefix}7.${Font_color_suffix} Supervisar el estado de ejecucion del servidor ShadowsocksR
-  —— NOTA: Esta funcion es adecuada para que el servidor SSR finalice los procesos regulares. Una vez que esta funcion esta habilitada, sera detectada cada minuto. Cuando el proceso no existe, el servidor SSR se inicia automaticamente.
-———————————— 
+  â€”â€” NOTA: Esta funcion es adecuada para que el servidor SSR finalice los procesos regulares. Una vez que esta funcion esta habilitada, sera detectada cada minuto. Cuando el proceso no existe, el servidor SSR se inicia automaticamente.
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€” 
  ${Green_font_prefix}8.${Font_color_suffix} Backup SSRR
  ${Green_font_prefix}9.${Font_color_suffix} Restaurar Backup" && echo
 msg -bar
@@ -1822,7 +1822,7 @@ msg -bar
 	fi
 
 }
-#Prohibido�BT PT SPAM
+#ProhibidoBT PT SPAM
 BanBTPTSPAM(){
 	wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ban_iptables.sh && chmod +x ban_iptables.sh && bash ban_iptables.sh banall
 	rm -rf ban_iptables.sh
@@ -1841,7 +1841,7 @@ msg -bar
 	if [[ ${connect_verbose_info} = "0" ]]; then
 		echo && echo -e "Modo de registro actual: ${Green_font_prefix}Registro de errores en modo simple${Font_color_suffix}"
 msg -bar
-		echo -e "yes para cambiar a ${Green_font_prefix}Modo detallado (registro de conexi�n + registro de errores)${Font_color_suffix}？[y/N]"
+		echo -e "yes para cambiar a ${Green_font_prefix}Modo detallado (registro de conexión + registro de errores)${Font_color_suffix}ï¼Ÿ[y/N]"
 msg -bar
 		stty erase '^H' && read -p "(Predeterminado: n):" connect_verbose_info_ny
 		[[ -z "${connect_verbose_info_ny}" ]] && connect_verbose_info_ny="n"
@@ -1973,7 +1973,7 @@ msg -bar
 	if [[ -e ${ssr_folder} ]]; then
 		check_pid
 		if [[ ! -z "${PID}" ]]; then
-			echo -e "         VPS-MX By @Kalix1\n Estado actual: ${Green_font_prefix}Instalado${Font_color_suffix} y ${Green_font_prefix}Iniciado${Font_color_suffix}"
+			echo -e "         ADM-PLUS By: @Thony_DroidYT\n Estado actual: ${Green_font_prefix}Instalado${Font_color_suffix} y ${Green_font_prefix}Iniciado${Font_color_suffix}"
 		else
 			echo -e " Estado actual: ${Green_font_prefix}Instalado${Font_color_suffix} pero ${Red_font_prefix}no comenzo${Font_color_suffix}"
 		fi
@@ -1990,7 +1990,7 @@ if [[ "${action}" == "clearall" ]]; then
 elif [[ "${action}" == "monitor" ]]; then
 	crontab_monitor_ssr
 else
-echo -e "\033[1;37m       =====>>►► 🐲 PANEL VPS•MX 🐲 ◄◄<<=====       \033[1;37m"
+echo -e "\033[1;34m    =====>> ADMINISTRADOR DE SHADOWNSOCKSR \033[1;32m [NEW-ADM-PLUS] \033[1;34m<<=====    \033[1;34m"
 msg -bar
 echo -e "        Controlador de ShadowSock-R  ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 $(msg -bar)
@@ -1998,18 +1998,18 @@ $(msg -bar)
   ${Green_font_prefix}2.${Font_color_suffix} Actualizar ShadowsocksR
   ${Green_font_prefix}3.${Font_color_suffix} Desinstalar ShadowsocksR
   ${Green_font_prefix}4.${Font_color_suffix} Instalar libsodium (chacha20)
-—————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
   ${Green_font_prefix}5.${Font_color_suffix} Verifique la informacion de la cuenta
   ${Green_font_prefix}6.${Font_color_suffix} Mostrar la informacion de conexion 
   ${Green_font_prefix}7.${Font_color_suffix} Agregar/Modificar/Eliminar la configuracion del usuario  
   ${Green_font_prefix}8.${Font_color_suffix} Modificar manualmente la configuracion del usuario
   ${Green_font_prefix}9.${Font_color_suffix} Borrar el trafico usado  
-——————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}10.${Font_color_suffix} Iniciar ShadowsocksR
  ${Green_font_prefix}11.${Font_color_suffix} Detener ShadowsocksR
  ${Green_font_prefix}12.${Font_color_suffix} Reiniciar ShadowsocksR
  ${Green_font_prefix}13.${Font_color_suffix} Verificar Registro de ShadowsocksR
-—————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}14.${Font_color_suffix} Otras Funciones
  ${Green_font_prefix}15.${Font_color_suffix} Actualizar Script 
 $(msg -bar)
