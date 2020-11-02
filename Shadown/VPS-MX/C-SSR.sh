@@ -27,7 +27,7 @@ Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_p
 Info="${Green_font_prefix}[ INFORMACION ]${Font_color_suffix}"
 Error="${Red_font_prefix}[# ERROR #]${Font_color_suffix}"
 Tip="${Green_font_prefix}[ NOTA ]${Font_color_suffix}"
-Separator_1="â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”"
+Separator_1="========================================================="
 
 check_root(){
 	[[ $EUID != 0 ]] && echo -e "${Error} La cuenta actual no es ROOT (no tiene permiso ROOT), no puede continuar la operacion, por favor ${Green_background_prefix} sudo su ${Font_color_suffix} Venga a ROOT (le pedire que ingrese la contraseÃ±a de la cuenta actual despues de la ejecucion)" && exit 1
