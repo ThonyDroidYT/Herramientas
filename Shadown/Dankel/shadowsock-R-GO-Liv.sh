@@ -1160,8 +1160,8 @@ install_main(){
     fi
 
     echo
-    echo "BY GILILLO GONZALEZ"
-    echo "BY @ALEX_ROID9_0_MX"
+    echo "BY @THONY_DROID"
+    echo "[NEW-ADM-PLUS]"
     echo
 }
 
