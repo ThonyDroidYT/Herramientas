@@ -3,7 +3,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 Block="/etc/bin" && [[ ! -d ${Block} ]] && exit
 Block > /dev/null 2>&1
-BARRA1="\e[1;30m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
+BARRA1="\e[1;30m=========================================================\e[0m"
 BARRA="\e[0;31m--------------------------------------------------------------------\e[0m"
 SCPdir="/etc/newadm" && [[ ! -d ${SCPdir} ]] && exit 1
 SCPusr="${SCPdir}/ger-user" && [[ ! -d ${SCPusr} ]] && mkdir ${SCPusr}
@@ -648,7 +648,7 @@ echo -e "$BARRA1"
                 hint="${obfs_libev[$i-1]}"
                 echo -e "${green}${i}${plain}) ${hint}"
             done
-            read -p "�Que obfs seleccionaria? (Predeterminado: ${obfs_libev[0]}):" r_libev_obfs
+            read -p "¿Que obfs seleccionaria? (Predeterminado: ${obfs_libev[0]}):" r_libev_obfs
             [ -z "$r_libev_obfs" ] && r_libev_obfs=1
             expr ${r_libev_obfs} + 1 &>/dev/null
             if [ $? -ne 0 ]; then
@@ -656,7 +656,7 @@ echo -e "$BARRA1"
                 continue
             fi
             if [[ "$r_libev_obfs" -lt 1 || "$r_libev_obfs" -gt ${#obfs_libev[@]} ]]; then
-                echo -e "[${red}Error${plain}] Por favor ingrese un n�mero entre 1 y ${#obfs_libev[@]}"
+                echo -e "[${red}Error${plain}] Por favor ingrese un número entre 1 y ${#obfs_libev[@]}"
                 continue
             fi
             shadowsocklibev_obfs=${obfs_libev[$r_libev_obfs-1]}
@@ -691,7 +691,7 @@ install_libsodium(){
         cd ${libsodium_file}
         ./configure --prefix=/usr && make && make install
         if [ $? -ne 0 ]; then
-            echo -e "[${red}Error${plain}] ${libsodium_file} La instalaci�n fallo"
+            echo -e "[${red}Error${plain}] ${libsodium_file} La instalación fallo"
             install_cleanup
             exit 1
         fi
@@ -837,7 +837,7 @@ deploy_shadowsocks_libev(){
             echo -e "[${green}Info${plain}] ${service_name} Comenzado el exito!"
             echo
             echo "------------------------------------------------------------------"
-            echo -e "La instalaci�n del servidor shadowsocks-libev se ha completado."
+            echo -e "La instalación del servidor shadowsocks-libev se ha completado."
             echo -e "La IP de tu servidor:         $(get_ip)                        "
             echo -e "El puerto de su servidor:     ${shadowsocksport}               "
             echo -e "Tu contrasena:                ${shadowsockspwd}                "
@@ -1097,7 +1097,7 @@ Info="${Green_font_prefix}[Informacion]${Font_color_suffix}"
 Error="${Red_font_prefix}[Error]${Font_color_suffix}"
 Tip="${Green_font_prefix}[Atencion]${Font_color_suffix}"
 
-# Instalaci�n BBR kernel
+# Instalación BBR kernel
 installbbr(){
 	kernel_version="4.11.8"
 	if [[ "${release}" == "centos" ]]; then
@@ -1152,7 +1152,7 @@ installbbrplus(){
 echo -e "$BARRA1"
 	echo -e "${Tip} Despues de reiniciar el VPS, vuelva a ejecutar el script para abrir${Red_font_prefix}BBRplus${Font_color_suffix}"
 echo -e "$BARRA1"
-	stty erase '^H' && read -p "Necesita reiniciar  el VPS,antes de que pueda encender BBRplus, �desea reiniciar ahora? [Y/n] :" yn
+	stty erase '^H' && read -p "Necesita reiniciar  el VPS,antes de que pueda encender BBRplus, ¿desea reiniciar ahora? [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} La VPS se reiniciara ..."
@@ -1160,7 +1160,7 @@ echo -e "$BARRA1"
 	fi
 }
 
-#安装Lotserver内核
+#å®‰è£…Lotserverå†…æ ¸
 installlot(){
 	if [[ "${release}" == "centos" ]]; then
 		rpm --import http://${github}/lotserver/${release}/RPM-GPG-KEY-elrepo.org
@@ -1190,9 +1190,9 @@ installlot(){
 	detele_kernel
 	BBR_grub
 echo -e "$BARRA1"
-	echo -e "${Tip}Despu�s de reiniciar el VPS, vuelva a ejecutar el script para abrir${Red_font_prefix}Lotserver${Font_color_suffix}"
+	echo -e "${Tip}Después de reiniciar el VPS, vuelva a ejecutar el script para abrir${Red_font_prefix}Lotserver${Font_color_suffix}"
 echo -e "$BARRA1"
-	stty erase '^H' && read -p "Necesita reiniciar  el VPS,antes de que pueda encender LotServer, �desea reiniciar ahora?? [Y/n] :" yn
+	stty erase '^H' && read -p "Necesita reiniciar  el VPS,antes de que pueda encender LotServer, ¿desea reiniciar ahora?? [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 		echo -e "${Info} La VPS se reiniciara ..."
@@ -1200,7 +1200,7 @@ echo -e "$BARRA1"
 	fi
 }
 
-#启用BBR
+#å¯ç”¨BBR
 startbbr(){
 	remove_all
 	echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
@@ -1209,7 +1209,7 @@ startbbr(){
 	echo -e "${Info}BBR comenzo con exito!"
 }
 
-#启用BBRplus
+#å¯ç”¨BBRplus
 startbbrplus(){
 	remove_all
 	echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
@@ -1218,7 +1218,7 @@ startbbrplus(){
 	echo -e "${Info}BBRplus comenzo con exito"
 }
 
-#编译并启用BBR魔改
+#ç¼–è¯‘å¹¶å¯ç”¨BBRé­”æ”¹
 startbbrmod(){
 	remove_all
 	if [[ "${release}" == "centos" ]]; then
@@ -1258,7 +1258,7 @@ startbbrmod(){
 	echo -e "${Info}Magic BBR comenzo con exito"
 }
 
-#编译并启用BBR魔改
+#ç¼–è¯‘å¹¶å¯ç”¨BBRé­”æ”¹
 startbbrmod_nanqinlang(){
 	remove_all
 	if [[ "${release}" == "centos" ]]; then
@@ -1296,7 +1296,7 @@ startbbrmod_nanqinlang(){
 	echo -e "${Info}Magic BBR comenzo con exito!"
 }
 
-#启用Lotserver
+#å¯ç”¨Lotserver
 startlotserver(){
 	remove_all
 	if [[ "${release}" == "centos" ]]; then
@@ -1310,7 +1310,7 @@ startlotserver(){
 	start_menu
 }
 
-#卸载全部加速
+#å¸è½½å…¨éƒ¨åŠ é€Ÿ
 remove_all(){
 	rm -rf bbrmod
 	sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
@@ -1357,7 +1357,7 @@ remove_all(){
 	sleep 1s
 }
 
-#优化系统配置
+#ä¼˜åŒ–ç³»ç»Ÿé…ç½®
 optimizing_system(){
 	sed -i '/fs.file-max/d' /etc/sysctl.conf
 	sed -i '/fs.inotify.max_user_instances/d' /etc/sysctl.conf
@@ -1398,21 +1398,21 @@ net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 echo -e "$BARRA1"
 	echo "ulimit -SHn 1000000" >> /etc/profile
 echo -e "$BARRA1"
-	read -p "Despues de reiniciar el VPS, la configuracion de optimizaci�n del sistema tendra efecto. �desea reiniciar ahora? [Y/n] :" yn
+	read -p "Despues de reiniciar el VPS, la configuracion de optimización del sistema tendra efecto. ¿desea reiniciar ahora? [Y/n] :" yn
 echo -e "$BARRA1"
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
-		echo -e "${Info} La VPS se reiniciara�..."
+		echo -e "${Info} La VPS se reiniciara­..."
 		reboot
 	fi
 }
-#更新脚本
+#æ›´æ–°è„šæœ¬
 Update_Shell(){
 echo -e "$BARRA1"
 	echo -e "La version actual es [ ${sh_ver} ]comienza a detectar la ultima version ... "
 echo -e "$BARRA1"
 	sh_new_ver=$(wget --no-check-certificate -qO- "http://${github}/tcp.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
-	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Fallo al detectar la ultima versi�n" && start_menu
+	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Fallo al detectar la ultima versión" && start_menu
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 echo -e "$BARRA1"
 		echo -e "Encontro una nueva version[ ${sh_new_ver} ]actualizada?[Y/n]"
@@ -1448,7 +1448,7 @@ echo -e "$BARRA1"
 read enter && start_menu
 }
 
-#开始菜单
+#å¼€å§‹èœå•
 start_menu(){
 clear
 echo -e "$BARRA1"
@@ -1456,24 +1456,24 @@ echo && echo -e " ${blan_font_prefix}TCP-BBR-LOTSERVER${Font_color_suffix} ${Gre
 "${BARRA1}" 
   
  ${Green_font_prefix}[0] >${Font_color_suffix} Script de actualizacion
-————————————Gestion del nucleo————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”Gestion del nucleoâ€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}[1] >${Font_color_suffix} Instalar el kernel BBR / BBR magic modificado
  ${Green_font_prefix}[2] >${Font_color_suffix} Instala el kernel BBRplus 
  ${Green_font_prefix}[3] >${Font_color_suffix} Instalar el kernel de Lotserver
-————————————Gestion acelerada————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”Gestion aceleradaâ€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}[4] >${Font_color_suffix} Utiliza BBR para acelerar
  ${Green_font_prefix}[5] >${Font_color_suffix} Utiliza BBR magic para acelerar la version.
  ${Green_font_prefix}[6] >${Font_color_suffix} Uso acelerado de magic BBR violento (no es compatible con algunos sistemas)
  ${Green_font_prefix}[7] >${Font_color_suffix} Acelera con BBRplus
  ${Green_font_prefix}[8] >${Font_color_suffix} Acelerar con Lotserver
-————————————Gestion miscelanea————————————
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”Gestion miscelaneaâ€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
  ${Green_font_prefix}[9] >${Font_color_suffix} Descargar toda la aceleracion
  ${Green_font_prefix}[10] >${Font_color_suffix} Optimizacion de la configuracion del sistema
  ${Green_font_prefix}[11] >${Font_color_suffix} Checar version de kernel
  ${Green_font_prefix}[12] >${Font_color_suffix} regresar al menu Shadowsocks-Libev
  ${Red_font_prefix}[13] >${Font_color_suffix} SALIR
 
-————————————————————————————————" && echo
+â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”" && echo
 
 	check_status
 	if [[ ${kernel_status} == "noinstall" ]]; then
@@ -1535,9 +1535,9 @@ case "$num" in
 	;;
 esac
 }
-#############内核管理组件#############
+#############å†…æ ¸ç®¡ç†ç»„ä»¶#############
 
-#删除多余内核
+#åˆ é™¤å¤šä½™å†…æ ¸
 detele_kernel(){
 	if [[ "${release}" == "centos" ]]; then
 		rpm_total=`rpm -qa | grep kernel | grep -v "${kernel_version}" | grep -v "noarch" | wc -l`
@@ -1566,7 +1566,7 @@ echo -e "$BARRA1"
 		deb_total=`dpkg -l | grep linux-image | awk '{print $2}' | grep -v "${kernel_version}" | wc -l`
 		if [ "${deb_total}" > "1" ]; then
 echo -e "$BARRA1"
-			echo -e "检测到 ${deb_total} kernels restantes y se inicio la desinstalacion..."
+			echo -e "æ£€æµ‹åˆ° ${deb_total} kernels restantes y se inicio la desinstalacion..."
 echo -e "$BARRA1"
 			for((integer = 1; integer <= ${deb_total}; integer++)); do
 				deb_del=`dpkg -l|grep linux-image | awk '{print $2}' | grep -v "${kernel_version}" | head -${integer}`
@@ -1588,7 +1588,7 @@ echo -e "$BARRA1"
 	fi
 }
 
-#更新引导
+#æ›´æ–°å¼•å¯¼
 BBR_grub(){
 	if [[ "${release}" == "centos" ]]; then
         if [[ ${version} = "6" ]]; then
@@ -1609,13 +1609,13 @@ BBR_grub(){
     fi
 }
 
-#############内核管理组件#############
+#############å†…æ ¸ç®¡ç†ç»„ä»¶#############
 
 
 
-#############系统检测组件#############
+#############ç³»ç»Ÿæ£€æµ‹ç»„ä»¶#############
 
-#检查系统
+#æ£€æŸ¥ç³»ç»Ÿ
 check_sys(){
 	if [[ -f /etc/redhat-release ]]; then
 		release="centos"
@@ -1634,7 +1634,7 @@ check_sys(){
     fi
 }
 
-#检查Linux版本
+#æ£€æŸ¥Linuxç‰ˆæœ¬
 check_version(){
 	if [[ -s /etc/redhat-release ]]; then
 		version=`grep -oE  "[0-9.]+" /etc/redhat-release | cut -d . -f 1`
@@ -1649,7 +1649,7 @@ check_version(){
 	fi
 }
 
-#检查安装bbr的系统要求
+#æ£€æŸ¥å®‰è£…bbrçš„ç³»ç»Ÿè¦æ±‚
 check_sys_bbr(){
 	check_version
 	if [[ "${release}" == "centos" ]]; then
@@ -1701,7 +1701,7 @@ check_sys_bbrplus(){
 }
 
 
-#检查安装Lotsever的系统要求
+#æ£€æŸ¥å®‰è£…Lotseverçš„ç³»ç»Ÿè¦æ±‚
 check_sys_Lotsever(){
 	check_version
 	if [[ "${release}" == "centos" ]]; then
@@ -1761,7 +1761,7 @@ check_status(){
 		if [[ -e /appex/bin/serverSpeeder.sh ]]; then
 			run_status=`bash /appex/bin/serverSpeeder.sh status | grep "ServerSpeeder" | awk  '{print $3}'`
 			if [[ ${run_status} = "running!" ]]; then
-				run_status="启动成功"
+				run_status="å¯åŠ¨æˆåŠŸ"
 			else 
 				run_status="Inicio exitoso"
 			fi
@@ -1809,10 +1809,10 @@ check_status(){
 	fi
 }
 
-#############系统检测组件#############
+#############ç³»ç»Ÿæ£€æµ‹ç»„ä»¶#############
 check_sys
 check_version
-[[ ${release} != "debian" ]] && [[ ${release} != "ubuntu" ]] && [[ ${release} != "centos" ]] && echo -e "${Error} 本脚本不支持当前系统 ${release} !" && exit 1
+[[ ${release} != "debian" ]] && [[ ${release} != "ubuntu" ]] && [[ ${release} != "centos" ]] && echo -e "${Error} æœ¬è„šæœ¬ä¸æ”¯æŒå½“å‰ç³»ç»Ÿ ${release} !" && exit 1
 start_menu
 }
 
