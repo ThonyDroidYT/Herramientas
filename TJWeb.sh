@@ -24,6 +24,64 @@ downloadFilenameTrojanWeb="trojan"
 configTrojanWebNginxPath=$(cat /dev/urandom | head -1 | md5sum | head -c 5)
 configTrojanWebPort="$(($RANDOM + 10000))"
 
+function setLinuxDateZone(){
+
+    tempCurrentDateZone=$(date +'%z')
+
+    if [[ ${tempCurrentDateZone} == "+0800" ]]; then
+        yellow "当前时区已经为北京时间  $tempCurrentDateZone | $(date -R) "
+    else 
+        green " =================================================="
+        yellow "当前时区为: $tempCurrentDateZone | $(date -R) "
+        yellow "是否设置时区为北京时间 +0800区, 以便cron定时重启脚本按照北京时间运行."
+        green " =================================================="
+        # read 默认值 https://stackoverflow.com/questions/2642585/read-a-variable-in-bash-with-a-default-value
+
+        read -p "是否设置为北京时间 +0800 时区? 请输入[Y/n]?" osTimezoneInput
+        osTimezoneInput=${osTimezoneInput:-Y}
+
+        if [[ $osTimezoneInput == [Yy] ]]; then
+            if [[ -f /etc/localtime ]] && [[ -f /usr/share/zoneinfo/Asia/Shanghai ]];  then
+                mv /etc/localtime /etc/localtime.bak
+                cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+                yellow "设置成功! 当前时区已设置为 $(date -R)"
+                green " =================================================="
+            fi
+        fi
+
+    fi
+}
+
+function removeNginx(){
+
+    sudo systemctl stop nginx.service
+
+    green " ================================================== "
+    red " 准备卸载已安装的nginx"
+    green " ================================================== "
+
+    if [ "$osRelease" == "centos" ]; then
+        yum remove -y nginx
+    else
+        apt autoremove -y --purge nginx nginx-common nginx-core
+        apt-get remove --purge nginx nginx-full nginx-common
+    fi
+
+    rm -rf ${configSSLCertPath}
+    rm -rf ${configWebsitePath}
+    rm -f ${nginxAccessLogFilePath}
+    rm -f ${nginxErrorLogFilePath}
+
+    rm -rf "/etc/nginx"
+    rm -rf /root/.acme.sh/
+    rm -rf ${configDownloadTempPath}
+
+    green " ================================================== "
+    green "  Nginx 卸载完毕 !"
+    green " ================================================== "
+}
+
 function installTrojanWeb(){
     # wget -O trojan-web_install.sh -N --no-check-certificate "https://raw.githubusercontent.com/Jrohy/trojan/master/install.sh" && chmod +x trojan-web_install.sh && ./trojan-web_install.sh
 
