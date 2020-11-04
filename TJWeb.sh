@@ -180,9 +180,11 @@ green " =================================================="
     green " 3. 重新申请证书"
     green " 4. 查看日志, 管理用户, 查看配置等功能"
     red " 5. 卸载 trojan-web 和 nginx "
-red " 0. Salir"
+    red " 0. Salir"
 green " =================================================="
 echo
+    read -p "请输入数字:" menuNumberInput
+    case "$menuNumberInput" in
         1 )
             setLinuxDateZone
             installTrojanWeb
