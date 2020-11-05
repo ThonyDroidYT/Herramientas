@@ -46,3 +46,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 ### TrojanV2ray
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TrojanV2ray.sh && chmod +x TrojanV2ray.sh && ./TrojanV2ray.sh
+
+### Clash Server 
+
+wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Clash-Install.sh; chmod 777 *.sh; ./*.sh
