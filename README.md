@@ -49,4 +49,4 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 
 ### Clash Server 
 
-wget -O $HOME https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Clash-Install.sh; chmod 777 Clash.sh; ./Clash.sh
+wget -O $HOME/Clash.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Clash-Install.sh; chmod 777 Clash.sh; ./Clash.sh
