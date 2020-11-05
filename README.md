@@ -12,6 +12,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/OpenVPN-Install.sh; chmod 777 OpenVPN-Install.sh; ./OpenVPN-Install.sh
 
+### Psiphonx
+
+wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Psiphonx.sh; chmod 777 Psiphonx.sh; ./Psiphonx.sh
+
 ### Wireguard Install
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguard.sh -O wireguard-install.sh && bash wireguard-install.sh
