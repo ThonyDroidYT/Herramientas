@@ -120,7 +120,8 @@ systemctl enable nginx.service
 blue "=========================================="
 red "Ingrese el nombre de dominio vinculado a este VPS"
 blue "=========================================="
-read your_domain
+# read your_domain
+read -p "Dominio: 》" your_domain
 real_addr=`ping ${your_domain} -c 1 | sed '1{s/[^(]*(//;s/).*//;q}'`
 local_addr=`curl ipv4.icanhazip.com`
 if [ $real_addr == $local_addr ] ; then
@@ -331,7 +332,7 @@ function remove_trojan(){
 
 function bbr_boost_sh(){
     bash <(curl -L -s -k "https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh")
-# bash <(curl -L -s -k "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh")
+  # bash <(curl -L -s -k "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh")
 }
 
 start_menu(){
