@@ -1,6 +1,4 @@
 #!/bin/bash
-# 09/11/2020
-# By @ThonyDroidYT
 
 #fonts color
 yellow(){
@@ -14,6 +12,9 @@ red(){
 }
 blue(){
     echo -e "\033[1;34m\033[01m$1\033[0m"
+}
+cyan(){
+    echo -e "\033[1;36m\033[01m$1\033[0m"
 }
 
 #copy from Qiushui Yibing ss scripts
@@ -50,9 +51,9 @@ fi
 function install_trojan(){
 CHECK=$(grep SELINUX= /etc/selinux/config | grep -v "#")
 if [ "$CHECK" == "SELINUX=enforcing" ]; then
-    red "======================================================================="
+    blue "======================================================================="
     red "Se detecta que SELinux está encendido，Para evitar que no se solicite un certificado，Primero reinicie el VPS，Ejecute este script nuevamente"
-    red "======================================================================="
+    blue "======================================================================="
     read -p "Ya sea para reiniciar ahora ? Por favor escribe [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
@@ -64,30 +65,30 @@ if [ "$CHECK" == "SELINUX=enforcing" ]; then
     exit
 fi
 if [ "$CHECK" == "SELINUX=permissive" ]; then
-    red "======================================================================="
+    blue "======================================================================="
     red "SELinux se detecta como permisivo，Para evitar que no se solicite un certificado，Primero reinicie el VPS，Ejecute este script nuevamente"
-    red "======================================================================="
+    blue "======================================================================="
     read -p "Ya sea para reiniciar ahora ? Por favor escribe [Y/n] :" yn
 	[ -z "${yn}" ] && yn="y"
 	if [[ $yn == [Yy] ]]; then
 	    sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config
             setenforce 0
-	    echo -e "VPS 重启中..."
+	    echo -e "Reiniciando VPS..."
 	    reboot
 	fi
     exit
 fi
 if [ "$release" == "centos" ]; then
     if  [ -n "$(grep ' 6\.' /etc/redhat-release)" ] ;then
-    red "============================"
+    blue "============================"
     red "El sistema actual no es compatible"
-    red "============================"
+    blue "============================"
     exit
     fi
     if  [ -n "$(grep ' 5\.' /etc/redhat-release)" ] ;then
-    red "============================"
+    blue "============================"
     red "El sistema actual no es compatible"
-    red "============================"
+    blue "============================"
     exit
     fi
     systemctl stop firewalld
@@ -95,15 +96,15 @@ if [ "$release" == "centos" ]; then
     rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 elif [ "$release" == "ubuntu" ]; then
     if  [ -n "$(grep ' 14\.' /etc/os-release)" ] ;then
-    red "============================"
+    blue "============================"
     red "El sistema actual no es compatible"
-    red "============================"
+    blue "============================"
     exit
     fi
     if  [ -n "$(grep ' 12\.' /etc/os-release)" ] ;then
-    red "============================"
+    blue "============================"
     red "El sistema actual no es compatible"
-    red "============================"
+    blue "============================"
     exit
     fi
     systemctl stop ufw
@@ -112,16 +113,16 @@ elif [ "$release" == "ubuntu" ]; then
 fi
 $systemPackage -y install  nginx wget unzip zip curl tar >/dev/null 2>&1
 systemctl enable nginx.service
-green "=========================================="
-yellow "Ingrese el nombre de dominio vinculado a este VPS"
-green "=========================================="
+blue "=========================================="
+red "Ingrese el nombre de dominio vinculado a este VPS"
+blue "=========================================="
 read your_domain
 real_addr=`ping ${your_domain} -c 1 | sed '1{s/[^(]*(//;s/).*//;q}'`
 local_addr=`curl ipv4.icanhazip.com`
 if [ $real_addr == $local_addr ] ; then
-	green "================================================================"
-	green "       La resolución del nombre de dominio es normal, comience a instalar trojan"
-	green "================================================================"
+	blue "================================================================"
+	cyan "       La resolución del nombre de dominio es normal, comience a instalar trojan"
+	blue "================================================================"
 	sleep 1s
 cat > /etc/nginx/nginx.conf <<-EOF
 user  root;
@@ -279,36 +280,36 @@ EOF
 	chmod +x ${systempwd}trojan.service
 	systemctl start trojan.service
 	systemctl enable trojan.service
-	green "=================================================================================================================="
-	green "Trojan ha sido instalado，Utilice el enlace a continuación para descargar el cliente trojan，Este cliente ha configurado todos los parámetros"
-	green "1、Copia el enlace de abajo，Abrir en el navegador，Descargar aplicacion"
+	blue "=================================================================================================================="
+	cyan "Trojan ha sido instalado，Utilice el enlace a continuación para descargar el cliente trojan，Este cliente ha configurado todos los parámetros"
+	cyan "1、Copia el enlace de abajo，Abrir en el navegador，Descargar aplicacion"
 	yellow "http://${your_domain}/$trojan_path/trojan-cli.zip"
-	red "Registre la siguiente URL de la regla"
+	cyan "Registre la siguiente URL de la regla"
 	yellow "http://${your_domain}/trojan.txt"
-	green "2、Descomprime el paquete comprimido descargado, Abrir Carpeta，Abrir start.bat para abrir y ejecutar el cliente trojan"
-	green "3、Abrir stop.bat para cerrar el cliente troyano"
-	green "4、El cliente trojan debe utilizarse con complementos del navegador, como switchyomega, etc."
-	green "Acceso  https://www.v2rayssr.com/trojan-1.html ‎ Descargar complementos y tutoriales del navegador"
-	green "=================================================================================================================="
+	cyan "2、Descomprime el paquete comprimido descargado, Abrir Carpeta，Abrir start.bat para abrir y ejecutar el cliente trojan"
+	cyan "3、Abrir stop.bat para cerrar el cliente troyano"
+	cyan "4、El cliente trojan debe utilizarse con complementos del navegador, como switchyomega, etc."
+	cyan "Acceso  https://www.v2rayssr.com/trojan-1.html ‎ Descargar complementos y tutoriales del navegador"
+	blue "=================================================================================================================="
 	else
-    red "================================"
-	red "Sin resultados de solicitud de certificado https，Esta instalación falló"
-	red "================================"
+    blue "================================"
+	cyan "Sin resultados de solicitud de certificado https，Esta instalación falló"
+	blue "================================"
 	fi
 	
 else
-	red "================================"
-	red "La dirección de resolución del nombre de dominio no coincide con la dirección IP del VPS"
-	red "Esta instalación falló，Asegúrese de que la resolución del nombre de dominio sea normal"
-	red "================================"
+	blue "================================"
+	cyan "La dirección de resolución del nombre de dominio no coincide con la dirección IP del VPS"
+	cyan "Esta instalación falló，Asegúrese de que la resolución del nombre de dominio sea normal"
+	blue "================================"
 fi
 }
 
 function remove_trojan(){
-    red "================================"
-    red "A punto de desinstalar trojan"
-    red "Al mismo tiempo, se desinstalara nginx instalado"
-    red "================================"
+    blue "================================"
+    cyan "A punto de desinstalar trojan"
+    cyan "Al mismo tiempo, se desinstalara nginx instalado"
+    blue "================================"
     systemctl stop trojan
     systemctl disable trojan
     rm -f ${systempwd}trojan.service
@@ -319,36 +320,37 @@ function remove_trojan(){
     fi
     rm -rf /usr/src/trojan*
     rm -rf /usr/share/nginx/html/*
-    green "=============="
-    green "Trojan eliminado"
-    green "=============="
+    blue "=============="
+    red "Trojan eliminado"
+    blue "=============="
 }
 
 function bbr_boost_sh(){
-    bash <(curl -L -s -k "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh")
+    bash <(curl -L -s -k "https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh")
+# bash <(curl -L -s -k "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh")
 }
 
 start_menu(){
     clear
-    green " ===================================="
-    green " Secuencia de comandos automática de instalación de claves  一Trojan"
-    green " Sistema：centos7+/debian9+/ubuntu16.04+"
-    green " Sitio Web：www.v2rayssr.com （Prohibido el acceso doméstico）              "
-    green " Este script es de atrandys，integra la aceleración BBRPLUS"
-    green " YouTube： SharePozai         "
-    green " ===================================="
+    blue " ===================================="
+    cyan " Secuencia de comandos automática de instalación de claves  一Trojan"
+    cyan " Sistema：centos7+/debian9+/ubuntu16.04+"
+    cyan " Sitio Web：www.v2rayssr.com （Prohibido el acceso doméstico）              "
+    cyan " Integración de  aceleración BBRPLUS"
+    cyan " YouTube：@Thony_DroidYT        "
+    blue " ===================================="
     echo
+    blue " ===================================="
+    cyan " \033[1;32m1. 一Instalar Trojan"
     red " ===================================="
-    yellow " 1. 一Instalar Trojan"
-    red " ===================================="
-    yellow " 2. 一instalación  4 IN 1 de BBRPLUS Aceleración VPS"
-    red " ===================================="
-    yellow " 3. 一Desinstalación de claves Trojan"
-    red " ===================================="
-    yellow " 0. Salir del Script"
-    red " ===================================="
+    cyan " 2. 一instalación  4 IN 1 de BBRPLUS Aceleración VPS"
+    blue " ===================================="
+    cyan " 3. 一Desinstalación de claves Trojan"
+    blue " ===================================="
+    cyan " 0. 一Salir del Script"
+    blue " ===================================="
     echo
-    read -p "Por favor ingrese un número [0-3]:" num
+    read -p "Por favor ingrese un número [0-3]: 》 " num
     case "$num" in
     1)
     install_trojan
