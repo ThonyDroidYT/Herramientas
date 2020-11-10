@@ -355,7 +355,7 @@ start_menu(){
     cyan " 0. \033[1;31m一 \033[1;36mSalir del Script"
     blue " ===================================="
     echo
-    read -p "Por favor ingrese un número [0-3]: 》 " num
+    read -p "Escoja Una Opción [0-3]: 》 " num
     case "$num" in
     1)
     install_trojan
