@@ -5,7 +5,7 @@ yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 green(){
-    echo -e "\033[32m\033[01m$1\033[0m"
+    echo -e "\033[1;32m\033[01m$1\033[0m"
 }
 red(){
     echo -e "\033[31m\033[01m$1\033[0m"
@@ -346,16 +346,16 @@ start_menu(){
     blue " ===================================="
     echo
     blue " ===================================="
-    cyan " 1. \033[1;31m一 \033[1;36mInstalar Trojan"
+    green " [1] \033[1;31m> \033[1;36mInstalar Trojan"
     blue " ===================================="
-    cyan " 2. \033[1;31m一 \033[1;36mBBRPLUS 4 En 1 Aceleración VPS"
+    green " [2] \033[1;31m> \033[1;36mBBRPLUS 4 En 1 Aceleración VPS"
     blue " ===================================="
-    cyan " 3. \033[1;31m一 \033[1;36mDesinstalación de claves Trojan"
+    green " [3] \033[1;31m> \033[1;36mDesinstalación de claves Trojan"
     blue " ===================================="
-    cyan " 0. \033[1;31m一 \033[1;36mSalir del Script"
+    green " [0] \033[1;31m> \033[1;36mSalir del Script"
     blue " ===================================="
     echo
-    read -p "Escoja Una Opción [0-3]: 》 " num
+    read -p "Escoja Una Opción [0-3]: 》" num
     case "$num" in
     1)
     install_trojan
