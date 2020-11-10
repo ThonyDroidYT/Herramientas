@@ -345,7 +345,7 @@ start_menu(){
    #cyan " Sitio Web：www.v2rayssr.com（Prohibido el acceso doméstico)"
     cyan " Sitio Web Oficial：https://bit.ly/thonyblog
    #cyan " Integración de  aceleración BBRPLUS "
-    cyan " YouTube：THONYDROID 2.0"
+    cyan " YouTube：THONYDROID 2,0"
     blue "====================================="
     echo
     blue "====================================="
