@@ -341,10 +341,10 @@ start_menu(){
     cyan " Trojan \033[1;32m [NEW-ADM-PLUS]"
    #cyan " Secuencia de comandos automática de instalación de claves Trojan"
     cyan " Sistema：CentOS7+/Debian9+/Ubuntu16.04+"
-    cyan " Hecho Por：@Thony_DroidYT"
+    cyan " Hecho Por：@Thony_DroidYT "
    #cyan " Sitio Web：www.v2rayssr.com（Prohibido el acceso doméstico)"
     cyan " Sitio Web Oficial：https://bit.ly/thonyblog
-   #cyan " Integración de  aceleración BBRPLUS"
+   #cyan " Integración de  aceleración BBRPLUS "
     cyan " YouTube：THONYDROID 2.0"
     blue " ====================================="
     echo
