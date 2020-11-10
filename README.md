@@ -33,8 +33,6 @@ rm tcpbr.sh; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/ma
 
 ### Trojan
 
-curl -O https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod +x trojan.sh && ./trojan.sh
-
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod +x Trojan.sh && ./Trojan.sh
 
 #### Trojan Web
@@ -42,8 +40,6 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojanweb.sh && chmod +x Trojanweb.sh && ./Trojanweb.sh
 
 ### Trojan Mod
-
-curl -O https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod +x Trojan.sh && ./Trojan
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan && chmod +x Trojan && ./Trojan
 
