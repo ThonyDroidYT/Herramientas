@@ -346,13 +346,13 @@ start_menu(){
     blue " ===================================="
     echo
     blue " ===================================="
-    cyan " \033[1;32m1. 一Instalar Trojan"
-    red " ===================================="
-    cyan " 2. 一instalación  4 IN 1 de BBRPLUS Aceleración VPS"
+    cyan " 1. \033[1;31m一 \033[1;36mInstalar Trojan"
     blue " ===================================="
-    cyan " 3. 一Desinstalación de claves Trojan"
+    cyan " 2. \033[1;31m一 \033[1;36mBBRPLUS 4 En 1 Aceleración VPS"
     blue " ===================================="
-    cyan " 0. 一Salir del Script"
+    cyan " 3. \033[1;31m一 \033[1;36mDesinstalación de claves Trojan"
+    blue " ===================================="
+    cyan " 0. \033[1;31m一 \033[1;36mSalir del Script"
     blue " ===================================="
     echo
     read -p "Por favor ingrese un número [0-3]: 》 " num
