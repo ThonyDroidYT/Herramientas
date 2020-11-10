@@ -337,7 +337,7 @@ function bbr_boost_sh(){
 
 start_menu(){
     clear
-    blue " ====================================="
+    blue "====================================="
     cyan " Trojan \033[1;32m [NEW-ADM-PLUS]"
    #cyan " Secuencia de comandos automática de instalación de claves Trojan"
     cyan " Sistema：CentOS7+/Debian9+/Ubuntu16.04+"
@@ -346,17 +346,17 @@ start_menu(){
     cyan " Sitio Web Oficial：https://bit.ly/thonyblog
    #cyan " Integración de  aceleración BBRPLUS "
     cyan " YouTube：THONYDROID 2.0"
-    blue " ====================================="
+    blue "====================================="
     echo
-    blue " ====================================="
-    green " [1] \033[1;31m> \033[1;36mInstalar Trojan"
-    blue " ====================================="
-    green " [2] \033[1;31m> \033[1;36mBBRPLUS 4 En 1 Aceleración VPS"
-    blue " ====================================="
-    green " [3] \033[1;31m> \033[1;36mDesinstalación de claves Trojan"
-    blue " ====================================="
-    green " [0] \033[1;31m> \033[1;36mSalir del Script"
-    blue " ====================================="
+    blue "====================================="
+    green "[1] \033[1;31m> \033[1;36mInstalar Trojan"
+    blue "====================================="
+    green "[2] \033[1;31m> \033[1;36mBBRPLUS 4 En 1 Aceleración VPS"
+    blue "====================================="
+    green "[3] \033[1;31m> \033[1;36mDesinstalación de claves Trojan"
+    blue "====================================="
+    green "[0] \033[1;31m> \033[1;36mSalir del Script"
+    blue "====================================="
     echo
     read -p "Escoja Una Opción [0-3]: 》" num
     case "$num" in
