@@ -338,7 +338,7 @@ function bbr_boost_sh(){
 start_menu(){
     clear
     blue " ======================================="
-    cyan "    Trojan \033[1;32m [NEW-ADM-PLUS]"
+    cyan "     Trojan \033[1;32m [NEW-ADM-PLUS]   "
     blue " ======================================="
    #cyan " Secuencia de comandos automática de instalación de claves Trojan"
     cyan " Sistema：Centos7+/Debian9+/Ubuntu16.04+"
