@@ -43,7 +43,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 
 ### Trojan Mod
 
-curl -O https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod x Trojan.sh && ./Trojan
+curl -O https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod +x Trojan.sh && ./Trojan
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan && chmod +x Trojan && ./Trojan
 
