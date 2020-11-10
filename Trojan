@@ -84,15 +84,15 @@ if [ "$CHECK" == "SELINUX=permissive" ]; then
 fi
 if [ "$release" == "centos" ]; then
     if  [ -n "$(grep ' 6\.' /etc/redhat-release)" ] ;then
-    blue "============================"
+    blue "================================="
     red "El sistema actual no es compatible"
-    blue "============================"
+    blue "================================="
     exit
     fi
     if  [ -n "$(grep ' 5\.' /etc/redhat-release)" ] ;then
-    blue "============================"
+    blue "================================="
     red "El sistema actual no es compatible"
-    blue "============================"
+    blue "================================="
     exit
     fi
     systemctl stop firewalld
@@ -100,15 +100,15 @@ if [ "$release" == "centos" ]; then
     rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 elif [ "$release" == "ubuntu" ]; then
     if  [ -n "$(grep ' 14\.' /etc/os-release)" ] ;then
-    blue "============================"
+    blue "================================="
     red "El sistema actual no es compatible"
-    blue "============================"
+    blue "================================="
     exit
     fi
     if  [ -n "$(grep ' 12\.' /etc/os-release)" ] ;then
-    blue "============================"
+    blue "================================="
     red "El sistema actual no es compatible"
-    blue "============================"
+    blue "================================="
     exit
     fi
     systemctl stop ufw
@@ -117,17 +117,17 @@ elif [ "$release" == "ubuntu" ]; then
 fi
 $systemPackage -y install  nginx wget unzip zip curl tar >/dev/null 2>&1
 systemctl enable nginx.service
-blue "=========================================="
+blue "================================================"
 red "Ingrese el nombre de dominio vinculado a este VPS"
-blue "=========================================="
+blue "================================================"
 # read your_domain
 read -p "Dominio: 》" your_domain
 real_addr=`ping ${your_domain} -c 1 | sed '1{s/[^(]*(//;s/).*//;q}'`
 local_addr=`curl ipv4.icanhazip.com`
 if [ $real_addr == $local_addr ] ; then
-	blue "================================================================"
-	cyan "       La resolución del nombre de dominio es normal, comience a instalar trojan"
-	blue "================================================================"
+	blue "============================================================================="
+	cyan "   La resolución del nombre de dominio es normal, comience a instalar trojan"
+	blue "============================================================================="
 	sleep 1s
 cat > /etc/nginx/nginx.conf <<-EOF
 user  root;
@@ -297,24 +297,24 @@ EOF
 	cyan "Acceso  https://www.v2rayssr.com/trojan-1.html ‎ Descargar complementos y tutoriales del navegador"
 	blue "=================================================================================================================="
 	else
-    blue "================================"
+        blue "========================================================================"
 	cyan "Sin resultados de solicitud de certificado https，Esta instalación falló"
-	blue "================================"
+	blue "========================================================================"
 	fi
 	
 else
-	blue "================================"
+	blue "========================================================================================="
 	cyan "La dirección de resolución del nombre de dominio no coincide con la dirección IP del VPS"
 	cyan "Esta instalación falló，Asegúrese de que la resolución del nombre de dominio sea normal"
-	blue "================================"
+	blue "========================================================================================="
 fi
 }
 
 function remove_trojan(){
-    blue "================================"
+    blue "=================================================="
     cyan "A punto de desinstalar trojan"
     cyan "Al mismo tiempo, se desinstalara nginx instalado"
-    blue "================================"
+    blue "=================================================="
     systemctl stop trojan
     systemctl disable trojan
     rm -f ${systempwd}trojan.service
@@ -325,9 +325,9 @@ function remove_trojan(){
     fi
     rm -rf /usr/src/trojan*
     rm -rf /usr/share/nginx/html/*
-    blue "=============="
+    blue "==============="
     red "Trojan eliminado"
-    blue "=============="
+    blue "==============="
 }
 
 function bbr_boost_sh(){
@@ -337,23 +337,25 @@ function bbr_boost_sh(){
 
 start_menu(){
     clear
-    blue " ===================================="
-    cyan " Secuencia de comandos automática de instalación de claves  一Trojan"
-    cyan " Sistema：centos7+/debian9+/ubuntu16.04+"
-    cyan " Sitio Web：www.v2rayssr.com （Prohibido el acceso doméstico）              "
-    cyan " Integración de  aceleración BBRPLUS"
+    blue " ====================================="
+    cyan " Trojan \033[1;32m [NEW-ADM-PLUS]"
+   #cyan " Secuencia de comandos automática de instalación de claves Trojan"
+    cyan " Sistema：CentOS7+/Debian9+/Ubuntu16.04+"
+   #cyan " Sitio Web：www.v2rayssr.com（Prohibido el acceso doméstico)"
+    cyan " Sitio Web Oficial：https://bit.ly/thonyblog
+   #cyan " Integración de  aceleración BBRPLUS"
     cyan " YouTube：@Thony_DroidYT        "
-    blue " ===================================="
+    blue " ====================================="
     echo
-    blue " ===================================="
+    blue " ====================================="
     green " [1] \033[1;31m> \033[1;36mInstalar Trojan"
-    blue " ===================================="
+    blue " ====================================="
     green " [2] \033[1;31m> \033[1;36mBBRPLUS 4 En 1 Aceleración VPS"
-    blue " ===================================="
+    blue " ====================================="
     green " [3] \033[1;31m> \033[1;36mDesinstalación de claves Trojan"
-    blue " ===================================="
+    blue " ====================================="
     green " [0] \033[1;31m> \033[1;36mSalir del Script"
-    blue " ===================================="
+    blue " ====================================="
     echo
     read -p "Escoja Una Opción [0-3]: 》" num
     case "$num" in
