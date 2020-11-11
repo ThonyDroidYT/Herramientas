@@ -6,17 +6,21 @@ red(){
     echo -e "\033[31m\033[01m$1\033[0m"
 }
 green(){
-    echo -e "\033[32m\033[01m$1\033[0m"
+    echo -e "\033[1;32m\033[01m$1\033[0m"
 }
 yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 blue(){
-    echo -e "\033[34m\033[01m$1\033[0m"
+    echo -e "\033[1;34m\033[01m$1\033[0m"
 }
 bold(){
     echo -e "\033[1m\033[01m$1\033[0m"
 }
+cyan(){
+    echo -e "\033[1;36m\033[01m$1\033[0m"
+}
+
 
 configTrojanWebPath="${HOME}/trojan-web"
 versionTrojanWeb="2.8.7"
@@ -31,10 +35,10 @@ function setLinuxDateZone(){
     if [[ ${tempCurrentDateZone} == "+0800" ]]; then
         yellow "当前时区已经为北京时间  $tempCurrentDateZone | $(date -R) "
     else 
-        green " =================================================="
+        blue " =================================================="
         yellow "当前时区为: $tempCurrentDateZone | $(date -R) "
         yellow "是否设置时区为北京时间 +0800区, 以便cron定时重启脚本按照北京时间运行."
-        green " =================================================="
+        blue " =================================================="
         # read 默认值 https://stackoverflow.com/questions/2642585/read-a-variable-in-bash-with-a-default-value
 
         read -p "是否设置为北京时间 +0800 时区? 请输入[Y/n]?" osTimezoneInput
@@ -46,7 +50,7 @@ function setLinuxDateZone(){
                 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
                 yellow "设置成功! 当前时区已设置为 $(date -R)"
-                green " =================================================="
+                blue " =================================================="
             fi
         fi
 
@@ -57,9 +61,9 @@ function removeNginx(){
 
     sudo systemctl stop nginx.service
 
-    green " ================================================== "
+    blue " ================================================== "
     red " 准备卸载已安装的nginx"
-    green " ================================================== "
+    blue " ================================================== "
 
     if [ "$osRelease" == "centos" ]; then
         yum remove -y nginx
@@ -77,9 +81,9 @@ function removeNginx(){
     rm -rf /root/.acme.sh/
     rm -rf ${configDownloadTempPath}
 
-    green " ================================================== "
-    green "  Nginx 卸载完毕 !"
-    green " ================================================== "
+    blue " ================================================== "
+    cyan "  Nginx 卸载完毕 !"
+    blue " ================================================== "
 }
 
 function installTrojanWeb(){
@@ -87,26 +91,26 @@ function installTrojanWeb(){
 
 
     if [ -f "${configTrojanWebPath}/trojan-web" ] ; then
-        green " =================================================="
-        green "  已安装过 Trojan-web 可视化管理面板, 退出安装 !"
-        green " =================================================="
+        blue " =================================================="
+        cyan "  已安装过 Trojan-web 可视化管理面板, 退出安装 !"
+        blue " =================================================="
         exit
     fi
 
     stopServiceNginx
     testLinuxPortUsage
 
-    green " ================================================== "
-    yellow " 请输入绑定到本VPS的域名 例如www.xxx.com: (此步骤请关闭CDN后安装)"
-    green " ================================================== "
+    blue " ================================================== "
+    cyan " 请输入绑定到本VPS的域名 例如www.xxx.com: (此步骤请关闭CDN后安装)"
+    blue " ================================================== "
 
     read configSSLDomain
     if compareRealIpWithLocalIp "${configSSLDomain}" ; then
 
         getTrojanAndV2rayVersion "trojan-web"
-        green " =================================================="
-        green "    开始安装 Trojan-web 可视化管理面板: ${versionTrojanWeb} !"
-        green " =================================================="
+        blue " =================================================="
+        cyan "    开始安装 Trojan-web 可视化管理面板: ${versionTrojanWeb} !"
+        blue " =================================================="
 
         mkdir -p ${configTrojanWebPath}
         wget -O ${configTrojanWebPath}/trojan-web --no-check-certificate "https://github.com/Jrohy/trojan/releases/download/v${versionTrojanWeb}/${downloadFilenameTrojanWeb}"
@@ -135,11 +139,11 @@ EOF
         sudo systemctl restart trojan-web.service
         sudo systemctl enable trojan-web.service
 
-        green " =================================================="
-        green " Trojan-web 可视化管理面板: ${versionTrojanWeb} 安装成功!"
-        green " Trojan可视化管理面板地址 https://${configSSLDomain}/${configTrojanWebNginxPath}"
-        green " 开始运行命令 ${configTrojanWebPath}/trojan-web 进行初始化设置."
-        green " =================================================="
+        blue " =================================================="
+        cyan " Trojan-web 可视化管理面板: ${versionTrojanWeb} 安装成功!"
+        cyan " Trojan可视化管理面板地址 https://${configSSLDomain}/${configTrojanWebNginxPath}"
+        cyan " 开始运行命令 ${configTrojanWebPath}/trojan-web 进行初始化设置."
+        blue " =================================================="
 
 
 
@@ -161,9 +165,9 @@ EOF
 function removeTrojanWeb(){
     # wget -O trojan-web_install.sh -N --no-check-certificate "https://raw.githubusercontent.com/Jrohy/trojan/master/install.sh" && chmod +x trojan-web_install.sh && ./trojan-web_install.sh --remove
 
-    green " ================================================== "
+    blue " ================================================== "
     red " 准备卸载已安装 Trojan-web "
-    green " ================================================== "
+    blue " ================================================== "
 
     sudo systemctl stop trojan.service
     sudo systemctl stop trojan-web.service
@@ -192,16 +196,16 @@ function removeTrojanWeb(){
 
     crontab -r
 
-    green " ================================================== "
-    green "  Trojan-web 卸载完毕 !"
-    green " ================================================== "
+    blue " ================================================== "
+    cyan "  Trojan-web 卸载完毕 !"
+    blue " ================================================== "
 }
 
 function upgradeTrojanWeb(){
     getTrojanAndV2rayVersion "trojan-web"
-    green " =================================================="
-    green "    开始升级 Trojan-web 可视化管理面板: ${versionTrojanWeb} !"
-    green " =================================================="
+    blue " =================================================="
+    cyan "    开始升级 Trojan-web 可视化管理面板: ${versionTrojanWeb} !"
+    blue " =================================================="
 
     sudo systemctl stop trojan-web.service
 
@@ -214,10 +218,9 @@ function upgradeTrojanWeb(){
     sudo systemctl start trojan-web.service
     sudo systemctl restart trojan.service
 
-
-    green " ================================================== "
-    green "     升级成功 Trojan-web 可视化管理面板: ${versionTrojanWeb} !"
-    green " ================================================== "
+    blue " ========================================================="
+    cyan "     升级成功 Trojan-web 可视化管理面板: ${versionTrojanWeb} !"
+    blue " ========================================================="
 }
 function runTrojanWebSSL(){
     sudo systemctl stop trojan-web.service
@@ -232,14 +235,19 @@ function runTrojanWebLog(){
     ${configTrojanWebPath}/trojan-web
 }
 
-    green " =================================================="
-    green " 1. 安装 trojan-web (trojan 和 trojan-go 可视化管理面板) 和 nginx 伪装网站"
-    green " 2. 升级 trojan-web 到最新版本"
-    green " 3. 重新申请证书"
-    green " 4. 查看日志, 管理用户, 查看配置等功能"
-    red " 5. 卸载 trojan-web 和 nginx "
-    red " 0. Salir"
-    green " =================================================="
+    blue " ========================================================="
+    green " [1]. \033[1;31m> \033[1;36m安装 trojan-web (trojan 和 trojan-go 可视化管理面板) 和 nginx 伪装网站"
+    blue " ========================================================="
+    green " [2]. \033[1;31m> \033[1;36m升级 trojan-web 到最新版本"
+    blue " ========================================================="
+    gren " [3]. \033[1;31m> \033[1;36m重新申请证书"
+    blue " ========================================================="
+    green " [4]. \033[1;31m> \033[1;36m查看日志, 管理用户, 查看配置等功能"
+    blue " ========================================================="
+    greeb " [5]. \033[1;31m> \033[1;36m卸载 trojan-web 和 nginx "
+    blue " ========================================================="
+    green " [0]. \033[1;31m> \033[1;36mSalir"
+    blue " ========================================================="
     echo
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
