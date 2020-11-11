@@ -31,6 +31,10 @@ curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardu
 
 rm tcpbr.sh; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh; chmod 777 tcpbr.sh; ./tcpbr.sh
 #
+### TCP  BBR/PLUS MOD
+
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui.sh)
+#
 #### Trojan
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod +x Trojan.sh && ./Trojan.sh
