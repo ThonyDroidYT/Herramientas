@@ -1,4 +1,6 @@
 #!/bin/bash
+#10/10/2020
+#Hecho By: @Thony_DroidYT
 
 #fonts color
 yellow(){
@@ -367,6 +369,8 @@ start_menu(){
     install_trojan
     ;;
     2)
+    apt-get install curl
+    clear
     bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TJWeb.sh)
     ;;
     3)
