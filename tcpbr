@@ -351,17 +351,17 @@ net.ipv4.ip_forward = 1">>/etc/sysctl.conf
 		reboot
 	fi
 }
-# Script de actualización
+# Actualización de Script
 Update_Shell(){
 	echo -e "La versión actual es [ ${sh_ver} ]，Empieza a detectar la última versión..."
-	sh_new_ver=$(wget --no-check-certificate -qO- "http://${github}/tcpbr.sh"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
+	sh_new_ver=$(wget --no-check-certificate -qO- "http://${github}/tcpbr"|grep 'sh_ver="'|awk -F "=" '{print $NF}'|sed 's/\"//g'|head -1)
 	[[ -z ${sh_new_ver} ]] && echo -e "${Error} Error al detectar la última versión !" && start_menu
 	if [[ ${sh_new_ver} != ${sh_ver} ]]; then
 		echo -e "Descubre nueva versión[ ${sh_new_ver} ]，Ya sea para actualizar？[Y/n]"
 		read -p "(Por defecto: y):" yn
 		[[ -z "${yn}" ]] && yn="y"
 		if [[ ${yn} == [Yy] ]]; then
-			wget -N --no-check-certificate http://${github}/tcpbr.sh -O /etc/ger-frm/tcpbr.sh && chmod +x tcpbr.sh
+			wget -N --no-check-certificate http://${github}/tcpbr -O /etc/ger-frm/tcpbr.sh && chmod +x /etc/ger-frm/tcpbr.sh; ./etc/ger-frm/tcpbr.sh
 			echo -e "El script ha sido actualizado a la última versión.[ ${sh_new_ver} ] !"
 		else
 			echo && echo "	Cancelado ..." && echo
