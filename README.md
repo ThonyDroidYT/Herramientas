@@ -33,7 +33,7 @@ rm tcpbr.sh; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/ma
 #
 ### TCP  BBR/PLUS MOD
 
-bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr)
 #
 #### Trojan
 
