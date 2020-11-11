@@ -232,15 +232,15 @@ function runTrojanWebLog(){
     ${configTrojanWebPath}/trojan-web
 }
 
-green " =================================================="
+    green " =================================================="
     green " 1. 安装 trojan-web (trojan 和 trojan-go 可视化管理面板) 和 nginx 伪装网站"
     green " 2. 升级 trojan-web 到最新版本"
     green " 3. 重新申请证书"
     green " 4. 查看日志, 管理用户, 查看配置等功能"
     red " 5. 卸载 trojan-web 和 nginx "
     red " 0. Salir"
-green " =================================================="
-echo
+    green " =================================================="
+    echo
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
         1 )
