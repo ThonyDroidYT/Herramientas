@@ -469,20 +469,20 @@ fi
 echo -e "  \033[1;36mFirewall VPS\033[1;32m [NEW-ADM-PLUS] ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}"
 msg -bar2
 echo -e "  ${Green_font_prefix}0.${Font_color_suffix} Ver la lista actual de prohibidos
-—————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————
   ${Green_font_prefix}1.${Font_color_suffix} Bloquear Torrent, Palabras Clave
   ${Green_font_prefix}2.${Font_color_suffix} Bloquear Puertos SPAM 
   ${Green_font_prefix}3.${Font_color_suffix} Bloquear Torrent, Palabras Clave + Puertos SPAM
   ${Green_font_prefix}4.${Font_color_suffix} Bloquear Puerto personalizado
   ${Green_font_prefix}5.${Font_color_suffix} Bloquear Palabras Clave Personalizadas
-—————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————
   ${Green_font_prefix}6.${Font_color_suffix} Desbloquear Torrent, Palabras Clave
   ${Green_font_prefix}7.${Font_color_suffix} Desbloquear Puertos SPAM
   ${Green_font_prefix}8.${Font_color_suffix} Desbloquear Torrent, Palabras Clave , Puertos SPAM
   ${Green_font_prefix}9.${Font_color_suffix} Desbloquear Puerto Personalizado
  ${Green_font_prefix}10.${Font_color_suffix} Desbloquear Palabra Clave Personalizadas
  ${Green_font_prefix}11.${Font_color_suffix} Desbloquear Todas las palabras Clave Personalizadas
-—————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————
  ${Green_font_prefix}12.${Font_color_suffix} Actualizar script" && msg -bar2
 read -e -p " Por favor ingrese un número [0-12]:" num && msg -bar2
 case "$num" in
