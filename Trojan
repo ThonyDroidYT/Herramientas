@@ -345,7 +345,7 @@ start_menu(){
     blue " ========================================================="
    #cyan " Secuencia de comandos automática de instalación de claves Trojan"
     red " Sistema：\033[1;36mCentos7+/Debian9+/Ubuntu16.04+"
-    cyan " Hecho Por：@Thony_DroidYT "
+    red " Hecho Por：\033[1;36m@Thony_DroidYT "
    #cyan " Sitio Web：www.v2rayssr.com（Prohibido el acceso doméstico)"
     red " Sitio Web：\033[1;36mhttps://bit.ly/thonyblog"
    #cyan " Integración de  aceleración BBRPLUS "
