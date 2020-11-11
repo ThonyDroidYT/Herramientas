@@ -26,6 +26,11 @@ wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wg.sh -O w
 #
 ###### Wireguard Panel WEB - Descontinuado
 curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardui.sh | sudo bash
+
+#
+### Firewall VPS
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/blockBT.sh)
+
 #
 ### TCP ACELERACION BBR/PLUS
 
