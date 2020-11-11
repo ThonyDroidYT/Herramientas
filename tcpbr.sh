@@ -376,7 +376,7 @@ start_menu(){
 clear
 echo -e "\033[1;34m[=======================================================]"
 echo -e "\033[1;33mTCP Aceleración (BBR/Plus) MOD By @Thony_DroidYT ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
-${Green_font_prefix}0.${Font_color_suffix} Script de actualización
+${Green_font_prefix} 0.${Font_color_suffix} Script de actualización
 —————————————————————Gestión del Núcleo—————————————————
  ${Green_font_prefix}1.${Font_color_suffix} Instalación BBR/BBR Kernel Mágico
  ${Green_font_prefix}2.${Font_color_suffix} Instalación BBRplus Kernel 
@@ -401,7 +401,7 @@ ${Green_font_prefix}0.${Font_color_suffix} Script de actualización
 		
 	fi
 msg -bar
-read -p " Por favor ingrese un número [0-11]:" num
+read -p " Por favor ingrese un número [0-11]: 》" num
 case "$num" in
 	0)
 	Update_Shell
