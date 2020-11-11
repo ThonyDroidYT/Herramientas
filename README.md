@@ -31,7 +31,7 @@ curl https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/wireguardu
 ### TCP ACELERACION BBR/PLUS
 
 rm tcpbr.sh; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/tcpbr.sh; chmod 777 tcpbr.sh; ./tcpbr.sh
-
+#
 #### Trojan
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojan.sh && chmod +x Trojan.sh && ./Trojan.sh
@@ -43,11 +43,11 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 ### TrojanV2ray
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TrojanV2ray.sh && chmod +x TrojanV2ray.sh && ./TrojanV2ray.sh
-
+#
 #### Trojan Web
 
 wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojanweb.sh && chmod +x Trojanweb.sh && ./Trojanweb.sh
-
+#
 ### Clash Server 
 
 wget -O $HOME/Clash.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Clash-Install.sh; chmod 777 Clash.sh; ./Clash.sh
