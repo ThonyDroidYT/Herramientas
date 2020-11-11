@@ -367,7 +367,7 @@ start_menu(){
     install_trojan
     ;;
     2)
-    bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Trojanweb.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TJWeb.sh)
     ;;
     3)
     bbr_boost_sh 
