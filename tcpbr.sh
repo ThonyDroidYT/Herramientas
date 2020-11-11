@@ -1,6 +1,6 @@
 #!/bin/bash
 #19/12/2019
-#Thony_DroidYT
+#By: Thony_DroidYT
 clear
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
@@ -377,17 +377,17 @@ clear
 echo -e "\033[1;34m[=======================================================]"
 echo -e "\033[1;33mTCP Aceleración (BBR/Plus) MOD By @Thony_DroidYT ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 ${Green_font_prefix}0.${Font_color_suffix} Script de actualización
-————————————————————Gestión del Núcleo——————————————————
+—————————————————————Gestión del Núcleo—————————————————
  ${Green_font_prefix}1.${Font_color_suffix} Instalación BBR/BBR Kernel Mágico
  ${Green_font_prefix}2.${Font_color_suffix} Instalación BBRplus Kernel 
  ${Green_font_prefix}3.${Font_color_suffix} Instalación Lotserver Kernel (Velocidad Aguda)
-————————————————————Gestión Acelerada———————————————————
+—————————————————————Gestión Acelerada——————————————————
  ${Green_font_prefix}4.${Font_color_suffix} Usar BBR Aceleración
  ${Green_font_prefix}5.${Font_color_suffix} Usar BBR Velocidad de revisión mágica
  ${Green_font_prefix}6.${Font_color_suffix} Usar BBR Aceleración Violenta de revisión mágica
  ${Green_font_prefix}7.${Font_color_suffix} Usar BBRplus Aceleración
  ${Green_font_prefix}8.${Font_color_suffix} Usar Lotserver (Velocidad Brusca) Aceleración
-————————————————————Manejo misceláneo———————————————————
+—————————————————————Manejo misceláneo——————————————————
  ${Green_font_prefix}9.${Font_color_suffix} Desintalar Todas las Aceleraciones
  ${Green_font_prefix}10.${Font_color_suffix} Optimización de la configuración del sistema.
  ${Green_font_prefix}11.${Font_color_suffix} Salir del script
