@@ -1,5 +1,6 @@
 #!/bin/bash
 #19/12/2019
+#Thony_DroidYT
 clear
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
