@@ -346,7 +346,7 @@ start_menu(){
     cyan " Sistema：Centos7+/Debian9+/Ubuntu16.04+"
     cyan " Hecho Por：@Thony_DroidYT "
    #cyan " Sitio Web：www.v2rayssr.com（Prohibido el acceso doméstico)"
-   #cyan " Sitio Web Oficial：https://bit.ly/thonyblog
+   #cyan " Sitio Web：https://bit.ly/thonyblog
    #cyan " Integración de  aceleración BBRPLUS "
     red " YouTube：THONYDROID 2.0"
    #blue " ======================================="
@@ -369,7 +369,7 @@ start_menu(){
     install_trojan
     ;;
     2)
-    apt-get install curl
+    apt-get install curl -y
     clear
     bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TJWeb.sh)
     ;;
