@@ -86,7 +86,7 @@ echo e "${green} [11] ${red}> ${cyan}DESINSTALAR V2-UI ${plain}"
 echo e "${green} [0] ${red} SALIR DE SCRIP ${plain}"
 echo -e "${barra}"
 while [[ ${panelv2rayadm} != @(0|[1-11]) ]]; do
-read -p "Escoge una Opcion [0-111]: 》" panelv2rayadm
+read -p "Escoge una Opcion [0-11]: 》" panelv2rayadm
 tput cuu1 && tput dl1
 done
 case $panelv2rayadm in
