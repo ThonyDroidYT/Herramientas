@@ -619,10 +619,9 @@ install_select(){
         echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain}"
         echo -e "${blue}${barra}${plain}"
     done
-    echo -e "${red}[${red}0${green}] ${red}Salir del Script${plain}"
+    echo -e "${green}[${red}0${green}] ${red}> ${red}Salir del Script${plain}"
    #echo -e "${blue}${barra}${plain}"
-    read -p "Escoge una Opcion (Por defecto 1): 》" selected
-    echo -e "${blue}${barra}${plain}"
+    read -p "Escoge una Opcion (Por defecto 4): 》" selected
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
         1|2|3|4|0)
