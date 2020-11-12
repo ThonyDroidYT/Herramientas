@@ -611,7 +611,7 @@ install_select(){
     do
     # BARRA
     echo -e "${blue}${barra}${plain}"
-    echo -e "      ${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]      ${plain}"
+    echo -e "        ${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]      ${plain}"
     echo -e "${blue}${barra}${plain}"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
@@ -624,7 +624,7 @@ install_select(){
     read -p "Escoge una Opcion (Por defecto 4): 》" selected
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
-        1|2|3|4|0)
+        1|2|3|4)
         echo
         echo "Tu eligistes = ${software[${selected}-1]}"
         echo
