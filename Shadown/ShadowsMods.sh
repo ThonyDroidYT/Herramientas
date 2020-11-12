@@ -38,6 +38,7 @@ red='\033[1;31m'
 green='\033[1;32m'
 yellow='\033[1;33m'
 cyan='\033[1;36m'
+blue='\033[1;34m'
 plain='\033[0m'
 barra='========================================================='
 
@@ -614,8 +615,8 @@ install_select(){
     echo -e "{blue}${barra}${plain}"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
-        #echo -e "${green}${i}${plain}) ${hint}"
-        echo -e "[${green}${i}${green}] ${plain} ${hint}"
+       #echo -e "${green}${i}${plain}) ${hint}"
+        echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint}"
     done
     read -p "Escoge una Opcion (Por defecto 1): 》" selected
     echo -e "{blue}${barra}${plain}"
