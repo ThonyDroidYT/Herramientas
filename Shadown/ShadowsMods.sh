@@ -37,6 +37,7 @@ SCPidioma="${SCPdir}/idioma"
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
+cyan='\033[1;36m'
 plain='\033[0m'
 
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
@@ -598,19 +599,19 @@ install_check(){
 install_select(){
     if ! install_check; then
         echo -e "[${red}Error${plain}] Your OS is not supported to run it!"
-        echo "Please change to CentOS 6+/Debian 7+/Ubuntu 12+ and try again."
+        echo "Porfavor cambia a CentOS 6+/Debian 7+/Ubuntu 12+ y intentalo de nuevo."
         exit 1
     fi
 
     clear
     while true
     do
-    echo  "CUAL SHADOWSOCKS DESEA INSTALAR?:"
+    echo -e "${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "OPCION (Default LIB ${software[0]}): 》" selected
+    read -p "Opcion (Default Lib ${software[0]}): 》" selected
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
         1|2|3|4)
@@ -665,7 +666,7 @@ install_prepare_cipher(){
             hint="${common_ciphers[$i-1]}"
             echo -e "${green}${i}${plain}) ${hint}"
         done
-        read -p "Qué cifrado seleccionarías(Por Defecto: ${common_ciphers[0]}):" pick
+        read -p "Qué cifrado seleccionaras (Por Defecto: ${common_ciphers[0]}):" pick
         [ -z "$pick" ] && pick=1
         expr ${pick} + 1 &>/dev/null
         if [ $? -ne 0 ]; then
@@ -723,7 +724,7 @@ install_prepare_cipher(){
 install_prepare_protocol(){
     while true
     do
-    echo -e "Please select protocol for ${software[${selected}-1]}:"
+    echo -e "Porfavor selecciona un protocolo para ${software[${selected}-1]}:"
     for ((i=1;i<=${#protocols[@]};i++ )); do
         hint="${protocols[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
@@ -1021,7 +1022,7 @@ install_shadowsocks_libev_obfs(){
         make install
         if [ ! "$(command -v obfs-server)" ]; then
             echo -e "[${red}Error${plain}] simple-obfs for ${software[${selected}-1]} install failed."
-            echo "Please visit: https://teddysun.com/486.html and contact."
+            echo "Porfavor visita: https://teddysun.com/486.html and contact."
             install_cleanup
             exit 1
         fi
@@ -1098,7 +1099,7 @@ qr_generate_r(){
         local tmp2=$(echo -n "$(get_ip):${shadowsocksport}:${shadowsockprotocol}:${shadowsockscipher}:${shadowsockobfs}:${tmp1}/?obfsparam=" | base64 -w0)
         local qr_code="ssr://${tmp2}"
         echo
-        echo "Your QR Code: (For ShadowsocksR Windows, Android clients only)"
+        echo "Tu Código QR: (For ShadowsocksR Windows, Android clients only)"
         echo -e "${green} ${qr_code} ${plain}"
         echo -n "${qr_code}" | qrencode -s8 -o ${cur_dir}/shadowsocks_r_qr.png
         echo "Your QR Code has been saved as a PNG file path:"
@@ -1322,7 +1323,7 @@ uninstall_shadowsocks_libev(){
 uninstall_shadowsocks(){
     while true
     do
-    echo  "Que servidor Shadowsocks quieres desinstalar?"
+    echo -e "${cyan}Que servidor Shadowsocks quieres desinstalar?"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
