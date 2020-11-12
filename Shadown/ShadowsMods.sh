@@ -40,8 +40,7 @@ yellow='\033[1;33m'
 cyan='\033[1;36m'
 blue='\033[1;34m'
 plain='\033[0m'
-BarraAzul='$blue|$barra|${plain}'
-barrita='echo -e "${blue}${barra}${plain}"'
+BarraAzul='$blue $barra ${plain}'
 barra='========================================================='
 
 
@@ -618,14 +617,15 @@ install_select(){
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
        #echo -e "${green}${i}${plain}) ${hint}"
-        echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain} && ${barrita}"
+        echo -e "${red}[${red}0${green}] ${red}Salir del Script${plain}"
+        echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain}"
     done
     echo -e "${BarraAzul}"
     read -p "Escoge una Opcion (Por defecto 1): 》" selected
     echo -e "{blue}${barra}${plain}"
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
-        1|2|3|4)
+        0|1|2|3|4)
         echo
         echo "Tu eligistes = ${software[${selected}-1]}"
         echo
@@ -633,6 +633,9 @@ install_select(){
         ;;
         *)
         echo -e "[${red}Error${plain}] Por favor solo ingresa un número [1-4]"
+        ;;
+        0)
+        cd $HOME && exit 0
         ;;
     esac
     done
