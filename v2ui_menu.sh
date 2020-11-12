@@ -70,28 +70,28 @@ v2-ui uninstall
 # EJECUCIÓN DEL MENU
 #v2ui_menu () {
 echo -e "${barra}"
-echo -e "${cyan} ADMINISTRAR PANEL WEB V2RAY {$admplus}"
+echo -e "${cyan} ADMINISTRAR PANEL WEB V2RAY ${admplus}"
 echo -e "${barra}"
-echo e "${num1} ${cyan}MENU V2-UI ${plain}"
-echo e "${num2} ${cyan}INICIAR V2-UI ${plain}"
-echo e "${num3} ${cyan}PARAR V2-UI ${plain}"
-echo e "${num4} ${cyan}REINICIAR V2-UI ${plain}"
-echo e "${num5} ${cyan}VER ESTADO V2-UI ${plain}"
-echo e "${num6} ${cyan}ACTIVAR V2-UI ${plain}"
-echo e "${num7} ${cyan}DESACTIVAR V2-UI ${plain}"
-echo e "${num8} ${cyan}VER REGISTRO V2-UI ${plain}"
-echo e "${num9} ${cyan}ACTUALIZAR V2-UI ${plain}"
-echo e "${num10} ${cyan}INSTALAR V2-UI ${plain}"
-echo e "${num11} ${cyan}DESINSTALAR V2-UI ${plain}"
-echo e " ${num0} SALIR DE SCRIP ${plain}"
+echo e "${green} [1] ${red}> ${cyan}MENU V2-UI ${plain}"
+echo e "${green} [2] ${red}> ${cyan}INICIAR V2-UI ${plain}"
+echo e "${green} [3] ${red}> ${cyan}PARAR V2-UI ${plain}"
+echo e "${green} [4] ${red}> ${cyan}REINICIAR V2-UI ${plain}"
+echo e "${green} [5] ${red}> ${cyan}VER ESTADO V2-UI ${plain}"
+echo e "${green} [6] ${red}> ${cyan}ACTIVAR V2-UI ${plain}"
+echo e "${green} [7] ${red}> ${cyan}DESACTIVAR V2-UI ${plain}"
+echo e "${green} [8] ${red}> ${cyan}VER REGISTRO V2-UI ${plain}"
+echo e "${green} [9] ${red}> ${cyan}ACTUALIZAR V2-UI ${plain}"
+echo e "${green} [10] ${red}> ${cyan}INSTALAR V2-UI ${plain}"
+echo e "${green} [11] ${red}> ${cyan}DESINSTALAR V2-UI ${plain}"
+echo e "${green} [0] ${red} SALIR DE SCRIP ${plain}"
 echo -e "${barra}"
-while [[ ${panelv2rayadm} != @(0|[1-12]) ]]; do
-read -p "Escoge una Opcion [0-12]: 》" panelv2rayadm
+while [[ ${panelv2rayadm} != @(0|[1-11]) ]]; do
+read -p "Escoge una Opcion [0-111]: 》" panelv2rayadm
 tput cuu1 && tput dl1
 done
 case $panelv2rayadm in
 1)menu;;
-2)iniciar";;
+2)iniciar;;
 3)parar;;
 4)reiniciar;;
 5)estado;;
