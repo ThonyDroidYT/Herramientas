@@ -40,6 +40,7 @@ yellow='\033[1;33m'
 cyan='\033[1;36m'
 blue='\033[1;34m'
 plain='\033[0m'
+BarraAzul=$(echo $blue|$barra|${plain})
 barra='========================================================='
 
 
@@ -618,6 +619,7 @@ install_select(){
        #echo -e "${green}${i}${plain}) ${hint}"
         echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint}"
     done
+    echo -e "${BarraAzul}"
     read -p "Escoge una Opcion (Por defecto 1): 》" selected
     echo -e "{blue}${barra}${plain}"
     [ -z "${selected}" ] && selected="1"
