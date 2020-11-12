@@ -611,7 +611,7 @@ install_select(){
     do
     # BARRA
     echo -e "{blue}${barra}${plain}"
-    echo -e "${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]"
+    echo -e "${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]${plain}"
     echo -e "{blue}${barra}${plain}"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
@@ -788,12 +788,12 @@ install_prepare_libev_obfs(){
         while true
         do
         echo -e "Do you want install simple-obfs for ${software[${selected}-1]}? [y/n]"
-        read -p "(default: n):" libev_obfs
+        read -p "(Por Defecto: n):" libev_obfs
         [ -z "$libev_obfs" ] && libev_obfs=n
         case "${libev_obfs}" in
             y|Y|n|N)
             echo
-            echo "You choose = ${libev_obfs}"
+            echo "Tu Seleccionastes = ${libev_obfs}"
             echo
             break
             ;;
