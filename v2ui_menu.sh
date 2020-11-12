@@ -91,7 +91,7 @@ tput cuu1 && tput dl1
 done
 case $panelv2rayadm in
 1)menu;;
-2)iniciar;;
+2)v2-ui start;;
 3)parar;;
 4)reiniciar;;
 5)estado;;
