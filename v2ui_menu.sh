@@ -99,5 +99,5 @@ case $panelv2rayadm in
 0)exit;;
 esac
 #echo -e "${barra}"
-}#
+#}
 #v2ui_menu
