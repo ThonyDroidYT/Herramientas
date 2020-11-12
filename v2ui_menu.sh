@@ -63,7 +63,7 @@ desinstalar () {
 v2-ui uninstall
 }
 # EJECUCIÓN DEL MENU
-v2ui_menu () {
+#v2ui_menu () {
 echo -e "${barra}"
 echo -e "${cyan} ADMINISTRAR PANEL WEB V2RAY {$admplus}"
 echo -e "${barra}"
@@ -98,6 +98,6 @@ case $panelv2rayadm in
 11)desinstalar;;
 0)exit;;
 esac
-echo -e "${barra}"
-}
-v2ui_menu
+#echo -e "${barra}"
+}#
+#v2ui_menu
