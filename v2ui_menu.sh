@@ -51,6 +51,7 @@ desactivar () {
 v2-ui disable
 }
 registro () {
+cd $HOME
 v2-ui log
 }
 actualizar () {
