@@ -61,3 +61,5 @@ wget --no-check-certificate https://raw.githubusercontent.com/ThonyDroidYT/Herra
 wget -O $HOME/Clash.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Clash-Install.sh; chmod 777 Clash.sh; ./Clash.sh
 
 #
+### SHADOWNSOCKS MODS
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Shadown/ShadowsMods.sh)
