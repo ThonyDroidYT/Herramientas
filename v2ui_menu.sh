@@ -92,13 +92,13 @@ done
 case $panelv2rayadm in
 1)menu;;
 2)v2-ui start;;
-3)parar;;
+3)cd $HOME; v2-ui stop;;
 4)reiniciar;;
 5)estado;;
 6)activar;;
 7)desactivar;;
 8)registro;;
-9)actualizar;;
+9)cd $HOME; v2-ui update;;
 10)instalar;;
 11)desinstalar;;
 0)exit;;
