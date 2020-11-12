@@ -611,7 +611,7 @@ install_select(){
     do
     # BARRA
     echo -e "${blue}${barra}${plain}"
-    echo -e "${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]${plain}"
+    echo -e "      ${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]      ${plain}"
     echo -e "${blue}${barra}${plain}"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
