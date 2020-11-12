@@ -34,11 +34,13 @@ SCPidioma="${SCPdir}/idioma"
 # 
 # Intro:  https://teddysun.com/486.html
 
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
+red='\033[1;31m'
+green='\033[1;32m'
+yellow='\033[1;33m'
 cyan='\033[1;36m'
 plain='\033[0m'
+barra='========================================================='
+
 
 [[ $EUID -ne 0 ]] && echo -e "[${red}Error${plain}] This script must be run as root!" && exit 1
 
@@ -606,12 +608,17 @@ install_select(){
     clear
     while true
     do
+    # BARRA
+    echo -e "{blue}${barra}${plain}"
     echo -e "${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]"
+    echo -e "{blue}${barra}${plain}"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
-        echo -e "${green}${i}${plain}) ${hint}"
+        #echo -e "${green}${i}${plain}) ${hint}"
+        echo -e "[${green}${i}${green}] ${plain} ${hint}"
     done
-    read -p "Opcion (Default Lib ${software[0]}): 》" selected
+    read -p "Escoge una Opcion (Por defecto 1): 》" selected
+    echo -e "{blue}${barra}${plain}"
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
         1|2|3|4)
