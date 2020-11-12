@@ -83,7 +83,7 @@ echo e "${green} [8] ${red}> ${cyan}VER REGISTRO V2-UI ${plain}"
 echo e "${green} [9] ${red}> ${cyan}ACTUALIZAR V2-UI ${plain}"
 echo e "${green} [10] ${red}> ${cyan}INSTALAR V2-UI ${plain}"
 echo e "${green} [11] ${red}> ${cyan}DESINSTALAR V2-UI ${plain}"
-echo e "${green} [0] ${red} SALIR DE SCRIP ${plain}"
+echo e "${green} [0] ${red}> SALIR DE SCRIPT"
 echo -e "${barra}"
 while [[ ${panelv2rayadm} != @(0|[1-11]) ]]; do
 read -p "Escoge una Opcion [0-11]: 》" panelv2rayadm
