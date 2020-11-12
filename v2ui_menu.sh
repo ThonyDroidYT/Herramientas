@@ -62,6 +62,11 @@ v2-ui install
 desinstalar () {
 v2-ui uninstall
 }
+
+#echo -e "${barra}"
+#}
+#v2ui_menu
+
 # EJECUCIÓN DEL MENU
 #v2ui_menu () {
 echo -e "${barra}"
@@ -98,6 +103,3 @@ case $panelv2rayadm in
 11)desinstalar;;
 0)exit;;
 esac
-#echo -e "${barra}"
-#}
-#v2ui_menu
