@@ -617,15 +617,15 @@ install_select(){
         hint="${software[$i-1]}"
        #echo -e "${green}${i}${plain}) ${hint}"
         echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain}"
-        echo -e "${red}[${red}0${green}] ${red}Salir del Script${plain}"
         echo -e "${blue}${barra}${plain}"
     done
-    echo -e "${blue}${barra}${plain}"
+    echo -e "${red}[${red}0${green}] ${red}Salir del Script${plain}"
+   #echo -e "${blue}${barra}${plain}"
     read -p "Escoge una Opcion (Por defecto 1): 》" selected
-    echo -e "{blue}${barra}${plain}"
+    echo -e "${blue}${barra}${plain}"
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
-        1|2|3|4)
+        1|2|3|4|0)
         echo
         echo "Tu eligistes = ${software[${selected}-1]}"
         echo
