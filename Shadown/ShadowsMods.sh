@@ -40,7 +40,6 @@ yellow='\033[1;33m'
 cyan='\033[1;36m'
 blue='\033[1;34m'
 plain='\033[0m'
-BarraAzul='$blue $barra ${plain}'
 barra='========================================================='
 
 
@@ -617,15 +616,16 @@ install_select(){
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
        #echo -e "${green}${i}${plain}) ${hint}"
-        echo -e "${red}[${red}0${green}] ${red}Salir del Script${plain}"
         echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain}"
+        echo -e "${red}[${red}0${green}] ${red}Salir del Script${plain}"
+        echo -e "${blue}${barra}${plain}"
     done
-    echo -e "${BarraAzul}"
+    echo -e "${blue}${barra}${plain}"
     read -p "Escoge una Opcion (Por defecto 1): 》" selected
     echo -e "{blue}${barra}${plain}"
     [ -z "${selected}" ] && selected="1"
     case "${selected}" in
-        0|1|2|3|4)
+        1|2|3|4)
         echo
         echo "Tu eligistes = ${software[${selected}-1]}"
         echo
