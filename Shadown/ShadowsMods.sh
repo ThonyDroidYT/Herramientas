@@ -40,7 +40,8 @@ yellow='\033[1;33m'
 cyan='\033[1;36m'
 blue='\033[1;34m'
 plain='\033[0m'
-BarraAzul=$(echo $blue|$barra|${plain})
+BarraAzul='$blue|$barra|${plain}'
+barrita='echo -e "${blue}${barra}${plain}"'
 barra='========================================================='
 
 
@@ -611,13 +612,13 @@ install_select(){
     while true
     do
     # BARRA
-    echo -e "{blue}${barra}${plain}"
+    echo -e "${blue}${barra}${plain}"
     echo -e "${cyan} SHADOWSOCKS MODS ${red}R,GO,LIB ${green}[NEW-ADM-PLUS]${plain}"
-    echo -e "{blue}${barra}${plain}"
+    echo -e "${blue}${barra}${plain}"
     for ((i=1;i<=${#software[@]};i++ )); do
         hint="${software[$i-1]}"
        #echo -e "${green}${i}${plain}) ${hint}"
-        echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint}"
+        echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain} && ${barrita}"
     done
     echo -e "${BarraAzul}"
     read -p "Escoge una Opcion (Por defecto 1): 》" selected
