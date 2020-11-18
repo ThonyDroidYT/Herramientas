@@ -95,7 +95,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 #MENU
 clear
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}        MULTISCRIPT FREE ${green}[BY: @THONY_DROIDYT]       ${plain}"
+echo -e "${Rojo} ${cyan}         MULTISCRIPT FREE  ${green}[BY: @THONY_DROIDYT]       ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${plain}"
 echo -e "${num2} ${cyan}INTALAR NEW-ADM-DANKEL ${plain}"
