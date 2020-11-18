@@ -51,6 +51,17 @@ num7='\033[1;32m [7] \033[1;31m>'
 num8='\033[1;32m [8] \033[1;31m>'
 num9='\033[1;32m [9] \033[1;31m>'
 num10='\033[1;32m [10] \033[1;31m>'
+#VERSIONES
+vmulti="${red}v1.0"
+vpack="${red}v3.5k"
+vssh="${red}v31"
+vmx="${red}v8.1"
+vadm="${red}v6.0"
+vadmvps="${red}v1.6"
+vdank="${red}v6.0"
+vgold="${red}v6.0"
+vpanel="${red}v25
+vadmx="${red}v.5"
 #COLORES
 plain="\033[0m"
 red="\033[1;31m"
@@ -98,17 +109,17 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 #MENU
 clear
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}         MULTISCRIPT FREE  ${green}[BY: @THONY_DROIDYT]       ${plain}"
+echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]      ${plain}"
 echo -e "${barra}"
-echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${plain}"
-echo -e "${num2} ${cyan}INTALAR NEW-ADM-DANKEL ${plain}"
-echo -e "${num3} ${cyan}INSTALAR VPSPACK BY POWERMX ${plain}"
-echo -e "${num4} ${cyan}INSTALAR SSHPLUS BY CRAZY_VPN ${plain}"
-echo -e "${num5} ${cyan}INSTALAR ADM-MANAGER OFICIAL FREE ${plain}"
-echo -e "${num6} ${cyan}INSTALAR GOLDEN-ADM-PRO BY DEADSHOOT ${plain}"
-echo -e "${num7} ${cyan}INSTALAR ADMVPS FREE ${plain}"
-echo -e "${num8} ${cyan}INSTALAR AMX-ADM BY ANDROIDMX-TEAM ${plain}"
-echo -e "${num9} ${cyan}INSTALAR PANELWEB SSHPLUS BY CRAZY_VPN${plain}"
+echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${vmx} ${plain}"
+echo -e "${num2} ${cyan}INTALAR NEW-ADM-DANKEL ${vdank} ${plain}"
+echo -e "${num3} ${cyan}INSTALAR VPSPACK BY POWERMX ${vpack} ${plain}"
+echo -e "${num4} ${cyan}INSTALAR SSHPLUS BY CRAZY_VPN ${vssh} ${plain}"
+echo -e "${num5} ${cyan}INSTALAR ADM-MANAGER OFICIAL FREE ${vadm} ${plain}"
+echo -e "${num6} ${cyan}INSTALAR GOLDEN-ADM-PRO BY DEADSHOOT ${vgold} ${plain}"
+echo -e "${num7} ${cyan}INSTALAR ADMVPS FREE ${vadmvps} ${plain}"
+echo -e "${num8} ${cyan}INSTALAR AMX-ADM BY ANDROIDMX-TEAM ${vadmx} ${plain}"
+echo -e "${num9} ${cyan}INSTALAR PANELWEB SSHPLUS BY CRAZY_VPN ${vpanel} ${plain}"
 echo -e "${num0} ${red}SALIR DEL MULTISCRIPT ${plain}"
 echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read multiscripts
