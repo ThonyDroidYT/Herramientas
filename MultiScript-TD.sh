@@ -135,6 +135,6 @@ case $multiscripts in
 7)admvps;;
 8)amxadm;;
 9)panelweb;;
-*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
+*)echo -e "${red}POR FAVOR SELECIONE EL NÚMERO CORRECTO${plain}"
 exit ;;
 esac
