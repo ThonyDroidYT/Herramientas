@@ -74,7 +74,34 @@ cyan="\033[1;36m"
 Gris="\033[1;100m"
 Rojo="\033[1;41m"
 Azul="\033[44m"
-limpiar
+#PROCESSADOR
+_core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+_usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+
+#SISTEMA-USO DA CPU-MEMORIA RAM
+ram1=$(free -h | grep -i mem | awk {'print $2'})
+ram2=$(free -h | grep -i mem | awk {'print $4'})
+ram3=$(free -h | grep -i mem | awk {'print $3'})
+
+#SISTEMA
+_system=$(printf '%-14s' "$system")
+_ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
+_usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
+
+# MYIP
+IP=$(wget -qO- ipv4.icanhazip.com)
+
+os_system () {
+system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //'))
+echo $system|awk '{print $1, $2}'
+}
+#MEMORIA
+memoria () {
+echo -e "${barra}"
+echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
+echo -e "\033[1;31mOS: \033[1;37m"$(os_system)"  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
+echo -e "\033[1;31mIP:\033[1;37m $IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
+}
 #MULTISCRIPTS
 vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
@@ -108,6 +135,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 }
 #MENU
 clear
+memorias
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
