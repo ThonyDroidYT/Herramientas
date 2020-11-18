@@ -101,8 +101,8 @@ echo -e "\033[1;31mIP:\033[1;37m $IP     \033[1;31mEn uso: \033[1;37m$_usor \033
 memoria2 () {
 echo -e "${barra}"
 echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
-echo -e "\033[1;31mOS: \033[1;37m $_system  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
-echo -e "\033[1;31mIP:\033[1;37m $IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
+echo -e "\033[1;31mOS: \033[1;37m$_system  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
+echo -e "\033[1;31mIP:\033[1;37m$IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 }
 #MULTISCRIPTS
 vpsmx () {
@@ -138,8 +138,8 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 #MENU
 limpiar
 clear
-memoria2
 echo -e "${barra}"
+memoria2
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${vmx} ${plain}"
