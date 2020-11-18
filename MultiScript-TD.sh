@@ -71,9 +71,9 @@ sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/Thony
 dankel () {
 apt-get update && apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/instala.sh; chmod 777 instala.sh && ./instala.sh
 }
-#dankel () {
-#apt-get update && apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/Dankelthaher.sh; chmod 777 Dankelthaher.sh && ./Dankelthaher.sh
-#}
+dankel2 () {
+apt-get update && apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/Dankelthaher.sh; chmod 777 Dankelthaher.sh && ./Dankelthaher.sh
+}
 vpspack () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack-3.7.2/main/instalador; chmod 777 instalador; ./instalador
 }
