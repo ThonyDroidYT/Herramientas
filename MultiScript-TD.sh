@@ -52,16 +52,16 @@ num8='\033[1;32m [8] \033[1;31m>'
 num9='\033[1;32m [9] \033[1;31m>'
 num10='\033[1;32m [10] \033[1;31m>'
 #VERSIONES
-vmulti="${red}v1.0"
-vpack="${red}v3.5k"
-vssh="${red}v31"
-vmx="${red}v8.1"
-vadm="${red}v6.0"
-vadmvps="${red}v1.6"
-vdank="${red}v6.0"
-vgold="${red}v6.0"
-vpanel="${red}v25"
-vadmx="${red}v.5"
+vmulti="\033[1;31mv1.0"
+vpack="\033[1;31mv3.5k"
+vssh="\033[1;31mv31"
+vmx="\033[1;31mv8.1"
+vadm="\033[1;31mv6.0"
+vadmvps="\033[1;31mv1.6"
+vdank="\033[1;31mv6.0"
+vgold="\033[1;31mv6.0"
+vpanel="\033[1;31mv25"
+vadmx="\033[1;31mv.5"
 #COLORES
 plain="\033[0m"
 red="\033[1;31m"
