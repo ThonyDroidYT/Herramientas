@@ -138,8 +138,8 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 #MENU
 limpiar
 clear
+memoria
 echo -e "${barra}"
-memoria2
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${vmx} ${plain}"
