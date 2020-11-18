@@ -60,7 +60,7 @@ vadm="${red}v6.0"
 vadmvps="${red}v1.6"
 vdank="${red}v6.0"
 vgold="${red}v6.0"
-vpanel="${red}v25
+vpanel="${red}v25"
 vadmx="${red}v.5"
 #COLORES
 plain="\033[0m"
