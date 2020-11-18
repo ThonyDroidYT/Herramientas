@@ -97,6 +97,13 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mOS: \033[1;37m"$(os_system)"  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m $IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 }
+#MEMORIA 2
+memoria2 () {
+echo -e "${barra}"
+echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
+echo -e "\033[1;31mOS: \033[1;37m $_system  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
+echo -e "\033[1;31mIP:\033[1;37m $IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
+}
 #MULTISCRIPTS
 vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
@@ -129,8 +136,9 @@ panelweb () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Install/Panel_Web/Panelweb.sh; chmod +x Panelweb.sh; ./Panelweb.sh
 }
 #MENU
+limpiar
 clear
-memorias
+memoria2
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
