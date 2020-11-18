@@ -78,11 +78,6 @@ Azul="\033[44m"
 _core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
 _usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
 
-#SISTEMA-USO DA CPU-MEMORIA RAM
-ram1=$(free -h | grep -i mem | awk {'print $2'})
-ram2=$(free -h | grep -i mem | awk {'print $4'})
-ram3=$(free -h | grep -i mem | awk {'print $3'})
-
 #SISTEMA
 _system=$(printf '%-14s' "$system")
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
