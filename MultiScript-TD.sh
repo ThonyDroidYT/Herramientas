@@ -68,11 +68,11 @@ limpiar
 vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
 }
-dankel () {
-apt-get update && apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/instala.sh; chmod 777 instala.sh && ./instala.sh
-}
 dankel2 () {
-apt-get update && apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/Dankelthaher.sh; chmod 777 Dankelthaher.sh && ./Dankelthaher.sh
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/instala.sh; chmod 777 instala.sh && ./instala.sh
+}
+dankel () {
+apt-get update -y apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/Dankelthaher.sh; chmod 777 Dankelthaher.sh && ./Dankelthaher.sh
 }
 vpspack () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack-3.7.2/main/instalador; chmod 777 instalador; ./instalador
@@ -81,10 +81,10 @@ sshplus () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Plus; chmod 777 Plus; ./Plus
 }
 admoff () {
-apt-get update && apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/instalar.sh; chmod 777 instalar.sh; ./instalar.sh; wget -O /etc/newadm/message.txt https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Creditosxd.txt
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/instalar.sh; chmod 777 instalar.sh; ./instalar.sh; wget -O /etc/newadm/message.txt https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Creditosxd.txt
 }
 golden () {
-apt-get update && apt-get upgrade -y; wget -O $HOME/goldenvps.sh https://raw.githubusercontent.com/ThonyDroidYT/GOLDEN-ADM-MANAGER/master/goldenvps_v2.sh; chmod 777 goldenvps.sh && ./goldenvps.sh
+apt-get update -y; apt-get upgrade -y; wget -O $HOME/goldenvps.sh https://raw.githubusercontent.com/ThonyDroidYT/GOLDEN-ADM-MANAGER/master/goldenvps_v2.sh; chmod 777 goldenvps.sh && ./goldenvps.sh
 }
 admvps () {
 apt-get update -y; apt-get upgrade -y; wget -O $HOME/admsetup.sh https://www.dropbox.com/s/0s70rsg7cg2b77k/admsetup.sh?dl=0; chmod 777 admsetup.sh; ./admsetup.sh
