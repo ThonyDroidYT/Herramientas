@@ -110,6 +110,19 @@ else
 echo "${texto[$@]}"
 fi
 }
+
+#Sistema de Puertos
+puertos_ssh () {
+#msg -bar
+#echo -e "\033[1;36m PUERTOS ACTIVOS"
+#msg -bar2
+PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
+for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
+svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
+echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+done
+}
+
 #SERVICE PYTHON DIREC
 ureset_python () {
 for port in $(cat /etc/newadm/PortPD.log| grep -v "nobody" |cut -d' ' -f1)
@@ -142,5 +155,9 @@ echo "<p>Estado del servicio PythonDirec está ||  $P3 </span>.</p> " >> $DIR/$A
 #sync ; echo 3 > /proc/sys/vm/drop_caches ; echo "RAM Liberada"
 # Finalmente, terminamos de escribir el archivo
 echo "
+#NUEVO
+<font color="blue">PUERTOS ACTIVOS</font>
+$(puertos_ssh)
+#NUEVO
 </body>
 </html>" >> $DIR/$ARCHIVO
