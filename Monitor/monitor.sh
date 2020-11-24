@@ -45,7 +45,7 @@ echo "
 </head>
 <body>
 <h1>Monitor de Servicios By Thony_DroidYT</h1>
-<h1>Creditos: @Kalix1</h1>
+<h2>Creditos: @Kalix1</h2>
 <p id='ultact'>Última actualización: $FECHA</p>
 <hr>
 " > $DIR/$ARCHIVO
@@ -87,6 +87,29 @@ echo""
 done
 fi
 
+#FUN TRANS
+fun_trans () { 
+local texto
+local retorno
+declare -A texto
+SCPidioma="${SCPdir}/idioma"
+[[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
+local LINGUAGE=$(cat ${SCPidioma})
+[[ -z $LINGUAGE ]] && LINGUAGE=es
+[[ $LINGUAGE = "es" ]] && echo "$@" && return
+[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://www.dropbox.com/s/l6iqf5xjtjmpdx5/trans?dl=0 &> /dev/null
+[[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
+source /etc/texto-adm
+if [[ -z "$(echo ${texto[$@]})" ]]; then
+#ENGINES=(aspell google deepl bing spell hunspell apertium yandex)
+#NUM="$(($RANDOM%${#ENGINES[@]}))"
+retorno="$(source trans -e bing -b es:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+echo "texto[$@]='$retorno'"  >> /etc/texto-adm
+echo "$retorno"
+else
+echo "${texto[$@]}"
+fi
+}
 #SERVICE PYTHON DIREC
 ureset_python () {
 for port in $(cat /etc/newadm/PortPD.log| grep -v "nobody" |cut -d' ' -f1)
