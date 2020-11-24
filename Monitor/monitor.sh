@@ -119,7 +119,8 @@ puertos_ssh () {
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
 svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
-echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+#echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+<font color="red"> $svcs </font><font color="yellow"> ➢ </font><font color="green"> $porta </font>
 done
 }
 
@@ -157,7 +158,7 @@ echo "<p>Estado del servicio PythonDirec está ||  $P3 </span>.</p> " >> $DIR/$A
 echo "
 #NUEVO
 <font color="blue">PUERTOS ACTIVOS</font>
-$(puertos_ssh)
+puertos_ssh
 #NUEVO
 </body>
 </html>" >> $DIR/$ARCHIVO
