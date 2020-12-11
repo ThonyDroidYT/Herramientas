@@ -90,7 +90,7 @@ _hora=$(printf '%(%H:%M:%S)T')
 
 #Date-Time
 date () {
-echo -e "\033[1;31mFecha: \033[1;37m$_fecha\033[0m                  \033[1;31Hora: \033[1;37m$_hora\033[0m"
+echo -e "\033[1;31mFecha: \033[1;37m$_fecha \033[0m                  \033[1;31mHora: \033[1;37m$_hora \033[0m"
 }
 
 # MYIP
