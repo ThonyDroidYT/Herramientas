@@ -90,9 +90,9 @@ _fecha=$(date +'%d/%m/%Y')
 _hora=$(printf '%(%H:%M:%S)T')
 
 #Date-Time
-#date () {
-#echo -e "${red}Fecha: ${blan}$_fecha                  ${red}Hora: ${blan}$_hora"
-#}
+date () {
+echo -e "${red}Fecha: ${blan}$_fecha                  ${red}Hora: ${blan}$_hora"
+}
 
 # MYIP
 IP=$(wget -qO- ipv4.icanhazip.com)
