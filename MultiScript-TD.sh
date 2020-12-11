@@ -63,6 +63,7 @@ vgold="\033[1;31mv6.0"
 vpanel="\033[1;31mv25"
 vadmx="\033[1;31mv5.0"
 #COLORES
+blan="\033[1;37m"
 plain="\033[0m"
 red="\033[1;31m"
 green="\033[1;32m"
@@ -89,9 +90,9 @@ _fecha=$(date +'%d/%m/%Y')
 _hora=$(printf '%(%H:%M:%S)T')
 
 #Date-Time
-date () {
-echo -e "\033[1;31mFecha: \033[1;37m$_fecha \033[0m                  \033[1;31mHora: \033[1;37m$_hora \033[0m"
-}
+#date () {
+#echo -e "${red}Fecha: ${blan}$_fecha                  ${red}Hora: ${blan}$_hora"
+#}
 
 # MYIP
 IP=$(wget -qO- ipv4.icanhazip.com)
@@ -106,6 +107,7 @@ echo -e "${barra}"
 echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mOS: \033[1;37m"$(os_system)"  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m $IP   \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
+}
 #MEMORIA 2
 memoria2 () {
 echo -e "${barra}"
@@ -150,6 +152,7 @@ clear
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 memoria
+date
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${vmx} ${plain}"
 echo -e "${num2} ${cyan}INTALAR NEW-ADM-DANKEL ${vdank} ${plain}"
