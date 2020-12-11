@@ -83,6 +83,16 @@ _system=$(printf '%-14s' "$system")
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
 
+#Fecha y Hora
+_fecha=$(date +'%d/%m/%Y')
+#_fecha=$(date +'%d:%m:%Y')
+_hora=$(printf '%(%H:%M:%S)T')
+
+#Date-Time
+date () {
+echo -e "\033[1;31mFecha: \033[1;37m$_fecha\033[0m                  \033[1;31Hora: \033[1;37m$_hora\033[0m"
+}
+
 # MYIP
 IP=$(wget -qO- ipv4.icanhazip.com)
 
@@ -96,7 +106,6 @@ echo -e "${barra}"
 echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mOS: \033[1;37m"$(os_system)"  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m $IP   \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
-}
 #MEMORIA 2
 memoria2 () {
 echo -e "${barra}"
@@ -141,6 +150,7 @@ clear
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 memoria
+date
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1 ${vmx} ${plain}"
 echo -e "${num2} ${cyan}INTALAR NEW-ADM-DANKEL ${vdank} ${plain}"
