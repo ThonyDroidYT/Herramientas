@@ -63,3 +63,8 @@ wget -O $HOME/Clash.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramient
 #
 ### SHADOWNSOCKS MODS
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Shadown/ShadowsMods.sh)
+
+#
+### BANNER INSTALLER
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/BannerPro.sh)
+#
