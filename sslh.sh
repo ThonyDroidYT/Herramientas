@@ -14,7 +14,7 @@ verif_ptrs() {
 	}
 	
 #FUN BAR SSHPlus
-fun_bar2() {
+fun_bar22() {
 		comando[0]="$1"
 		comando[1]="$2"
 		(
@@ -60,9 +60,9 @@ fun_sslh() {
 					/etc/init.d/sslh start && service sslh start
 				}
 				echo -e "\n\033[1;32mINSTALANDO O SSLH !\033[0m\n"
-				fun_bar 'fun_instsslh'
+				fun_bar2 'fun_instsslh'
 				echo -e "\n\033[1;32mINICIANDO O SSLH !\033[0m\n"
-				fun_bar '/etc/init.d/sslh restart && service sslh restart'
+				fun_bar2 '/etc/init.d/sslh restart && service sslh restart'
 				[[ $(netstat -nplt | grep -w 'sslh' | wc -l) != '0' ]] && echo -e "\n\033[1;32mINSTALADO COM SUCESSO !\033[0m" || echo -e "\n\033[1;31mERROR INESPERADO !\033[0m"
 				sleep 3
 				#fun_conexao
@@ -83,7 +83,7 @@ fun_sslh() {
 					apt-get purge sslh -y
 				}
 				echo -e "\n\033[1;32mREMOVENDO O SSLH !\033[0m\n"
-				fun_bar 'fun_delsslh'
+				fun_bar2 'fun_delsslh'
 				echo -e "\n\033[1;32mREMOVIDO COM SUCESSO !\033[0m\n"
 				sleep 2
 				#fun_conexao
