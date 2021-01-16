@@ -52,7 +52,7 @@ num8='\033[1;32m [8] \033[1;31m>'
 num9='\033[1;32m [9] \033[1;31m>'
 num10='\033[1;32m [10] \033[1;31m>'
 #VERSIONES
-vmulti="\033[1;33mv1.0"
+vmulti="\033[1;33mv1.1"
 vpack="\033[1;31mFREE"
 vssh="\033[1;31mv31"
 vmx="\033[1;31mv8.1"
@@ -135,6 +135,7 @@ echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-PACK ${red}3.5k ${cyan}BY POWERMX ${plain}"
 echo -e "${num2} ${cyan}INSTALAR VPS-PACK ${red}5.8 ${cyan}BY POWERMX  ${plain}"
 echo -e "${num0} ${red}REGRESAR ${plain}"
+echo -e "${num3} ${red}SALIR ${plain}"
 echo -e "${barra}"
 read -p "SELECIONE UNA OPCIÓN: 》" multiscripts
 case $multiscripts in
@@ -142,6 +143,7 @@ case $multiscripts in
 #0)exit;;
 1)vpspack-3.5k;;
 2)vpspack-5.8;;
+3)exit 0;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
