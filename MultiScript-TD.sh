@@ -194,7 +194,9 @@ echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read multiscripts
 read -p "SELECIONE UNA OPCIÓN: 》" multiscripts
 case $multiscripts in
-0)exit;;
+0)
+clear
+exit;;
 1)vpsmx;;
 2)dankel;;
 3)vpspack;;
