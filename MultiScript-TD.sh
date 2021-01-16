@@ -104,8 +104,8 @@ echo $system|awk '{print $1, $2}'
 #MEMORIA
 memoria () {
 echo -e "${barra}"
-echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
-echo -e "\033[1;31mOS: \033[1;37m"$(os_system)"  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
+echo -e "\033[1;32mSISTEMA              MEMORIA RAM      PROCESADOR "
+echo -e "\033[1;31mOS: \033[1;37m"$(os_system)"   \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m $IP   \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 }
 #MEMORIA 2
