@@ -134,8 +134,8 @@ date
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR VPS-PACK ${red}3.5k ${cyan}BY POWERMX ${plain}"
 echo -e "${num2} ${cyan}INSTALAR VPS-PACK ${red}5.8 ${cyan}BY POWERMX  ${plain}"
-echo -e "${num0} ${red}REGRESAR ${plain}"
 echo -e "${num3} ${red}SALIR ${plain}"
+echo -e "${num0} ${red}REGRESAR ${plain}"
 echo -e "${barra}"
 read -p "SELECIONE UNA OPCIÓN: 》" multiscripts
 case $multiscripts in
