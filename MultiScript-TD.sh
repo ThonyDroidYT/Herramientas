@@ -138,7 +138,7 @@ echo -e "${num0} ${red}REGRESAR ${plain}"
 echo -e "${barra}"
 read -p "SELECIONE UNA OPCIÓN: 》" multiscripts
 case $multiscripts in
-0)return 0;;
+0)return;;
 #0)exit;;
 1)vpspack-3.5k;;
 2)vpspack-5.8;;
