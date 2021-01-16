@@ -143,7 +143,9 @@ case $multiscripts in
 #0)exit;;
 1)vpspack-3.5k;;
 2)vpspack-5.8;;
-3)exit 0;;
+3)
+clear
+exit 0;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
