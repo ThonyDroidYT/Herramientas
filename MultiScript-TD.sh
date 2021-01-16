@@ -53,7 +53,7 @@ num9='\033[1;32m [9] \033[1;31m>'
 num10='\033[1;32m [10] \033[1;31m>'
 #VERSIONES
 vmulti="\033[1;33mv1.0"
-vpack="\033[1;31mv3.5k"
+vpack="\033[1;31mFree"
 vssh="\033[1;31mv31"
 vmx="\033[1;31mv8.1"
 vadm="\033[1;31mv6.0"
@@ -126,6 +126,7 @@ dankel () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/Dankelthaher.sh; chmod 777 Dankelthaher.sh && ./Dankelthaher.sh
 }
 vpspack () {
+clear
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}       VPS-PACK FREE  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 memoria
