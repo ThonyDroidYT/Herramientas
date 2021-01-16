@@ -128,7 +128,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 vpspack () {
 clear
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}          VPS-PACK FREE     ${green}[BY: @THONY_DROIDYT]     ${plain}"
+echo -e "${Rojo} ${cyan}           VPS-PACK FREE     ${green}[BY: @THONY_DROIDYT]     ${plain}"
 memoria
 date
 echo -e "${barra}"
