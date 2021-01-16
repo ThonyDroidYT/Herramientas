@@ -126,7 +126,30 @@ dankel () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/Dankelthaher.sh; chmod 777 Dankelthaher.sh && ./Dankelthaher.sh
 }
 vpspack () {
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack/main/instalador; chmod 777 instalador; ./instalador
+echo -e "${barra}"
+echo -e "${Rojo} ${cyan}       VPS-PACK FREE  ${green}[BY: @THONY_DROIDYT]     ${plain}"
+memoria
+date
+echo -e "${barra}"
+echo -e "${num1} ${cyan}INSTALAR VPS-PACK ${red}3.5k ${cyan}BY POWERMX ${plain}"
+echo -e "${num2} ${cyan}INSTALAR VPS-PACK ${red}5.8 ${cyan}BY POWERMX  ${plain}"
+echo -e "${num0} ${red}REGRESAR ${plain}"
+echo -e "${barra}"
+read -p "SELECIONE UNA OPCIÓN: 》" multiscripts
+case $multiscripts in
+0)return 0;;
+#0)exit;;
+1)vpspack-3.5k;;
+2)vpspack-5.8;;
+*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
+exit ;;
+esac
+}
+vpspack-3.5k () {
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack/version/3.5k/instalador; chmod 777 instalador; ./instalador
+}
+vpspack-5.8 () {
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack/main/5.8/signuschris; chmod 777 signuschris; ./signuschris
 }
 sshplus () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Plus; chmod 777 Plus; ./Plus
