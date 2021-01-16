@@ -14,7 +14,7 @@ verif_ptrs() {
 	}
 	
 #FUN BAR SSHPlus
-fun_bar22() {
+fun_bar2() {
 		comando[0]="$1"
 		comando[1]="$2"
 		(
@@ -46,7 +46,7 @@ fun_bar22() {
 fun_sslh() {
 		[[ "$(netstat -nltp | grep 'sslh' | wc -l)" = '0' ]] && {
 			clear
-			echo -e "\E[44;1;37m             INSTALADOR SSLH               \E[0m\n"
+			echo -e "\E[1;37m             INSTALADOR SSLH               \E[0m\n"
 			echo -e "\n\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mA PORTA \033[1;37m443 \033[1;32mSERA USADA POR PADRAO\033[0m\n"
 			echo -ne "\033[1;32mREALMENTE DESEJA INSTALAR O SSLH \033[1;31m? \033[1;33m[s/n]:\033[1;37m "
 			read resp
