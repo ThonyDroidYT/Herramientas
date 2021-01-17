@@ -154,7 +154,7 @@ vpspack-3.5k () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack/version/3.5k/instalador; chmod 777 instalador; ./instalador
 }
 vpspack-5.8 () {
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack/main/5.8/signuschris; chmod 777 signuschris; ./signuschris
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Pack/version/5.8/signuschris; chmod 777 signuschris; ./signuschris
 }
 sshplus () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Plus; chmod 777 Plus; ./Plus
