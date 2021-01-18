@@ -19,6 +19,7 @@ echo -e "${add} ${cyan}ADM-MANAGER-ALPHA-MOD ${red}BETA ${plain}"
 }
 #MultiScripts
 multi_scripts () {
+clear
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-TD.sh)
 }
 cambios
