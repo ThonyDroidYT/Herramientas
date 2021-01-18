@@ -186,7 +186,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 }
 #MENU
 limpiar
-clear
+#clear
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${vmulti} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 memoria
