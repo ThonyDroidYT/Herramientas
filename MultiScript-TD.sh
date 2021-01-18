@@ -37,7 +37,7 @@ rm -rf admsetup.sh.1
 rm -rf Panelweb.sh
 rm -rf Panelweb.sh.1
 #rm -rf Panelweb.sh.2
-clear
+#clear
 }
 #NUMEROS
 num0='\033[1;32m [0] \033[1;31m>'
