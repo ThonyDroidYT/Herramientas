@@ -221,8 +221,8 @@ exit;;
 6)golden;;
 7)admvps;;
 8)amxadm;;
-9)adm-alpha;
-#10)panelweb;;
+9)adm-alpha;;
+10)panelweb;;
 11)changelog;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
