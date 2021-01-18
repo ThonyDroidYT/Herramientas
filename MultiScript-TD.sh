@@ -52,7 +52,7 @@ num8='\033[1;32m [8] \033[1;31m>'
 num9='\033[1;32m [9] \033[1;31m>'
 num10='\033[1;32m [10] \033[1;31m>'
 #VERSIONES
-vmulti="\033[1;33mv1.1"
+vmulti="\033[1;33mv1.2"
 vpack="\033[1;31mFREE"
 vssh="\033[1;31mv31"
 vmx="\033[1;31mv8.1"
@@ -62,6 +62,7 @@ vdank="\033[1;31mv6.0"
 vgold="\033[1;31mv6.0"
 vpanel="\033[1;31mv25"
 vadmx="\033[1;31mv5.0"
+valpha="\033[1;31m2.0"
 #COLORES
 blan="\033[1;37m"
 plain="\033[0m"
@@ -171,6 +172,9 @@ apt-get update -y; apt-get upgrade -y; wget -O $HOME/admsetup.sh https://www.dro
 amxadm () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/powermx/AMXADM/master/instala.sh && bash instala.sh
 }
+adm-alpha () {
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-ALPHA/master/instala.sh; chmod 777 *; ./instala.sh
+}
 panelweb () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Install/Panel_Web/Panelweb.sh; chmod +x Panelweb.sh; ./Panelweb.sh
 }
@@ -190,8 +194,9 @@ echo -e "${num5} ${cyan}INSTALAR ADM-MANAGER OFICIAL FREE ${vadm} ${plain}"
 echo -e "${num6} ${cyan}INSTALAR GOLDEN-ADM-PRO BY DEADSHOOT ${vgold} ${plain}"
 echo -e "${num7} ${cyan}INSTALAR ADMVPS FREE ${vadmvps} ${plain}"
 echo -e "${num8} ${cyan}INSTALAR AMX-ADM BY ANDROIDMX-TEAM ${vadmx} ${plain}"
+echo -e "${num9} ${cyan}INSTALAR ADM-ALPHA BY THONYDROID ${valpha} ${plain}"
 echo -e "${barra}"
-echo -e "${num9} ${cyan}INSTALAR PANELWEB SSHPLUS BY CRAZY_VPN ${vpanel} ${plain}"
+echo -e "${num10} ${cyan}INSTALAR PANELWEB SSHPLUS BY CRAZY_VPN ${vpanel} ${plain}"
 echo -e "${barra}"
 echo -e "${num0} ${red}SALIR DEL MULTISCRIPT ${plain}"
 echo -e "${barra}"
@@ -209,7 +214,8 @@ exit;;
 6)golden;;
 7)admvps;;
 8)amxadm;;
-9)panelweb;;
+9)adm-alpha;
+10)panelweb;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
