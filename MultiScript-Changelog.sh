@@ -1,5 +1,5 @@
 #!/bin/bash
-echo -e "\033[1;31mLista de Cambios ${name}${versión}${plain}"
+echo -e "\033[1;31mLista de Cambios ${name} ${versión} ${plain}"
 version="\033[1;35m1.2"
 name="\033[1;31mMULTISCRIPT-TD"
 plain="\033[0m"
