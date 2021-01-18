@@ -38,7 +38,6 @@ rm -rf Panelweb.sh
 rm -rf Panelweb.sh.1
 #rm -rf Panelweb.sh.2
 clear
-bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
 }
 #NUMEROS
 num0='\033[1;32m [0] \033[1;31m>'
@@ -201,7 +200,7 @@ echo -e "${num8} ${cyan}INSTALAR AMX-ADM BY ANDROIDMX-TEAM ${vadmx} ${plain}"
 echo -e "${num9} ${cyan}INSTALAR ADM-ALPHA BY THONYDROID ${valpha} ${plain}"
 echo -e "${barra}"
 echo -e "${num10} ${cyan}INSTALAR PANELWEB SSHPLUS BY CRAZY_VPN ${vpanel} ${plain}"
-echo -e "${num10} ${cyan}VER CAMBIOS ${green}MULTISCRIPT ${plain}"
+echo -e "${num11} ${cyan}VER CAMBIOS ${green}MULTISCRIPT ${plain}"
 echo -e "${barra}"
 echo -e "${num0} ${red}SALIR DEL MULTISCRIPT ${plain}"
 echo -e "${barra}"
