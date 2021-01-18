@@ -13,7 +13,7 @@ fix="\033[1;31mCorregido:"
 cambios () {
 clear
 echo -e "\033[1;41m\033[1;36mLista de Cambios ${name} ${version} ${plain}"
-echo -e "${add} ${cyan}SSLH MULTIPLEX ${red}BETA ${plain}"
+#echo -e "${add} ${cyan}SSLH MULTIPLEX ${red}BETA ${plain}"
 echo -e "${fix} ${cyan}Traductor Script Algunas VPS ${plain}"
 echo -e "${add} ${cyan}VPS-PACK ${red}5.8 ${plain}"
 echo -e "${add} ${cyan}ADM-MANAGER-ALPHA-MOD ${red}BETA ${plain}"
