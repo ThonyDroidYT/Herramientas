@@ -219,7 +219,8 @@ exit;;
 7)admvps;;
 8)amxadm;;
 9)adm-alpha;
-10)panelweb;;
+10)
+panelweb;;
 11)
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
 ;;
