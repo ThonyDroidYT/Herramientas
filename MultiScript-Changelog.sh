@@ -1,6 +1,6 @@
 #!/bin/bash
 #echo -e "\033[1;41m\033[1;31mLista de Cambios ${name} ${version} ${plain}"
-version="\033[1;35m1.2"
+version="\033[1;32m1.2"
 name="\033[1;33mMULTISCRIPT-TD"
 plain="\033[0m"
 cyan="\033[1;36m"
