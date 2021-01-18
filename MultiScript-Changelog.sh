@@ -17,4 +17,9 @@ echo -e "${fix} ${cyan}Traductor Script Algunas VPS ${plain}"
 echo -e "${add} ${cyan}VPS-PACK ${red}5.8 ${plain}"
 echo -e "${add} ${cyan}ADM-MANAGER-ALPHA-MOD ${red}BETA ${plain}"
 }
+#MultiScripts
+multi_scripts () {
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-TD.sh)
+}
 cambios
+multi_scripts
