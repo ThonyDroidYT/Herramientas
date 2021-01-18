@@ -15,7 +15,7 @@ echo -e "\033[1;31mLista de Cambios ${name}${versión}${plain}"
 echo -e "${add} ${cyan}SSLH MULTIPLEX ${red}BETA 
 ${fix} ${cyan}Traductor Script Algunas VPS
 ${add} ${cyan}VPS-PACK ${red}5.8
-${add} ${cyan}ADM-MANAGER-ALPHA-MOD
+${add} ${cyan}ADM-MANAGER-ALPHA-MOD ${red}BETA
 ${plain}"
 }
 cambios
