@@ -52,6 +52,9 @@ num7='\033[1;32m [7] \033[1;31m>'
 num8='\033[1;32m [8] \033[1;31m>'
 num9='\033[1;32m [9] \033[1;31m>'
 num10='\033[1;32m [10] \033[1;31m>'
+num11='\033[1;32m [11] \033[1;31m>'
+num12='\033[1;32m [12] \033[1;31m>'
+num13='\033[1;32m [13] \033[1;31m>'
 #VERSIONES
 vmulti="\033[1;33mv1.2"
 vpack="\033[1;31mFREE"
@@ -198,6 +201,7 @@ echo -e "${num8} ${cyan}INSTALAR AMX-ADM BY ANDROIDMX-TEAM ${vadmx} ${plain}"
 echo -e "${num9} ${cyan}INSTALAR ADM-ALPHA BY THONYDROID ${valpha} ${plain}"
 echo -e "${barra}"
 echo -e "${num10} ${cyan}INSTALAR PANELWEB SSHPLUS BY CRAZY_VPN ${vpanel} ${plain}"
+echo -e "${num10} ${cyan}VER CAMBIOS ${green}MULTISCRIPT ${plain}"
 echo -e "${barra}"
 echo -e "${num0} ${red}SALIR DEL MULTISCRIPT ${plain}"
 echo -e "${barra}"
@@ -217,6 +221,7 @@ exit;;
 8)amxadm;;
 9)adm-alpha;
 10)panelweb;;
+11)bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh);;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
