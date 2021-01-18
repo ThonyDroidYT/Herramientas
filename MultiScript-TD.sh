@@ -181,6 +181,9 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 panelweb () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Install/Panel_Web/Panelweb.sh; chmod +x Panelweb.sh; ./Panelweb.sh
 }
+changelog () {
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
+}
 #MENU
 limpiar
 clear
@@ -219,11 +222,8 @@ exit;;
 7)admvps;;
 8)amxadm;;
 9)adm-alpha;
-10)
-panelweb;;
-11)
-bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
-;;
+10)panelweb;;
+11)changelog;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
