@@ -119,6 +119,13 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m$IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 }
+#Actualizar Archivos
+fun_update () {
+apt-get update -y
+apt-get upgrade -y
+dpkg --configure -a
+clear
+}
 #MULTISCRIPTS
 vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
@@ -185,6 +192,7 @@ changelog () {
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
 }
 #MENU
+fun_update
 limpiar
 #clear
 echo -e "${barra}"
