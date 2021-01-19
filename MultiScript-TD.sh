@@ -192,7 +192,7 @@ changelog () {
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
 }
 #MENU
-fun_update
+#fun_update
 limpiar
 #clear
 echo -e "${barra}"
