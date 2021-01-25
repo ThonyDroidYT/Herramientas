@@ -63,7 +63,6 @@ wget -O $HOME/Clash.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramient
 #### Clash Server Secundario
 
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Clash_Server.sh)
-
 #
 ### SHADOWNSOCKS MODS
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Shadown/ShadowsMods.sh)
