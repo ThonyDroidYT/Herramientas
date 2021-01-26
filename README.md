@@ -71,3 +71,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 ### BANNER INSTALLER
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/BannerPro.sh)
 #
+### Bot WhatsApp
+pkg install curl -y; bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Alfa_BotWA.sh)
+#
