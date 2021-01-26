@@ -7,7 +7,7 @@ verif_ptrs() {
 		for pton in $(echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq); do
 			svcs=$(echo -e "$PT" | grep -w "$pton" | awk '{print $1}' | uniq)
 			[[ "$porta" = "$pton" ]] && {
-				echo -e "\n\033[1;31mPUERTO \033[1;33m$porta \033[1;31mEM USO PELO \033[1;37m$svcs\033[0m"
+				echo -e "\n\033[1;31mPUERTO \033[1;33m$porta \033[1;31mEN USO POR: \033[1;37m$svcs\033[0m"
 				sleep 3
 				#fun_conexao
                                 menu_inst
