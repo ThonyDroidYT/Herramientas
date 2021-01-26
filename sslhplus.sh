@@ -52,6 +52,7 @@ fun_sslh() {
                         echo -e "${barra}"
 			echo -e "\033[1;36m             INSTALADOR SSLH \033[1;32m[NEW-ADM-PLUS]   \E[0m"
                         echo -e "${barra}"
+                        echo -e""
 			echo -e "\033[1;32m[\033[1;31m!\033[1;33m] \033[1;32mUN PUERTO \033[1;37m443 \033[1;32mSERA USADO POR DEFECTO\033[0m"
                         #echo -e "${barra}"
 			echo -ne "\033[1;33mREALMENTE DESEA INSTALAR SSLH \033[1;31m? \033[1;33m[s/n]: \033[1;37m"
@@ -72,13 +73,13 @@ fun_sslh() {
 				[[ $(netstat -nplt | grep -w 'sslh' | wc -l) != '0' ]] && echo -e "\n\033[1;32mINSTALADO COM SUCESSO !\033[0m" || echo -e "\n\033[1;31mERROR INESPERADO !\033[0m"
 				sleep 3
 				#fun_conexao
-                                menu_inst
+                                #menu_inst
                                 source menu
 			} || {
 				echo -e "\n\033[1;31mRetornando.."
 				sleep 2
 				#fun_conexao
-                                menu_inst
+                                #menu_inst
                                 source menu
 			}
 		} || {
@@ -97,13 +98,13 @@ fun_sslh() {
 				echo -e "\n\033[1;32mREMOVIDO CON ÉXITO !\033[0m\n"
 				sleep 2
 				#fun_conexao
-                                menu_inst
+                                #menu_inst
                                 source menu
 			} || {
 				echo -e "\n\033[1;31mRetornando.."
 				sleep 2
 				#fun_conexao
-                                menu_inst
+                                #menu_inst
                                 source menu
 			}
 		}
