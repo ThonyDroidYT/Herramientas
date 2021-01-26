@@ -52,9 +52,10 @@ fun_sslh() {
                         echo -e "${barra}"
 			echo -e "\033[1;36m             INSTALADOR SSLH \033[1;32m[NEW-ADM-PLUS]   \E[0m"
                         echo -e "${barra}"
-                        echo -e""
+                        #echo -e""
 			echo -e "\033[1;32m[\033[1;31m!\033[1;33m] \033[1;32mUN PUERTO \033[1;37m443 \033[1;32mSERA USADO POR DEFECTO\033[0m"
                         #echo -e "${barra}"
+                        echo -e""
 			echo -ne "\033[1;33mREALMENTE DESEA INSTALAR SSLH \033[1;31m? \033[1;33m[s/n]: \033[1;37m"
 			read resp
 			[[ "$resp" = 's' ]] && {
