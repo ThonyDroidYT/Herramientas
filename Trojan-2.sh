@@ -118,7 +118,7 @@ case $trojan_menu in
 0)
 clear
 exit;;
-1)start_menu;;
+1)trojanserver;;
 2)removertrojan;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
