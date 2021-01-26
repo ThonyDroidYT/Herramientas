@@ -27,12 +27,12 @@ instalar_paquetes () {
 echo -e "\033[1;33miniciando instalación\033[0m"
 fun_bar
 pkg update; pkg upgrade
-pkg install git
-pkg install tesseract
-pkg install nodejs
-pkg install libwebp
-pkg install ffmpeg
-pkg install wget
+pkg install git -y
+pkg install tesseract -y
+pkg install nodejs -y
+pkg install libwebp -y
+pkg install ffmpeg -y
+pkg install wget -y
 echo -e "\033[1;32mInstalación Terminada\033[0m"
 fun_bar
 echo -e "\033[1;33mClonando Repositorio\033[0m"
