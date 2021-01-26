@@ -1,5 +1,5 @@
 #!/bin/bash
-
+barra="\033[1;34m=========================================================\033[0m"
 #Verificador de Puertos
 verif_ptrs() {
 		porta=$1
@@ -49,9 +49,11 @@ fun_bar2() {
 fun_sslh() {
 		[[ "$(netstat -nltp | grep 'sslh' | wc -l)" = '0' ]] && {
 			clear
-			echo -e "\E[1;37m             INSTALADOR SSLH               \E[0m\n"
-			echo -e "\n\033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mUN PUERTO \033[1;37m443 \033[1;32mSERA USADO POR DEFECTO\033[0m\n"
-			echo -ne "\033[1;32mREALMENTE DESEA INSTALAR SSLH \033[1;31m? \033[1;33m[s/n]:\033[1;37m "
+                        echo -e "${barra}"
+			echo -e "\033[1;36m             INSTALADOR SSLH \033[1;32m[NEW-ADM-PLUS]   \E[0m"
+			echo -e "\n\033[1;32m[\033[1;31m!\033[1;33m] \033[1;32mUN PUERTO \033[1;37m443 \033[1;32mSERA USADO POR DEFECTO\033[0m"
+                        echo -e "${barra}"
+			echo -ne "\033[1;33mREALMENTE DESEA INSTALAR SSLH \033[1;31m? \033[1;33m[s/n]:\033[1;37m"
 			read resp
 			[[ "$resp" = 's' ]] && {
 				verif_ptrs 443
