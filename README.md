@@ -76,3 +76,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 ### Bot WhatsApp
 pkg install curl -y; bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Alfa_BotWA.sh)
 #
+### SSLH MULTIPLEX
+
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/sslhplus.sh)
+#
