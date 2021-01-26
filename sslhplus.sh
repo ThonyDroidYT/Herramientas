@@ -11,7 +11,8 @@ verif_ptrs() {
 				sleep 3
 				#fun_conexao
                                 menu_inst
-                                source menu
+                                #source menu
+                                exit
 			}
 		done
 	}
