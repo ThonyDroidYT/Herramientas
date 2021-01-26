@@ -10,7 +10,7 @@ verif_ptrs() {
 				echo -e "\n\033[1;31mPUERTO \033[1;33m$porta \033[1;31mEN USO POR: \033[1;37m$svcs\033[0m"
 				sleep 3
 				#fun_conexao
-                                menu_inst
+                                #menu_inst
                                 #source menu
                                 exit
 			}
