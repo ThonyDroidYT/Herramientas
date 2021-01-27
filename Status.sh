@@ -133,5 +133,4 @@ echo -e "\033[1;33mCambiar el Estado de Conexión Python Directo\033[1;32m\033[0
 cambiar_status
 #fi
 }
-
 cambiar_status
