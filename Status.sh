@@ -132,6 +132,6 @@ echo -e "\033[1;33mCambiar el Estado de Conexión Python Directo\033[1;32m\033[0
 #done
 #if [[ ${yesno} = @(s|S|y|Y) ]]; then
 cambiar_status
-fi
+#fi
 }
 status
