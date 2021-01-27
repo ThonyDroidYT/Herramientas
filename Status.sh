@@ -84,16 +84,16 @@ echo -e "\033[1;32mALTERANDO STATUS!"
 					fi
 				}
 colores () {
-echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;33m AZUL"
-				echo -e "\033[1;31m[\033[1;36m02\033[1;31m]\033[1;33m VERDE"
-				echo -e "\033[1;31m[\033[1;36m03\033[1;31m]\033[1;33m VERMELHO"
-				echo -e "\033[1;31m[\033[1;36m04\033[1;31m]\033[1;33m AMARELO"
-				echo -e "\033[1;31m[\033[1;36m05\033[1;31m]\033[1;33m ROSA"
-				echo -e "\033[1;31m[\033[1;36m06\033[1;31m]\033[1;33m CYANO"
-				echo -e "\033[1;31m[\033[1;36m07\033[1;31m]\033[1;33m LARANJA"
+echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;34m AZUL"
+				echo -e "\033[1;31m[\033[1;36m02\033[1;31m]\033[1;32m VERDE"
+				echo -e "\033[1;31m[\033[1;36m03\033[1;31m]\033[1;31m VERMELHO"
+				echo -e "\033[1;31m[\033[1;36m04\033[1;31m]\033[1;33m AMARILLO"
+				echo -e "\033[1;31m[\033[1;36m05\033[1;31m]\033[1;35m ROSA"
+				echo -e "\033[1;31m[\033[1;36m06\033[1;31m]\033[1;36m CYANO"
+				echo -e "\033[1;31m[\033[1;36m07\033[1;31m]\033[1;33m NARANJA"
 				echo -e "\033[1;31m[\033[1;36m08\033[1;31m]\033[1;33m ROXO"
 				echo -e "\033[1;31m[\033[1;36m09\033[1;31m]\033[1;33m PRETO"
-				echo -e "\033[1;31m[\033[1;36m10\033[1;31m]\033[1;33m SEM COR"
+				echo -e "\033[1;31m[\033[1;36m10\033[1;31m]\033[1;33m SIN COLOR"
 				echo ""
 				echo -ne "\033[1;32mQUE COLOR\033[1;31m ?\033[1;37m : "
 				read sts_cor
@@ -123,7 +123,6 @@ echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;33m AZUL"
                     alterando
 				fi
 }
-
 status () {
 echo -e "\033[1;33mCambiar el Estado de Conexión Python Directo\033[1;32m\033[0m"
 #while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
@@ -134,4 +133,4 @@ echo -e "\033[1;33mCambiar el Estado de Conexión Python Directo\033[1;32m\033[0
 cambiar_status
 #fi
 }
-status
+cambiar_status
