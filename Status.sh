@@ -27,8 +27,8 @@ fun_bar() {
 		tput cnorm
 	}
 
-cambiar_status () {
-msgsocks=$(cat /etc/ger-inst/PDirect.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
+                                cambiar_status () {
+                                msgsocks=$(cat /etc/ger-inst/PDirect.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
 				echo -e "\E[44;1;37m             PROXY SOCKS              \E[0m"
 				echo ""
 				echo -e "\033[1;33mSTATUS: \033[1;32m$msgsocks"
@@ -46,14 +46,14 @@ msgsocks=$(cat /etc/ger-inst/PDirect.py | grep -E "MSG =" | awk -F = '{print $2}
 					sleep 2
 					status
 				}
-fun_msgsocks() {
+                                        fun_msgsocks() {
 					msgsocks2=$(cat /etc/ger-inst/PDirect.py | grep "MSG =" | awk -F = '{print $2}')
 					sed -i "s/$msgsocks2/ '$msgg'/g" /etc/ger-inst/PDirect.py
 					sleep 1
 					cor_old=$(grep 'color=' /etc/ger-inst/PDirect.py | cut -d '"' -f2)
 					sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/ger-inst/PDirect.py
 					alterando2
-}
+                                        }
 alterando2 () {
 echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
 				echo ""
@@ -64,11 +64,11 @@ echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
 				status
 }
 
-alterando () {
-echo -e "\033[1;32mALTERANDO STATUS!"
+                                alterando () {
+                                echo -e "\033[1;32mALTERANDO STATUS!"
 				echo ""
 				fun_bar 'fun_msgsocks'
-}
+                                }
 				restartsocks() {
 					if ps x | grep PDirect.py | grep -v grep 1>/dev/null 2>/dev/null; then
 						echo -e "$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)" >/tmp/Pt_sks
@@ -81,10 +81,10 @@ echo -e "\033[1;32mALTERANDO STATUS!"
 						screen -dmS proxy python /etc/ger-inst/PDirect.py $_Ptsks
 						rm /tmp/Pt_sks
 						alterando2
-					fi
-				}
-colores () {
-echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;34m AZUL"
+					        fi
+				                }
+                                colores () {
+                                echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;34m AZUL"
 				echo -e "\033[1;31m[\033[1;36m02\033[1;31m]\033[1;32m VERDE"
 				echo -e "\033[1;31m[\033[1;36m03\033[1;31m]\033[1;31m ROJO"
 				echo -e "\033[1;31m[\033[1;36m04\033[1;31m]\033[1;33m AMARILLO"
@@ -120,9 +120,9 @@ echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;34m AZUL"
 				else
 					echo -e "\n\033[1;33mOPCION INVALIDA !"
 					cor_sts='null'
-                    alterando
+                                alterando
 				fi
-}
+                                }
 status () {
 echo -e "\033[1;33mCambiar el Estado de Conexión Python Directo\033[1;32m\033[0m"
 #while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
