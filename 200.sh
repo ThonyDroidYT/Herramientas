@@ -44,17 +44,17 @@ echo -e "${barra}"
 echo -e "\033[1;31mSTATUS ACTUAL: \033[1;32m$msgsocks"
 echo -e ""
 echo -ne "\033[1;33mINGRESE SU NUEVO STATUS\033[1;33m: 》\033[1;37m"
-read msgg 
-                                echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;34m AZUL"
-				echo -e "\033[1;31m[\033[1;36m02\033[1;31m]\033[1;32m VERDE"
-				echo -e "\033[1;31m[\033[1;36m03\033[1;31m]\033[1;31m ROJO"
-				echo -e "\033[1;31m[\033[1;36m04\033[1;31m]\033[1;33m AMARILLO"
-				echo -e "\033[1;31m[\033[1;36m05\033[1;31m]\033[1;35m ROSA"
-				echo -e "\033[1;31m[\033[1;36m06\033[1;31m]\033[1;36m CYANO"
-				echo -e "\033[1;31m[\033[1;36m07\033[1;31m]\033[1;33m NARANJA"
-				echo -e "\033[1;31m[\033[1;36m08\033[1;31m]\033[1;35m PURPURA"
-				echo -e "\033[1;31m[\033[1;36m09\033[1;31m]\033[1;33m NEGRO"
-				echo -e "\033[1;31m[\033[1;36m10\033[1;31m]\033[0m SIN COLOR"
+read msgg
+                                echo -e "\033[1;31m[\033[1;32m01\033[1;31m] >\033[1;34m AZUL"
+				echo -e "\033[1;31m[\033[1;32m02\033[1;31m] >\033[1;32m VERDE"
+				echo -e "\033[1;31m[\033[1;32m03\033[1;31m] >\033[1;31m ROJO"
+				echo -e "\033[1;31m[\033[1;32m04\033[1;31m] >\033[1;33m AMARILLO"
+				echo -e "\033[1;31m[\033[1;32m05\033[1;31m] >\033[1;35m ROSA"
+				echo -e "\033[1;31m[\033[1;32m06\033[1;31m] >\033[1;36m CYANO"
+				echo -e "\033[1;31m[\033[1;32m07\033[1;31m] >\033[0;33m NARANJA"
+				echo -e "\033[1;31m[\033[1;32m08\033[1;31m] >\033[1;35m PURPURA"
+				echo -e "\033[1;31m[\033[1;32m09\033[1;31m] >\033[30m NEGRO"
+				echo -e "\033[1;31m[\033[1;32m10\033[1;31m] >\033[0m SIN COLOR"
 				echo ""
 				echo -ne "\033[1;33mQUE COLOR\033[1;32m ?\033[1;37m : "
 				read sts_cor
@@ -102,7 +102,6 @@ sleep 1
 screen -dmS proxy python /etc/ger-inst/PDirect.py $_Ptsks
 rm /tmp/Pt_sks
 fi
-echo ""
 echo -e "\033[1;32mSTATUS ALTERADO CON EXITO!"
 sleep 2
 }
