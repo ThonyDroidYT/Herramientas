@@ -38,11 +38,10 @@ clear
 
 cambiar_status () {
 msgsocks=$(cat /etc/ger-inst/PDirect.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
-echo "${barra}"
+echo -e "${barra}"
 echo -e "\E[;1;36m            STATUS SOCKSPYTHON DIRECTO             \E[0m"
-echo "${barra}"
+echo -e "${barra}"
 echo -e "\033[1;31mSTATUS ACTUAL: \033[1;32m$msgsocks"
-echo -e ""
 echo -e ""
 echo -ne "\033[1;33mINGRESE SU NUEVO STATUS\033[1;33m: 》\033[1;37m"
 read msgg 
