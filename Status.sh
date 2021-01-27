@@ -126,11 +126,11 @@ echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;33m AZUL"
 
 status () {
 echo -e "\033[1;33mCambiar el Estado de Conexión Python Directo\033[1;32m\033[0m"
-while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
-read -p "[S/N]: " yesno
-tput cuu1 && tput dl1
-done
-if [[ ${yesno} = @(s|S|y|Y) ]]; then
+#while [[ ${yesno} != @(s|S|y|Y|n|N) ]]; do
+#read -p "[S/N]: " yesno
+#tput cuu1 && tput dl1
+#done
+#if [[ ${yesno} = @(s|S|y|Y) ]]; then
 cambiar_status
 fi
 }
