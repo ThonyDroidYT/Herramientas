@@ -53,22 +53,10 @@ echo -e "\033[1;32m[4] \033[1;31m> \033[1;37mREMOVER \033[1;36mVNC\033[0m"
 echo -e "${barra}"
 read -p "OPCION: 》" resposta
 case $resposta in
-1)
-install_vnc
-break
-;;
-2)
-vncserver
-break
-;;
-3)
-vncserver -kill :1
-break
-;;
-4)
-remover_vnc
-break
-;;
+1)install_vnc;;
+2)vncserver;;
+3)vncserver -kill :1;;
+4)remover_vnc;;
 0)
 break
 exit
