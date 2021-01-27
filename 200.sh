@@ -56,7 +56,7 @@ read msgg
 				echo -e "\033[1;31m[\033[1;32m09\033[1;31m] >\033[90m NEGRO"
 				echo -e "\033[1;31m[\033[1;32m10\033[1;31m] >\033[0m SIN COLOR"
 				echo ""
-				echo -ne "\033[1;33mQUE COLOR\033[1;32m ?\033[1;37m : "
+				echo -ne "\033[1;33mQUE COLOR\033[1;33m ?\033[1;37m :》"
 				read sts_cor
 				if [[ "$sts_cor" = "1" ]] || [[ "$sts_cor" = "01" ]]; then
 					cor_sts='blue'
@@ -87,7 +87,9 @@ sed -i "s/$msgsocks2/ '$msgg'/g" /etc/ger-inst/PDirect.py
 sleep 1
 cor_old=$(grep 'color=' /etc/ger-inst/PDirect.py | cut -d '"' -f2)
 sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/ger-inst/PDirect.py
-echo -e "\033[1;33mALTERANDO STATUS!"
+sleep 2
+echo ""
+echo -e "\033[1;35mALTERANDO STATUS!"
 echo ""
 echo -e "\033[1;36mREINICIANDO PROXY SOCKSPYTHON!"
 echo ""
