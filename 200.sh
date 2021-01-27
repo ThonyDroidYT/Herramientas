@@ -1,8 +1,8 @@
 #!/bin/bash
 #BARRA AZUL
-#barra="\033[1;34m======================================================\033[0m"
+barra="\033[1;34m======================================================\033[0m"
 #barra="\033[1;34m**********************************************************\033[0m"
-barra="\033[1;34m+++++++++++++++++++++++++++++++++++++++++++++++++++++++\033[0m"
+#barra="\033[1;34m+++++++++++++++++++++++++++++++++++++++++++++++++++++++\033[0m"
 #barra="\033[1;34m###############################################\033[0m"
 #barra="\033[1;34m_____________________________________________________\033[0m"
 
@@ -38,11 +38,13 @@ clear
 
 cambiar_status () {
 msgsocks=$(cat /etc/ger-inst/PDirect.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
+echo "${barra}"
 echo -e "\E[;1;36m            STATUS SOCKSPYTHON DIRECTO             \E[0m"
-echo ""
+echo "${barra}"
 echo -e "\033[1;31mSTATUS ACTUAL: \033[1;32m$msgsocks"
-echo""
-echo -ne "\033[1;33mINFORME SU NUEVO STATUS\033[1;33m:》\033[1;37m "
+echo -e ""
+echo -e ""
+echo -ne "\033[1;33mINGRESE SU NUEVO STATUS\033[1;33m: 》\033[1;37m"
 read msgg 
                                 echo -e "\n\033[1;31m[\033[1;36m01\033[1;31m]\033[1;34m AZUL"
 				echo -e "\033[1;31m[\033[1;36m02\033[1;31m]\033[1;32m VERDE"
@@ -55,7 +57,7 @@ read msgg
 				echo -e "\033[1;31m[\033[1;36m09\033[1;31m]\033[1;33m NEGRO"
 				echo -e "\033[1;31m[\033[1;36m10\033[1;31m]\033[0m SIN COLOR"
 				echo ""
-				echo -ne "\033[1;32mQUE COLOR\033[1;31m ?\033[1;37m : "
+				echo -ne "\033[1;33mQUE COLOR\033[1;32m ?\033[1;37m : "
 				read sts_cor
 				if [[ "$sts_cor" = "1" ]] || [[ "$sts_cor" = "01" ]]; then
 					cor_sts='blue'
@@ -78,7 +80,7 @@ read msgg
 				elif [[ "$sts_cor" = "10" ]]; then
 					cor_sts='null'
 				else
-					echo -e "\n\033[1;33mOPCION INVALIDA !"
+					echo -e "\n\033[1;31mOPCION INVALIDA !"
 					cor_sts='null'
 				fi
 msgsocks2=$(cat /etc/ger-inst/PDirect.py | grep "MSG =" | awk -F = '{print $2}')
@@ -88,7 +90,7 @@ cor_old=$(grep 'color=' /etc/ger-inst/PDirect.py | cut -d '"' -f2)
 sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/ger-inst/PDirect.py
 echo -e "\033[1;33mALTERANDO STATUS!"
 echo ""
-echo -e "\033[1;36mREINICIANDO PROXY SOCKS!"
+echo -e "\033[1;36mREINICIANDO PROXY SOCKSPYTHON!"
 echo ""
 if ps x | grep PDirect.py | grep -v grep 1>/dev/null 2>/dev/null; then
 echo -e "$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)" >/tmp/Pt_sks
