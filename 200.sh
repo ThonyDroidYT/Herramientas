@@ -38,7 +38,7 @@ clear
 
 cambiar_status () {
 msgsocks=$(cat /etc/ger-inst/PDirect.py | grep -E "MSG =" | awk -F = '{print $2}' | cut -d "'" -f 2)
-echo -e "\E[44;1;37m             PROXY SOCKS              \E[0m"
+echo -e "\E[;1;37m             PROXY SOCKS              \E[0m"
 echo ""
 echo -e "\033[1;33mSTATUS: \033[1;32m$msgsocks"
 echo""
@@ -88,7 +88,7 @@ cor_old=$(grep 'color=' /etc/ger-inst/PDirect.py | cut -d '"' -f2)
 sed -i "s/\b$cor_old\b/$cor_sts/g" /etc/ger-inst/PDirect.py
 echo -e "\033[1;32mALTERANDO STATUS!"
 echo ""
-echo -e "\033[1;32mREINICIANDO PROXY SOCKS!"
+echo -e "\033[1;36mREINICIANDO PROXY SOCKS!"
 echo ""
 if ps x | grep PDirect.py | grep -v grep 1>/dev/null 2>/dev/null; then
 echo -e "$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)" >/tmp/Pt_sks
