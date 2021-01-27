@@ -56,7 +56,7 @@ read msgg
 				echo -e "\033[1;31m[\033[1;32m09\033[1;31m] >\033[90m NEGRO"
 				echo -e "\033[1;31m[\033[1;32m10\033[1;31m] >\033[0m SIN COLOR"
 				echo ""
-				echo -ne "\033[1;33mQUE COLOR\033[1;33m ?\033[1;37m :》"
+				echo -ne "\033[1;33mCOLOR\033[1;33m:\033[1;33m 》"
 				read sts_cor
 				if [[ "$sts_cor" = "1" ]] || [[ "$sts_cor" = "01" ]]; then
 					cor_sts='blue'
