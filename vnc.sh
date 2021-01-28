@@ -83,8 +83,11 @@ echo -e "\033[1;33mInstalando Paquetes Necesarios\033[0m"
 fun_bar
 sudo apt install xfce4 xfce4-goodies -y
 sudo apt install tightvncserver -y
+apt-get install chrome -y
 apt-get install firefox -y
 apt-get install iceweasel
+apt-get install vinagre -y
+apt-get install krdc -y
 #apt-get install xfce4 xfce4-goodies gnome-icon-theme tightvncserver
 clear
 echo -e "\033[1;36mPaquetes Instalados \033[0m"
@@ -108,7 +111,15 @@ echo -e "\033[1;31mRemoviendo Servidor VNC  \033[0m"
 apt-get remove xfce4 xfce4-goodies gnome-icon-theme tightvncserver -y
 apt-get remove iceweasel -y
 apt-get remove firefox -y
-#fun_bar
+apt-get remove chrome -y
+apt-get purge tightvncserver -y
+apt-get remove tightvncserver -y
+apt-get purge xfce4 xfce4-goodies -y
+apt-get remove xfce4 xfce4-goodies -y
+apt-get remove vinagre -y
+apt-get remove krdc -y
+
+fun_bar
 echo -e "\033[1;32mRemovido con Éxito! \033[0m"
 }
 conectvnc () {
@@ -119,7 +130,7 @@ echo -e "\033[1;32mParando Servidor VNC  \033[0m"
 vncserver -kill :1
 vncserver -kill :2
 vncserver -kill :3
-#fun_bar
+fun_bar
 echo -e "\033[1;32mVNC Parado con Éxito! \033[0m"
 }
 menuvnc () {
