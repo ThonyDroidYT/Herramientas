@@ -67,7 +67,7 @@ echo -e "\033[1;32mConexión VNC Segura Con SSH\033[0m"
 echo -e "\033[1;33mIngrese un nombre de usuario sudo no root \033[0m"
 read -p "USUARIO: 》  " user
 ssh -L 5901:127.0.0.1:5901 -C -N -l $user $IP
-echo -e "\033[1;36mProcedimiento Completado\033[0m
+echo -e "\033[1;36mProcedimiento Completado\033[0m"
 echo -e "\033[1;36mUtilice un cliente VNC para conectarse a  \033[1;32m$IP:5901\033[0m"
 echo -e "\033[1;36mSe le pedirá que autentique usando la contraseña que configuró al instalar vnc.\033[0m"
 }
