@@ -49,12 +49,11 @@ dpkg --configure -a
 clear
 }
 configurarvnc () {
-echo -e "\033[1;36mConfigurar VNC \033[0m"
+#echo -e "\033[1;36mConfigurar VNC \033[0m"
 fun_bar 'stopvnc'
 mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 touch ~/.vnc/xstartup
 echo -e "\033[1;33mConfigurando VNC\033[0m"
-fun_bar
 echo '#!/bin/bash
 xrdb $HOME/.Xresources
 startxfce4 &' >> ~/.vnc/xstartup
@@ -80,7 +79,7 @@ echo -e "\033[1;36mVNC VIEWER DESDE PLAYSTORE PARA USAR EL SERVIDOR VNC\033[0m"
 fun_bar 'fun_update'
 echo -e "\033[1;33mActualizando Paquetes\033[0m"
 fun_bar
-echo -e "\033[1;33mInstalando Paquetes Necesarios \033[0m"
+echo -e "\033[1;33mInstalando Paquetes Necesarios\033[0m"
 fun_bar
 sudo apt install xfce4 xfce4-goodies -y
 sudo apt install tightvncserver -y
