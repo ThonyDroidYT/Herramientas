@@ -85,10 +85,10 @@ menuvnc () {
 echo -e "${cyan}        INSTALADOR VNC VIEWER   ${green}[NEW-ADM-PLUS] ${plain}"
 echo -e "${barra}"
 echo -e "\033[1;31m[0] \033[1;31m> \033[1;31mSALIR\033[0m"
-echo -e "\033[1;32m[1] \033[1;31m> \033[1;33mINSTALAR \033[1;37mVNC\033[0m"
+echo -e "\033[1;32m[1] \033[1;31m> \033[1;33mINSTALAR \033[1;36mVNC\033[0m"
 echo -e "\033[1;32m[2] \033[1;31m> \033[1;32mCONECTAR \033[1;36mVNC\033[0m"
 echo -e "\033[1;32m[3] \033[1;31m> \033[1;31mPARAR \033[1;36mVNC\033[0m"
-echo -e "\033[1;32m[4] \033[1;31m> \033[1;37mREMOVER \033[1;36mVNC\033[0m"
+echo -e "\033[1;32m[4] \033[1;31m> \033[1;31mREMOVER \033[1;36mVNC\033[0m"
 echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read multiscripts
 read -p "SELECIONE UNA OPCIÓN: 》" vncviewer
