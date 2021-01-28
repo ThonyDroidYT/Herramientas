@@ -51,12 +51,14 @@ echo -e "\033[1;36mAhora Introduzca una contraseña para acceder a su máquina d
 vncserver
 clear
 #fun_bar
+echo -e "${barra}"
 echo -e "\033[1;36mServidor VNC Instalado Correctamente! \033[0m"
 #echo -e "\033[1;36mRECUERDA QUE DEBES INSTALAR LA APLICACION\033[0m"
 #echo -e "\033[1;36mVNC VIEWER DESDE PLAYSTORE PARA USAR EL SERVIDOR VNC\033[0m"
-echo -e "\033[1;32mIP: \033[1;37m$IP  \033[0m"
-echo -e "\033[1;32mPUERTO: \033[1;37m5901 \033[0m"
-echo -e "\033[1;32mPASSWORD: \033[1;37mLA QUE PUSO ANTES\033[0m"
+echo -e "\033[1;32mIP: \033[1;33m$IP  \033[0m"
+echo -e "\033[1;32mPUERTO: \033[1;33m5901 \033[0m"
+echo -e "\033[1;32mPASSWORD: \033[1;33mLA QUE PUSO ANTES\033[0m"
+echo -e "${barra}"
 }
 removevnc () {
 echo -e "\033[1;31mRemoviendo Servidor VNC  \033[0m"
