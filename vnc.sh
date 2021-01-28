@@ -48,6 +48,29 @@ apt-get upgrade -y
 dpkg --configure -a
 clear
 }
+configurarvnc () {
+echo -e "\033[1;36mConfigurar VNC \033[0m"
+fun_bar 'stopvnc'
+mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+touch ~/.vnc/xstartup
+echo -e "\033[1;33mConfigurando VNC\033[0m"
+fun_bar
+echo '#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &' >> ~/.vnc/xstartup
+sudo chmod +x ~/.vnc/xstartup
+fun_bar 'conectvnc'
+echo -e "\033[1;32mVNC Configurado Correctamente! \033[0m"
+}
+vnc_ssh () {
+echo -e "\033[1;32mConexión VNC Segura Con SSH\033[0m"
+echo -e "\033[1;33mIngrese un nombre de usuario sudo no root \033[0m"
+read -p "USUARIO: 》  " user
+ssh -L 5901:127.0.0.1:5901 -C -N -l $user $IP
+echo -e "\033[1;36mProcedimiento Completado\033[0m
+echo -e "\033[1;36mUtilice un cliente VNC para conectarse a  \033[1;32m$IP:5901\033[0m"
+echo -e "\033[1;36mSe le pedirá que autentique usando la contraseña que configuró al instalar vnc.\033[0m"
+}
 installvnc () {
 echo -e "${barra}"
 echo -e "\033[1;36mLA INSTALACION PUEDE DEMORAR ALGUNOS MINUTOS\033[0m"
@@ -105,9 +128,11 @@ menuvnc () {
 echo -e "${cyan}        INSTALADOR VNC VIEWER   ${green}[NEW-ADM-PLUS] ${plain}"
 echo -e "${barra}"
 echo -e "\033[1;32m[1] \033[1;31m> \033[1;33mINSTALAR \033[1;36mVNC\033[0m"
-echo -e "\033[1;32m[2] \033[1;31m> \033[1;32mCONECTAR \033[1;36mVNC\033[0m"
-echo -e "\033[1;32m[3] \033[1;31m> \033[1;31mPARAR \033[1;36mVNC\033[0m"
-echo -e "\033[1;32m[4] \033[1;31m> \033[1;31mREMOVER \033[1;36mVNC\033[0m"
+echo -e "\033[1;32m[2] \033[1;31m> \033[1;32mCONFIGURAR \033[1;36mVNC\033[0m"
+echo -e "\033[1;32m[3] \033[1;31m> \033[1;33mCONEXIÓN SEGURA DE \033[1;36mVNC \033[1;36mCON \033[1;32mSSH\033[0m"
+echo -e "\033[1;32m[4] \033[1;31m> \033[1;32mCONECTAR \033[1;36mVNC\033[0m"
+echo -e "\033[1;32m[5] \033[1;31m> \033[1;31mPARAR \033[1;36mVNC\033[0m"
+echo -e "\033[1;32m[6] \033[1;31m> \033[1;31mREMOVER \033[1;36mVNC\033[0m"
 echo -e "\033[1;31m[0] \033[1;31m> \033[1;31mSALIR\033[0m"
 #echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read multiscripts
@@ -117,9 +142,11 @@ case $vncviewer in
 clear
 exit;;
 1)installvnc;;
-2)conectvnc;;
-3)stopvnc;;
-4)removevnc;;
+2)configurarvnc;;
+3)vnc_ssh;;
+4)conectvnc;;
+5)stopvnc;;
+6)removevnc;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
