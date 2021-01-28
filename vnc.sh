@@ -19,6 +19,28 @@ cyan="\033[1;36m"
 Gris="\033[1;100m"
 Rojo="\033[1;41m"
 Azul="\033[44m"
+#FUN_BAR
+fun_bar () {
+comando="$1"
+ _=$(
+$comando > /dev/null 2>&1
+) & > /dev/null
+pid=$!
+while [[ -d /proc/$pid ]]; do
+echo -ne " \033[1;33m["
+   for((i=0; i<10; i++)); do
+   echo -ne "\033[1;31m##"
+   sleep 0.2
+   done
+echo -ne "\033[1;33m]"
+sleep 1s
+echo
+tput cuu1
+tput dl1
+done
+echo -e " \033[1;33m[\033[1;31m####################\033[1;33m] - \033[1;32m100%\033[0m"
+sleep 1s
+}
 #Actualizar Archivos
 fun_update () {
 apt-get update -y
@@ -32,25 +54,23 @@ echo -e "\033[1;36mLA INSTALACION PUEDE DEMORAR ALGUNOS MINUTOS\033[0m"
 echo -e "${barra}"
 echo -e "\033[1;36mRECUERDA QUE DEBES INSTALAR LA APLICACION\033[0m"
 echo -e "\033[1;36mVNC VIEWER DESDE PLAYSTORE PARA USAR EL SERVIDOR VNC\033[0m"
-fun_update
+fun_bar 'fun_update'
 echo -e "\033[1;33mActualizando Paquetes\033[0m"
-#fun_bar
+fun_bar
 echo -e "\033[1;33mInstalando Paquetes Necesarios \033[0m"
-#fun_bar
+fun_bar
 sudo apt install xfce4 xfce4-goodies -y
 sudo apt install tightvncserver -y
 apt-get install firefox -y
 apt-get install iceweasel
 #apt-get install xfce4 xfce4-goodies gnome-icon-theme tightvncserver
 clear
-#fun_bar
 echo -e "\033[1;36mPaquetes Instalados \033[0m"
-#fun_bar
+fun_bar
 echo -e "\033[1;36mIniciando Servidor VNC \033[0m"
-#fun_bar
+fun_bar
 echo -e "\033[1;36mAhora Introduzca una contraseña para acceder a su máquina de forma remota\033[0m"
 vncserver
-clear
 #fun_bar
 echo -e "${barra}"
 echo -e "\033[1;36mServidor VNC Instalado Correctamente! \033[0m"
