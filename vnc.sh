@@ -5,6 +5,7 @@
 barra="\033[1;34m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\033[0m"
 #barra="\033[1;34m###############################################\033[0m"
 #barra="\033[1;34m_____________________________________________________\033[0m"
+IP=$(wget -qO- ipv4.icanhazip.com)
 #COLORES
 blan="\033[1;37m"
 plain="\033[0m"
@@ -80,8 +81,7 @@ vncserver -kill :3
 echo -e "\033[1;32mVNC Parado con Éxito! \033[0m"
 }
 menuvnc () {
-IP=$(wget -qO- ipv4.icanhazip.com)
-echo -e "${barra}"
+#echo -e "${barra}"
 echo -e "${cyan}        INSTALADOR VNC VIEWER   ${green}[NEW-ADM-PLUS] ${plain}"
 echo -e "${barra}"
 echo -e "\033[1;31m[0] \033[1;31m> \033[1;31mSALIR\033[0m"
