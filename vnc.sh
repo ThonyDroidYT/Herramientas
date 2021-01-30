@@ -89,6 +89,7 @@ apt-get install iceweasel
 apt-get install vinagre -y
 apt-get install krdc -y
 #apt-get install xfce4 xfce4-goodies gnome-icon-theme tightvncserver
+sudo apt-get install chromium-browser -y
 clear
 echo -e "\033[1;36mPaquetes Instalados \033[0m"
 fun_bar
@@ -118,6 +119,7 @@ apt-get purge xfce4 xfce4-goodies -y
 apt-get remove xfce4 xfce4-goodies -y
 apt-get remove vinagre -y
 apt-get remove krdc -y
+apt-get remove chromium-browser -y
 clear
 fun_bar
 echo -e "\033[1;32mRemovido con Éxito! \033[0m"
