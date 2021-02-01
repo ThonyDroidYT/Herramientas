@@ -37,26 +37,26 @@ clear
 
 
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}       MULTISCRIPT FREE ${green}[BY: @THONY_DROIDYT]     ${plain}"
+echo -e "${Rojo} ${cyan}       SCRIPT NAME  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
-echo -e "${num1} ${cyan}INSTALAR VPS-MX BY KALIX1  ${plain}"
-echo -e "${num2} ${cyan}INTALAR NEW-ADM-DANKEL  ${plain}"
-echo -e "${num3} ${cyan}INSTALAR VPSPACK BY POWERMX  ${plain}"
-echo -e "${num4} ${cyan}INSTALAR SSHPLUS BY CRAZY_VPN  ${plain}"
-echo -e "${num5} ${cyan}INSTALAR ADM-MANAGER OFICIAL FREE  ${plain}"
-echo -e "${num0} ${red}SALIR DEL MULTISCRIPT ${plain}"
+echo -e "${num1} ${cyan}FUNTION ONE  ${plain}"
+echo -e "${num2} ${cyan}FUNTION TWO  ${plain}"
+echo -e "${num3} ${cyan}FUNTION THREE  ${plain}"
+echo -e "${num4} ${cyan}FUNTION FOUR  ${plain}"
+echo -e "${num5} ${cyan}FUNTION FIVE  ${plain}"
+echo -e "${num0} ${red}EXIT SCRIPT ${plain}"
 echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read multiscripts
-read -p "SELECIONE UNA OPCIÓN: 》" multiscripts
-case $multiscripts in
+read -p "SELECIONE UNA OPCIÓN: 》" script
+case $script in
 0)
 clear
 exit;;
-1)vpsmx;;
-2)dankel;;
-3)vpspack;;
-4)sshplus;;
-5)admoff;;
+1)funtion_one;;
+2)funtion_two;;
+3)funtion_three;;
+4)funtion_four;;
+5)funtion_five;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
