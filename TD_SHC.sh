@@ -65,7 +65,7 @@ version="3.8.9"
 
 #Actualizar Archivos
 fun_update () {
-sudo su
+#sudo su
 apt-get update -y
 apt-get upgrade -y
 dpkg --configure -a
