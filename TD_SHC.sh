@@ -32,6 +32,7 @@ sleep 1s
 #NUMEROS
 num0='\033[1;32m [0] \033[1;31m>'
 num1='\033[1;32m [1] \033[1;31m>'
+num11='\033[1;32m [11] \033[1;31m>'
 num2='\033[1;32m [2] \033[1;31m>'
 num3='\033[1;32m [3] \033[1;31m>'
 num4='\033[1;32m [4] \033[1;31m>'
@@ -216,7 +217,7 @@ case $script in
 clear
 exit;;
 1)install_shc;;
-1)install_shc_termux;;
+11)install_shc_termux;;
 2)import_script;;
 3)encript_script;;
 4)copy_script;;
