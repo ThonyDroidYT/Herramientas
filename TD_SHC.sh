@@ -96,15 +96,17 @@ menu
 
 #DECRIPT SHC
 decrypt_shc () {
+clear
 cd shc-${version}
 wget https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh
 fun_bar
 echo -e "${yellow}DESENCRIPTAR SCRIPT SHC ${plain}"
 echo -e "${cyan}Ingrese el Nombre del Script a Desencriptar ${plain}"
 read -p "SCRIPT: 》" nome
-echo -e "${cyan}Ingrese el Nombre para el Archivo Desencriptado ${plain}"
+echo -e "${blue}Ingrese el Nombre para el Archivo Desencriptado ${plain}"
 read -p "NOMBRE: 》" nomex
 ./unshc.sh $nome -o $nomex
+menu
 }
 
 #Inportar Script
@@ -162,10 +164,12 @@ echo -e "${cyan}MOVER ARCHIVO DE $HOME AL DIRECTORIO DE TRABAJO${plain}"
 cd $HOME
 echo -e "${yellow}Ingrese el Nombre del Archivo a Mover ${plain}"
 read -p "NOMBRE: 》" namex
-cp -i $namex $HOME/shc-${version}/$namex
+echo -e "${cyan}Ingrese el Nombre para el Archivo Movido ${plain}"
+read -p "NOMBRE: 》" nam3
+cp -i $namex $HOME/shc-${version}/$nam3
 clear
 fun_bar
-echo -e "${green}Archivo ${red}$namex ${green}Movido con Éxito! ${plain}"
+echo -e "${green}Archivo ${red}$namex ${green}Movido a $HOME/shc-${version}/$nam3 con Éxito! ${plain}"
 menu
 }
 #MENU SCRIPT
