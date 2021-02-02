@@ -73,6 +73,28 @@ dpkg --configure -a
 clear
 }
 
+#Install SHC TERMUX
+install_shc_termux () {
+clear
+#mkdir shc-${version}
+echo -e "${cyan}Descargando Archivos${plain}"
+fun_bar 'fun_update'
+#sudo apt-get install shc -y
+pkg install gcc -y
+pkg install make -y
+pkg install wget -y
+wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
+tar xvfz shc-${version}.tgz
+rm -rf shc-${version}.tgz
+cd shc-${version}
+make
+chmod 777 *
+#ln -s shc-${version}.c shc.c
+#sudo make install
+echo -e "${green}Instalación Con Éxito!${plain}"
+menu
+}
+
 #Install SHC
 install_shc () {
 clear
@@ -93,6 +115,7 @@ chmod 777 *
 echo -e "${green}Instalación Con Éxito!${plain}"
 menu
 }
+
 
 #DECRIPT SHC
 decrypt_shc () {
@@ -178,6 +201,7 @@ echo -e "${barra}"
 echo -e "${Azul} ${cyan}     TDSHC ENCRIPTADOR ${vshc} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR SHC ${vshc}  ${plain}"
+echo -e "${num11} ${cyan}INSTALAR SHC TERMUX ${vshc}  ${plain}"
 echo -e "${num2} ${cyan}IMPORTAR SCRIPT ${plain}"
 echo -e "${num3} ${cyan}ENCRIPTAR SCRIPT  ${plain}"
 echo -e "${num4} ${cyan}MOVER SCRIPT A LA CARPETA DE TRABAJO${plain}"
@@ -192,6 +216,7 @@ case $script in
 clear
 exit;;
 1)install_shc;;
+1)install_shc_termux;;
 2)import_script;;
 3)encript_script;;
 4)copy_script;;
