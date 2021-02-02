@@ -76,7 +76,7 @@ cd obfuscate
 
 install_bashofs_termux () {
 echo -e "${cyan}Encriptar Script Bash ${plain}"
-fun_update
+pkg update -y; pkg upgrade -y
 pkg install python2 -y
 pkg install git -y
 pkg install install nodejs -y
