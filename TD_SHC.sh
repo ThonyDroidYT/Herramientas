@@ -81,6 +81,7 @@ chmod 777 *
 ln -s shc-${version}.c shc.c
 sudo make install
 echo -e "${green}Instalación Con Éxito!${plain}"
+menu
 }
 
 #Inportar Script
