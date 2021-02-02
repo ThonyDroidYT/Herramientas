@@ -75,14 +75,15 @@ clear
 #Install SHC
 install_shc () {
 clear
+mkdir shc-${version}
 echo -e "${cyan}Descargando Archivos${plain}"
 fun_bar 'fun_update'
 sudo apt-get install shc -y
-apt-get install gcc -y
-apt-get install make -y
-wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
-tar xvfz shc-${version}.tgz
-rm -rf shc-${version}.tgz
+sudo apt-get install gcc -y
+sudo apt-get install make -y
+#wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
+#tar xvfz shc-${version}.tgz
+#rm -rf shc-${version}.tgz
 cd shc-${version}
 chmod 777 *
 make
