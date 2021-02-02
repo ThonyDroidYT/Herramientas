@@ -109,8 +109,9 @@ menu
 encript_script () {
 cd shc-${version}
 clear
-echo -e "${green}Encriptar Script ${plain}"
-echo -e "${red}¡Nota! ${green}Para encriptar tu script debes tenerlo ya en la carpeta $HOME/shc-${version} de lo contrario use la segunda opción para subir su archivo${plain}"
+echo -e "${yellow}Encriptar Script ${plain}"
+echo -e "${red}¡Nota! ${green}Para encriptar tu script debes tenerlo ya en la carpeta $HOME/shc-${version} ${plain}"
+echo -e "${green}De lo contrario use la segunda opción para subir su archivo${plain}"
 echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
 read -p "NOMBRE: 》" name
 shc -v -f $name
