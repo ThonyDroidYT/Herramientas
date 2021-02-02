@@ -138,7 +138,7 @@ copy_script () {
 clear
 echo -e "${cyan}MOVER ARCHIVO DE $HOME AL DIRECTORIO DE TRABAJO${plain}"
 cd $HOME
-echo -e "${cyan}Ingrese el Nombre del Archivo a Mover ${plain}"
+echo -e "${yellow}Ingrese el Nombre del Archivo a Mover ${plain}"
 read -p "NOMBRE: 》" namex
 cp $namex /shc-${version}/$namex
 fun_bar
