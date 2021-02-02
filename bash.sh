@@ -73,6 +73,20 @@ git clone https://github.com/Syhrularv/obfuscate.git
 cd obfuscate
 }
 
+install_bashofs_termux () {
+echo -e "${cyan}Encriptar Script Bash ${plain}"
+fun_update
+pkg install python2 -y
+pkg install git -y
+pkg install install nodejs -y
+npm install -g bash-obfuscate -y
+clear
+fun_bar
+cd $HOME
+git clone https://github.com/Syhrularv/obfuscate.git
+cd obfuscate
+}
+
 #INICiAR BASH-OBFUSCATE
 start_bashofs () {
 clear
@@ -143,6 +157,7 @@ case $script in
 clear
 exit;;
 1)install_bashofs;;
+11)install_bashofs_termux;;
 2)start_bashofs;;
 3)remove_bashofs;;
 4)import_bashofs;;
