@@ -70,6 +70,7 @@ clear
 install_shc () {
 clear
 echo -e "${cyan}Descargando Archivos${plain}"
+fun_bar 'fun_update'
 apt-get install gcc -y
 apt-get install make -y
 wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
@@ -77,7 +78,7 @@ tar xvfz shc-${version}.tgz
 rm -rf shc-${version}.tgz
 cd shc-${version}
 chmod 777 *
-#make
+make
 ln -s shc-${version}.c shc.c
 sudo make install
 echo -e "${green}Instalación Con Éxito!${plain}"
