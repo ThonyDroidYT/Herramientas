@@ -80,3 +80,10 @@ pkg install curl -y; bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroi
 
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/sslhplus.sh)
 #
+
+### TD_SHC MOD
+
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TD_SHC.sh)
+#
+
+#
