@@ -77,6 +77,7 @@ install_shc () {
 clear
 echo -e "${cyan}Descargando Archivos${plain}"
 fun_bar 'fun_update'
+sudo apt-get install shc -y
 apt-get install gcc -y
 apt-get install make -y
 wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
