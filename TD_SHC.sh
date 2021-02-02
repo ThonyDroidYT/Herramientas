@@ -36,6 +36,7 @@ num2='\033[1;32m [2] \033[1;31m>'
 num3='\033[1;32m [3] \033[1;31m>'
 num4='\033[1;32m [4] \033[1;31m>'
 num5='\033[1;32m [5] \033[1;31m>'
+num6='\033[1;32m [6] \033[1;31m>'
 
 #COLORES
 blan="\033[1;37m"
@@ -60,8 +61,8 @@ Verdecana="\033[42m"
 IP=$(wget -qO- ipv4.icanhazip.com)
 
 #Version SHC
-vshc="\033[1;31m3.8.9"
-version="3.8.9"
+vshc="\033[1;31m3.8.9b"
+version="3.8.9b"
 
 #Actualizar Archivos
 fun_update () {
@@ -75,22 +76,35 @@ clear
 #Install SHC
 install_shc () {
 clear
-mkdir shc-${version}
+#mkdir shc-${version}
 echo -e "${cyan}Descargando Archivos${plain}"
 fun_bar 'fun_update'
-sudo apt-get install shc -y
+#sudo apt-get install shc -y
 sudo apt-get install gcc -y
 sudo apt-get install make -y
-#wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
-#tar xvfz shc-${version}.tgz
-#rm -rf shc-${version}.tgz
+wget http://www.datsi.fi.upm.es/~frosal/sources/shc-${version}.tgz
+tar xvfz shc-${version}.tgz
+rm -rf shc-${version}.tgz
 cd shc-${version}
-chmod 777 *
 make
+chmod 777 *
 #ln -s shc-${version}.c shc.c
-sudo make install
+#sudo make install
 echo -e "${green}Instalación Con Éxito!${plain}"
 menu
+}
+
+#DECRIPT SHC
+decrypt_shc () {
+cd shc-${version}
+wget https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh
+fun_bar
+echo -e "${yellow}DESENCRIPTAR SCRIPT SHC ${plain}"
+echo -e "${cyan}Ingrese el Nombre del Script a Desencriptar ${plain}"
+read -p "SCRIPT: 》" nome
+echo -e "${cyan}Ingrese el Nombre para el Archivo Desencriptado ${plain}"
+read -p "NOMBRE: 》" nomex
+./unshc.sh $nome -o $nomex
 }
 
 #Inportar Script
@@ -164,6 +178,7 @@ echo -e "${num2} ${cyan}IMPORTAR SCRIPT ${plain}"
 echo -e "${num3} ${cyan}ENCRIPTAR SCRIPT  ${plain}"
 echo -e "${num4} ${cyan}MOVER SCRIPT A LA CARPETA DE TRABAJO${plain}"
 echo -e "${num5} ${cyan}REMOVER SHC ${vshc}  ${plain}"
+#echo -e "${num6} ${cyan}DESENCRIPTAR SHC  ${plain}"
 echo -e "${num0} ${red}SALIR DEL SCRIPT ${plain}"
 echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read script
@@ -177,6 +192,7 @@ exit;;
 3)encript_script;;
 4)copy_script;;
 5)remover_script;;
+6)decrypt_shc;;
 *)clear; echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 menu;;
 esac
