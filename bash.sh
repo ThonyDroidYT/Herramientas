@@ -59,7 +59,7 @@ dpkg --configure -a
 clear
 }
 
-install_bashofs ()
+install_bashofs () {
 echo -e "${cyan}Encriptar Script Bash ${plain}"
 fun_update
 apt-get install python2
