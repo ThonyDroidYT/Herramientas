@@ -93,7 +93,8 @@ menu
 #Inportar Script
 import_script () {
 clear
-echo -e "${yellow}Importar Script Desde Un Link ${plain}"
+cd shc-${version}
+echo -e "${yellow}IMPORTAR SCRIPT DESDE UN LINK ${plain}"
 echo -e "${cyan}Ingrese el Link del Script a Importar ${plain}"
 read -p "LINK: 》" link
 wget $link
