@@ -100,6 +100,7 @@ wget $link
 chmod 777 *
 fun_bar
 echo -e "${green}Archivo Importado Con Éxito ${plain}"
+menu
 }
 
 #Encriptar Script
@@ -116,6 +117,7 @@ fun_bar
 echo -e "${green}Archivo ${red} $name.x ${green}Encriptado Correctamente!! ${plain}"
 echo -e "${yellow}Ubicación del archivo.  $HOME/shc-${version}/$name.x ${plain}"
 echo -e "${cyan}Archivo para Descargar Disponible en: ${green} $IP:81/$name.x ${plain}"
+menu
 }
 
 remover_script () {
