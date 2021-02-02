@@ -133,7 +133,6 @@ echo -e "${green}SHC ${vshc} ${green}Removido  con Éxito! ${plain}"
 
 #MENU SCRIPT
 menu () {
-clear
 echo -e "${barra}"
 echo -e "${Azul} ${cyan}     TDSHC ENCRIPTADOR ${vshc} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
