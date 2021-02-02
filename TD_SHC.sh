@@ -78,7 +78,7 @@ install_shc_termux () {
 clear
 #mkdir shc-${version}
 echo -e "${cyan}Descargando Archivos${plain}"
-fun_bar 'fun_update'
+fun_bar 'pkg update -y; pkg upgrade -y'
 #sudo apt-get install shc -y
 pkg install gcc -y
 pkg install make -y
