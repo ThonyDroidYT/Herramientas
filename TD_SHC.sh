@@ -87,7 +87,7 @@ sudo apt-get install make -y
 cd shc-${version}
 chmod 777 *
 make
-ln -s shc-${version}.c shc.c
+#ln -s shc-${version}.c shc.c
 sudo make install
 echo -e "${green}Instalación Con Éxito!${plain}"
 menu
