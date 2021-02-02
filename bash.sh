@@ -75,6 +75,7 @@ cd obfuscate
 
 #INICiAR BASH-OBFUSCATE
 start_bashofs () {
+clear
 cd $HOME/obfuscate
 python2 bash.py
 }
