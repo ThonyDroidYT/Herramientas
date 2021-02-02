@@ -146,8 +146,9 @@ cd $HOME
 echo -e "${yellow}Ingrese el Nombre del Archivo a Mover ${plain}"
 read -p "NOMBRE: 》" namex
 cp -i $namex $HOME/shc-${version}/$namex
+clear
 fun_bar
-echo -e "${green}Archivo $namex Movido  con Éxito! ${plain}"
+echo -e "${green}Archivo ${red}$namex ${green}Movido con Éxito! ${plain}"
 menu
 }
 #MENU SCRIPT
