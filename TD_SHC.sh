@@ -157,7 +157,7 @@ exit;;
 3)encript_script;;
 4)remover_script;;
 5)funtion_five;;
-*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
+*)clear; echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 menu;;
 esac
 }
