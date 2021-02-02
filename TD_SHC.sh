@@ -50,6 +50,11 @@ cyan="\033[1;36m"
 Gris="\033[1;100m"
 Rojo="\033[1;41m"
 Azul="\033[44m"
+Morado="\033[45m"
+Morado2="\033[105m"
+Celeste="\033[46m"
+Verde="\033[102m"
+Verdecaña="\033[42m"
 
 #FUN IP
 IP=$(wget -qO- ipv4.icanhazip.com)
