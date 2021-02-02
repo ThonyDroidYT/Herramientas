@@ -107,7 +107,7 @@ menu
 #Encriptar Script
 encript_script () {
 clear
-echo -e "${cyan} Encriptar Script ${plain}"
+echo -e "${green} Encriptar Script ${plain}"
 cd $HOME
 cd shc-${version}
 echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
