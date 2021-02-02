@@ -85,5 +85,3 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/TD_SHC.sh)
 #
-
-#
