@@ -108,7 +108,8 @@ menu
 encript_script () {
 cd shc-${version}
 clear
-echo -e "${green} Encriptar Script ${plain}"
+echo -e "${green}Encriptar Script ${plain}"
+echo -e "${red}¡Nota! ${green}Para encriptar tu script debes tenerlo ya en la carpeta $HOME/shc-${version} de lo contrario use la segunda opción para subir su archivo${plain}"
 echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
 read -p "NOMBRE: 》" name
 shc -v -f $name
@@ -133,6 +134,17 @@ fun_bar
 echo -e "${green}SHC ${vshc} ${green}Removido  con Éxito! ${plain}"
 }
 
+copy_script () {
+clear
+echo -e "${cyan}MOVER ARCHIVO DE $HOME AL DIRECTORIO DE TRABAJO${plain}"
+cd $HOME
+echo -e "${cyan}Ingrese el Nombre del Archivo a Mover ${plain}"
+read -p "NOMBRE: 》" namex
+cp $namex /shc-${version}/$namex
+fun_bar
+echo -e "${green}Archivo $namex Movido  con Éxito! ${plain}"
+menu
+}
 #MENU SCRIPT
 menu () {
 echo -e "${barra}"
@@ -141,8 +153,8 @@ echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR SHC ${vshc}  ${plain}"
 echo -e "${num2} ${cyan}IMPORTAR SCRIPT ${plain}"
 echo -e "${num3} ${cyan}ENCRIPTAR SCRIPT  ${plain}"
-echo -e "${num4} ${cyan}REMOVER SHC ${vshc}  ${plain}"
-#echo -e "${num5} ${cyan}FUNTION FIVE  ${plain}"
+echo -e "${num4} ${cyan}MOVER SCRIPT A LA CARPETA DE TRABAJO${plain}"
+echo -e "${num5} ${cyan}REMOVER SHC ${vshc}  ${plain}"
 echo -e "${num0} ${red}SALIR DEL SCRIPT ${plain}"
 echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read script
@@ -154,8 +166,8 @@ exit;;
 1)install_shc;;
 2)import_script;;
 3)encript_script;;
-4)remover_script;;
-5)funtion_five;;
+4)copy_script;;
+5)remover_script;;
 *)clear; echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 menu;;
 esac
