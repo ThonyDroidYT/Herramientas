@@ -135,7 +135,7 @@ echo -e "${green}SHC ${vshc} ${green}Removido  con Éxito! ${plain}"
 menu () {
 clear
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}       TDSHC ENCRIPTADOR ${vshc} ${green}[BY: @THONY_DROIDYT]     ${plain}"
+echo -e "${Morado} ${cyan}   TDSHC ENCRIPTADOR ${vshc} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR SHC ${vshc}  ${plain}"
 echo -e "${num2} ${cyan}IMPORTAR SCRIPT ${plain}"
