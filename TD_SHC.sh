@@ -106,13 +106,12 @@ menu
 
 #Encriptar Script
 encript_script () {
+cd shc-${version}
 clear
 echo -e "${green} Encriptar Script ${plain}"
-cd $HOME
-cd shc-${version}
 echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
 read -p "NOMBRE: 》" name
-shc -v -f $HOME/shc-${version}/$name
+shc -v -f $name
 cp $HOME/shc-${version}/$name.x /var/www/html/$name.x
 fun_bar
 echo -e "${green}Archivo ${red} $name.x ${green}Encriptado Correctamente!! ${plain}"
