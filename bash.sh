@@ -126,7 +126,7 @@ menu
 menu () {
 clear
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}     BASH-OBFUSCATE SCRIPT ${green}[BY: @THONY_DROIDYT]     ${plain}"
+echo -e "${Rojo} ${cyan}      BASH-OBFUSCATE SCRIPT  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR BASH-OBFUSCATE ${plain}"
 echo -e "${num2} ${cyan}ENCRIPTAR SCRIPT ${plain}"
