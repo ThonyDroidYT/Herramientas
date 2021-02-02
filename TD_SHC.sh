@@ -161,4 +161,5 @@ exit;;
 menu;;
 esac
 }
+clear
 menu
