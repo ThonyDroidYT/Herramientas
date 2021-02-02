@@ -104,6 +104,7 @@ echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
 read -p "NOMBRE: 》" name
 shc -v -f $HOME/shc-${version}/$name
 cp $HOME/shc-${version}/$name.x /var/www/html/$name.x
+fun_bar
 echo -e "${green}Archivo ${red} $name.x ${green}Encriptado Correctamente!! ${plain}"
 echo -e "${yellow}Ubicación del archivo.  $HOME/shc-${version}/$name.x ${plain}"
 echo -e "${cyan}Archivo para Descargar Disponible en: ${green} $IP:81/$name.x ${plain}"
@@ -126,7 +127,7 @@ echo -e "${green}SHC ${vshc} ${green}Removido  con Éxito! ${plain}"
 menu () {
 clear
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}       TD_SHC ENCRIPTADOR SCRIPT ${green}[BY: @THONY_DROIDYT]     ${plain}"
+echo -e "${Rojo} ${cyan}       TDSHC ENCRIPTADOR ${vshc} ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}INSTALAR SHC ${vshc}  ${plain}"
 echo -e "${num2} ${cyan}IMPORTAR SCRIPT ${plain}"
