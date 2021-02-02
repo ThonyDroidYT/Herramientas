@@ -122,6 +122,7 @@ echo -e "${cyan}Archivo para Descargar Disponible en: ${green} $IP:81/$name.x ${
 menu
 }
 
+#REMOVER SCRIPT
 remover_script () {
 clear
 echo -e "${cyan}Remover SHC ${vshc} ${plain}"
@@ -131,10 +132,13 @@ apt-get purge gcc -y
 apt-get purge make -y
 apt-get remove gcc -y
 apt-get remove make -y
+apt-get purge shc -y
+apt-get remove shc -y
 fun_bar
 echo -e "${green}SHC ${vshc} ${green}Removido  con Éxito! ${plain}"
 }
 
+#MOVER ARCHIVO
 copy_script () {
 clear
 echo -e "${cyan}MOVER ARCHIVO DE $HOME AL DIRECTORIO DE TRABAJO${plain}"
