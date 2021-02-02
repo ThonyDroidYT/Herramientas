@@ -65,6 +65,7 @@ version="3.8.9"
 
 #Actualizar Archivos
 fun_update () {
+sudo su
 apt-get update -y
 apt-get upgrade -y
 dpkg --configure -a
@@ -113,7 +114,7 @@ echo -e "${red}¡Nota! ${green}Para encriptar tu script debes tenerlo ya en la c
 echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
 read -p "NOMBRE: 》" name
 shc -v -f $name
-cp -i $name.x /var/www/html/
+cp -i $name.x /var/www/html/$name.x
 fun_bar
 echo -e "${green}Archivo ${red} $name.x ${green}Encriptado Correctamente!! ${plain}"
 echo -e "${yellow}Ubicación del archivo.  $HOME/shc-${version}/$name.x ${plain}"
@@ -140,7 +141,7 @@ echo -e "${cyan}MOVER ARCHIVO DE $HOME AL DIRECTORIO DE TRABAJO${plain}"
 cd $HOME
 echo -e "${yellow}Ingrese el Nombre del Archivo a Mover ${plain}"
 read -p "NOMBRE: 》" namex
-cp -i $namex /shc-${version}/
+cp -i $namex $HOME/shc-${version}/$namex
 fun_bar
 echo -e "${green}Archivo $namex Movido  con Éxito! ${plain}"
 menu
