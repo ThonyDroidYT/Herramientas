@@ -79,7 +79,8 @@ cd shc-${version}
 chmod 777 *
 #make
 ln -s shc-${version}.c shc.c
-sudo make install -y
+sudo make install
+echo -e "${green}Instalación Con Éxito!${plain}"
 }
 
 #Inportar Script
