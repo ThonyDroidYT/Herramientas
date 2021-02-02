@@ -32,6 +32,7 @@ sleep 1s
 #NUMEROS
 num0='\033[1;32m [0] \033[1;31m>'
 num1='\033[1;32m [1] \033[1;31m>'
+num11='\033[1;32m [11] \033[1;31m>'
 num2='\033[1;32m [2] \033[1;31m>'
 num3='\033[1;32m [3] \033[1;31m>'
 num4='\033[1;32m [4] \033[1;31m>'
@@ -143,7 +144,8 @@ clear
 echo -e "${barra}"
 echo -e "${Rojo} ${cyan}      BASH-OBFUSCATE SCRIPT  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
-echo -e "${num1} ${cyan}INSTALAR BASH-OBFUSCATE ${plain}"
+echo -e "${num1} ${cyan}INSTALAR BASH-OBFUSCATE UBUNTU ${plain}"
+echo -e "${num11} ${cyan}INSTALAR BASH-OBFUSCATE TERMUX ${plain}"
 echo -e "${num2} ${cyan}ENCRIPTAR SCRIPT ${plain}"
 echo -e "${num3} ${cyan}REMOVER BASH-OBFUSCATE ${plain}"
 echo -e "${num3} ${cyan}IMPORTAR SCRIPT ${plain}"
