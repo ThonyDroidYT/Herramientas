@@ -54,7 +54,7 @@ Morado="\033[1;45m"
 Morado2="\033[105m"
 Celeste="\033[46m"
 Verde="\033[102m"
-Verdecaña="\033[42m"
+Verdecana="\033[42m"
 
 #FUN IP
 IP=$(wget -qO- ipv4.icanhazip.com)
