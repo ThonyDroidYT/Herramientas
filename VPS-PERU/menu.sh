@@ -167,6 +167,7 @@ menu
 
 #Sistema de Puertos
 puertos_ssh () {
+clear
 echo -e "${barra}"
 echo -e "${cyan}      PUERTOS ACTIVOS  ${plain}"
 echo -e "${barra}"
