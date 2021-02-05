@@ -755,7 +755,7 @@ done
 VPSsec=$(date +%s)
 while read line; do
 nome=$(echo ${line}|cut -d'|' -f1)
-[[ $(echo $(mostrar_usuarios)|grep -w "$nome ]] && {
+[[ $(echo $(mostrar_usuarios)|grep -w "$nome") ]] && {
   echo -e "${green}$nome [ERROR]"
   continue
   }
