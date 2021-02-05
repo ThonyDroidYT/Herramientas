@@ -24,6 +24,7 @@ num13='\033[1;32m [13] \033[1;31m>'
 
 #COLORES
 name="\033[1;31mVPS\033[1;37m-PE\033[1;31mRU"
+IP=$(wget -qO- ipv4.icanhazip.com)
 blan="\033[1;37m"
 plain="\033[0m"
 red="\033[1;31m"
@@ -144,13 +145,13 @@ done
      tput cuu1 && tput dl1
      tput cuu1 && tput dl1
      tput cuu1 && tput dl1
-     echo -e "➾ IP del Servidor: " && echo -e "$(meu_ip)"
-     echo -e "➾ Usuario: " && echo -e "$nomeuser"
-     echo -e "➾ Contraseña: " && echo -e "$senhauser"
-     echo -e "➾ Dias de Duración: " && echo -e "$diasuser"
-     echo -e "➾ Fecha de Expiración: " && echo -e "$(date "+%F" -d " + $diasuser days")"
-     echo -e "➾ Limite de Conexión: " && echo -e "$limiteuser"
-     echo -e "➾ Creado Con: ${name}"
+     echo -e "➾ IP del Servidor: ${green} $IP"
+     echo -e "➾ Usuario: ${green} $nomeuser"
+     echo -e "➾ Contraseña: ${green} $senhauser"
+     echo -e "➾ Dias de Duración: ${green} $diasuser"
+     echo -e "➾ Fecha de Expiración: ${green} $(date "+%F" -d " + $diasuser days")"
+     echo -e "➾ Limite de Conexión: ${green} $limiteuser"
+     echo -e "➾ Creado con: ${name}"
 echo""
 puertos_ssh
 echo -e "${barra}"
@@ -165,7 +166,10 @@ echo -e "${barra}"
 echo -e "${cyan}      PUERTOS ACTIVOS  ${plain}"
 echo -e "${barra}"
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
-NOREPEAT
+local NOREPEAT
+local reQ
+while read port; do
+reQ=$(echo ${port}|awk '{print $1}')
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
 [[ $(echo -e $NOREPEAT|grep -w "$porta") ]] && continue
 NOREPEAT+="$porta\n"
