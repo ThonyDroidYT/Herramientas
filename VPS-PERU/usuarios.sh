@@ -54,11 +54,11 @@ SCPusr="${SCPdir}/usuarios"
 MyPID="${SCPusr}/pid-pe"
 MyTIME="${SCPusr}/time-pe"
 USRdatabase="/etc/PEuser"
-[[ -e ${MyPID} ]] && source ${MyPID} || touch ${MyPID}
-[[ -e ${MyTIME} ]] && source ${MyTIME} || touch ${MyTIME}
-[[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
-sort ${USRdatabase} | uniq > ${USRdatabase}tmp
-mv -f ${USRdatabase}tmp ${USRdatabase}
+#[[ -e ${MyPID} ]] && source ${MyPID} || touch ${MyPID}
+#[[ -e ${MyTIME} ]] && source ${MyTIME} || touch ${MyTIME}
+#[[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
+#sort ${USRdatabase} | uniq > ${USRdatabase}tmp
+#mv -f ${USRdatabase}tmp ${USRdatabase}
 # Open VPN
 newclient () {
 #Nome #Senha
