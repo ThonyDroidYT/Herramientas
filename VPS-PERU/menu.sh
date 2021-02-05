@@ -167,9 +167,9 @@ echo -e "${cyan}      PUERTOS ACTIVOS  ${plain}"
 echo -e "${barra}"
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 local NOREPEAT
-local reQ
-while read port; do
-reQ=$(echo ${port}|awk '{print $1}')
+#local reQ
+#while read port; do
+#reQ=$(echo ${port}|awk '{print $1}')
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
 [[ $(echo -e $NOREPEAT|grep -w "$porta") ]] && continue
 NOREPEAT+="$porta\n"
