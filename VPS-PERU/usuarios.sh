@@ -638,12 +638,12 @@ if [[ -e "${USRdatabase}" ]]; then
     else
     EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
     fi
-    txtvar+="$(printf '%-26s' "${yellow}${DateExp}${EXPTIME}"
-    txtvar+="$(printf '%-11s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f4)"
+    txtvar+="$(printf '%-26s' "${yellow}${DateExp}${EXPTIME}")"
+    txtvar+="$(printf '%-11s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f4)")"
     else
-    txtvar+="$(printf '%-21s' "${red}???"
-    txtvar+="$(printf '%-21s' "${red}???"
-    txtvar+="$(printf '%-11s' "${red}???"
+    txtvar+="$(printf '%-21s' "${red}???")"
+    txtvar+="$(printf '%-21s' "${red}???")"
+    txtvar+="$(printf '%-11s' "${red}???")"
   fi
 fi
 echo -e "$txtvar"
