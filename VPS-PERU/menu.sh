@@ -52,12 +52,118 @@ clear
 administrar_usuarios () {
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/VPS-PERU/usuarios.sh)
 }
+add_user () {
+#nome senha Dias limite
+[[ $(cat /etc/passwd |grep $1: |grep -vi [a-z]$1 |grep -v [0-9]$1 > /dev/null) ]] && return 1
+valid=$(date '+%C%y-%m-%d' -d " +$3 days") && datexp=$(date "+%F" -d " + $3 days")
+useradd -M -s /bin/false $1 -e ${valid} > /dev/null 2>&1 || return 1
+(echo $2; echo $2)|passwd $1 2>/dev/null || {
+    userdel --force $1
+    return 1
+    }
+[[ -e ${USRdatabase} ]] && {
+   newbase=$(cat ${USRdatabase}|grep -w -v "$1")
+   echo "$1|$2|${datexp}|$4" > ${USRdatabase}
+   for value in `echo ${newbase}`; do
+   echo $value >> ${USRdatabase}
+   done
+   } || echo "$1|$2|${datexp}|$4" > ${USRdatabase}
+}
+    
+mostrar_usuarios () {
+for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+echo "$u"
+done
+}
+new_user () {
+usuarios_ativos=($(mostrar_usuarios))
+if [[ -z ${usuarios_ativos[@]} ]]; then
+echo -e "${green}Ningún Usuario Creado"
+echo -e "${barra}"
+else
+echo -e "${yellow}Usuarios Actualmente Activos en el Servidor"
+echo -e "${barra}"
+for us in $(echo ${usuarios_ativos[@]}); do
+echo -e "User: " && echo "${us}"
+done
+echo -e "${barra}"
+fi
+while true; do
+     echo -e "Nombre De Nuevo Usuario"
+     read -p ": 》" nomeuser
+     nomeuser="$(echo $nomeuser|sed -e 's/[^a-z0-9 -]//ig')"
+     if [[ -z $nomeuser ]]; then
+     err_fun 1 && continue
+     elif [[ "${#nomeuser}" -lt "4" ]]; then
+     err_fun 2 && continue
+     elif [[ "${#nomeuser}" -gt "24" ]]; then
+     err_fun 3 && continue
+     elif [[ "$(echo ${usuarios_ativos[@]}|grep -w "$nomeuser" ]]; then
+     err_fun 14 && continue
+     fi
+     break
+done
+while true; do
+     echo -e "Contraseña de Nuevo Usuario"
+     read -p ": 》" senhauser
+     if [[ -z $senhauser ]]; then
+     err_fun 4 && continue
+     elif [[ "${#senhauser}" -lt "6" ]]; then
+     err_fun 5 && continue
+     elif [[ "${#senhauser}" -gt "20" ]]; then
+     err_fun 6 && continue
+     fi
+     break
+done
+while true; do
+     echo -e "Tiempo de Duración de Nuevo Usuario"
+     read -p ": 》" diasuser
+     if [[ -z "$diasuser" ]]; then
+     err_fun 7 && continue
+     elif [[ "$diasuser" != +([0-9]) ]]; then
+     err_fun 8 && continue
+     elif [[ "$diasuser" -gt "360" ]]; then
+     err_fun 9 && continue
+     fi 
+     break
+done
+while true; do
+     echo -e "Limite de Conexión de Nuevo Usuario"
+     read -p ": 》" limiteuser
+     if [[ -z "$limiteuser" ]]; then
+     err_fun 11 && continue
+     elif [[ "$limiteuser" != +([0-9]) ]]; then
+     err_fun 12 && continue
+     elif [[ "$limiteuser" -gt "999" ]]; then
+     err_fun 13 && continue
+     fi
+     break
+done
+     tput cuu1 && tput dl1
+     tput cuu1 && tput dl1
+     tput cuu1 && tput dl1
+     tput cuu1 && tput dl1
+     echo -e "➾ IP del Servidor: " && echo -e "$(meu_ip)"
+     echo -e "➾ Usuario: " && echo -e "$nomeuser"
+     echo -e "➾ Contraseña: " && echo -e "$senhauser"
+     echo -e "➾ Dias de Duración: " && echo -e "$diasuser"
+     echo -e "➾ Fecha de Expiración: " && echo -e "$(date "+%F" -d " + $diasuser days"
+     echo -e "➾ Limite de Conexión: " && echo -e "$limiteuser"
+     echo -e "➾ Creado Con: ${name}"
+echo""
+puertos_ssh
+echo -e "${barra}"
+add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && echo -e "${yellow}Usuario Creado Con Éxito" || echo -e "${green}Error, Usuario no creado"
+[[ $(dpkg --get-selections|grep -w "openvpn"|head -1) ]] && [[ -e /etc/openvpn/openvpn-status.log ]] && newclient "$nomeuser" "$senhauser"
+echo -e "${barra}"
+}
+
 #MENU SCRIPT
 echo -e "${barra}"
 echo -e "${Azul}        ${name}  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}ADMININISTRAR USUARIOS  ${plain}"
-echo -e "${num2} ${cyan}FUNTION TWO  ${plain}"
+echo -e "${num2} ${cyan}CREAR USUARIO  ${plain}"
 echo -e "${num3} ${cyan}FUNTION THREE  ${plain}"
 echo -e "${num4} ${cyan}FUNTION FOUR  ${plain}"
 echo -e "${num5} ${cyan}FUNTION FIVE  ${plain}"
