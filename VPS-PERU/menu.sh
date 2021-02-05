@@ -158,6 +158,7 @@ echo -e "${barra}"
 add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && echo -e "${yellow}Usuario Creado Con Éxito" || echo -e "${green}Error, Usuario no creado"
 [[ $(dpkg --get-selections|grep -w "openvpn"|head -1) ]] && [[ -e /etc/openvpn/openvpn-status.log ]] && newclient "$nomeuser" "$senhauser"
 echo -e "${barra}"
+menu
 }
 
 #Sistema de Puertos
@@ -177,9 +178,11 @@ svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
 echo -e "\033[1;33m ➾ \e[1;31m $svcs\033[1;32m: \033[1;33m ➢ \e[1;32m $porta "
 done
 echo -e "${barra}"
+menu
 }
 
 #MENU SCRIPT
+menu () {
 echo -e "${barra}"
 echo -e "${Azul}        ${name}  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
@@ -204,3 +207,5 @@ exit;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
+}
+menu
