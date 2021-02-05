@@ -632,7 +632,7 @@ if [[ -e "${USRdatabase}" ]]; then
   if [[ $(cat ${USRdatabase}|grep -w "${user} ]]; then
     txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)"
     DateExp="$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f3)"
-    DataSec=$(date +%s --date="$DateExp
+    DataSec=$(date +%s --date="$DateExp")
     if [[ "$VPSsec" -gt "$DataSec" ]]; then    
     EXPTIME="${red}[Exp]"
     else
