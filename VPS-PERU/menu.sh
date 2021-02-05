@@ -81,6 +81,7 @@ echo "$u"
 done
 }
 new_user () {
+clear
 usuarios_ativos=($(mostrar_usuarios))
 if [[ -z ${usuarios_ativos[@]} ]]; then
 echo -e "${green}Ningún Usuario Creado"
