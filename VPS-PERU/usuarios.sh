@@ -617,10 +617,10 @@ echo -e "${green}No Fue Identificado una Base de Datos Con Usuarios"
 echo -e "${green}Los Usuarios a Seguir No Contienen Ninguna Información"
 echo -e "${barra}"2
 fi
-txtvar=$(printf '%-16s' "USUARIO
-txtvar+=$(printf '%-16s' "CONTRASEÑA
-txtvar+=$(printf '%-16s' "EXPIRACIÓN
-txtvar+=$(printf '%-6s' "LIMITE
+txtvar=$(printf '%-16s' "USUARIO"(
+txtvar+=$(printf '%-16s' "CONTRASEÑA")
+txtvar+=$(printf '%-16s' "EXPIRACIÓN")
+txtvar+=$(printf '%-6s' "LIMITE")
 echo -e "\033[1;33m${txtvar}"
 echo -e "${barra}"2
 VPSsec=$(date +%s)
@@ -655,9 +655,9 @@ yellow=$(tput setaf 3)
 gren=$(tput setaf 2)
 echo -e "${green}Monitor de Conexiones de Usuarios"
 echo -e "${barra}"
-txtvar=$(printf '%-13s' " USUARIO 
-txtvar+=$(printf '%-19s' " CONEXIÓN 
-txtvar+=$(printf '%-16s' "  TIEMPO/ACTIVO 
+txtvar=$(printf '%-13s' " USUARIO ")
+txtvar+=$(printf '%-19s' " CONEXIÓN ")
+txtvar+=$(printf '%-16s' " TIEMPO/ACTIVO ")
 echo -e "\033[1;33m${txtvar}"
 echo -e "${barra}"
 while read user; do
@@ -700,8 +700,8 @@ rm_vencidos () {
 red=$(tput setaf 1)
 gren=$(tput setaf 2)
 yellow=$(tput setaf 3)
-txtvar=$(printf '%-25s' "USUARIO
-txtvar+=$(printf '%-20s' "VALIDEZ
+txtvar=$(printf '%-25s' "USUARIO")
+txtvar+=$(printf '%-20s' "VALIDEZ")
 echo -e "\033[1;33m${txtvar}"
 echo -e "${barra}"
 expired="${red}Expirado"
