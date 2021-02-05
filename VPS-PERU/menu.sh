@@ -90,8 +90,8 @@ done
 echo -e "${barra}"
 fi
 while true; do
-     echo -e "Nombre De Nuevo Usuario"
-     read -p ": 》" nomeuser
+     echo -e "${yellow}Nombre De Nuevo Usuario${plain}"
+     read -p "Nombre: 》" nomeuser
      nomeuser="$(echo $nomeuser|sed -e 's/[^a-z0-9 -]//ig')"
      if [[ -z $nomeuser ]]; then
      err_fun 1 && continue
@@ -105,8 +105,8 @@ while true; do
      break
 done
 while true; do
-     echo -e "Contraseña de Nuevo Usuario"
-     read -p ": 》" senhauser
+     echo -e "${yellow}Contraseña de Nuevo Usuario${plain}"
+     read -p "Contraseña: 》" senhauser
      if [[ -z $senhauser ]]; then
      err_fun 4 && continue
      elif [[ "${#senhauser}" -lt "6" ]]; then
@@ -117,8 +117,8 @@ while true; do
      break
 done
 while true; do
-     echo -e "Tiempo de Duración de Nuevo Usuario"
-     read -p ": 》" diasuser
+     echo -e "${yellow}Tiempo de Duración de Nuevo Usuario${plain}"
+     read -p "Duración: 》" diasuser
      if [[ -z "$diasuser" ]]; then
      err_fun 7 && continue
      elif [[ "$diasuser" != +([0-9]) ]]; then
@@ -129,8 +129,8 @@ while true; do
      break
 done
 while true; do
-     echo -e "Limite de Conexión de Nuevo Usuario"
-     read -p ": 》" limiteuser
+     echo -e "${cyan}Limite de Conexión de Nuevo Usuario$plain}"
+     read -p "Límite: 》" limiteuser
      if [[ -z "$limiteuser" ]]; then
      err_fun 11 && continue
      elif [[ "$limiteuser" != +([0-9]) ]]; then
