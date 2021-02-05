@@ -629,7 +629,7 @@ unset txtvar
 data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
 txtvar=$(printf '%-21s' "${yellow}$user
 if [[ -e "${USRdatabase}" ]]; then
-  if [[ $(cat ${USRdatabase}|grep -w "${user} ]]; then
+  if [[ $(cat ${USRdatabase}|grep -w "${user}") ]]; then
     txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)")"
     DateExp="$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f3)"
     DataSec=$(date +%s --date="$DateExp")
