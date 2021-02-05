@@ -176,7 +176,7 @@ case $script in
 clear
 exit;;
 1)administrar_usuarios;;
-2)funtion_two;;
+2)new_user;;
 3)funtion_three;;
 4)funtion_four;;
 5)funtion_five;;
