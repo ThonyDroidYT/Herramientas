@@ -773,7 +773,7 @@ echo -e "${barra}"
 
 baner_fun () {
 local2="/etc/dropbear/banner"
-chk=$(cat /etc/ssh/sshd_config | grep -v "Banner
+chk=$(cat /etc/ssh/sshd_config | grep -v "Banner")
 while read line; do
 echo "$line" >> /tmp/ssh-conf
 done <<< "$chk"
