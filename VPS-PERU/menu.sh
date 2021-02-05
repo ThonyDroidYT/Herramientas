@@ -159,13 +159,28 @@ add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && echo -e "
 echo -e "${barra}"
 }
 
+#Sistema de Puertos
+puertos_ssh () {
+echo -e "${cyan}PUERTOS ACTIVOS ${plain}"
+echo -e "${barra}"
+PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
+local NOREPEAT
+for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
+[[ $(echo -e $NOREPEAT|grep -w "$porta") ]] && continue
+NOREPEAT+="$porta\n"
+svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
+echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+done
+echo -e "${barra}"
+}
+
 #MENU SCRIPT
 echo -e "${barra}"
 echo -e "${Azul}        ${name}  ${green}[BY: @THONY_DROIDYT]     ${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}ADMININISTRAR USUARIOS  ${plain}"
 echo -e "${num2} ${cyan}CREAR USUARIO  ${plain}"
-echo -e "${num3} ${cyan}FUNTION THREE  ${plain}"
+echo -e "${num3} ${cyan}PUERTOS ACTIVOS  ${plain}"
 echo -e "${num4} ${cyan}FUNTION FOUR  ${plain}"
 echo -e "${num5} ${cyan}FUNTION FIVE  ${plain}"
 echo -e "${num0} ${red}EXIT SCRIPT ${plain}"
@@ -178,7 +193,7 @@ clear
 exit;;
 1)administrar_usuarios;;
 2)new_user;;
-3)funtion_three;;
+3)puertos_ssh;;
 4)funtion_four;;
 5)funtion_five;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
