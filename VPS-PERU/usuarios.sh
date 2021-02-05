@@ -617,7 +617,7 @@ echo -e "${green}No Fue Identificado una Base de Datos Con Usuarios"
 echo -e "${green}Los Usuarios a Seguir No Contienen Ninguna Información"
 echo -e "${barra}"2
 fi
-txtvar=$(printf '%-16s' "USUARIO"(
+txtvar=$(printf '%-16s' "USUARIO")
 txtvar+=$(printf '%-16s' "CONTRASEÑA")
 txtvar+=$(printf '%-16s' "EXPIRACIÓN")
 txtvar+=$(printf '%-6s' "LIMITE")
@@ -630,7 +630,7 @@ data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
 txtvar=$(printf '%-21s' "${yellow}$user
 if [[ -e "${USRdatabase}" ]]; then
   if [[ $(cat ${USRdatabase}|grep -w "${user} ]]; then
-    txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)"
+    txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)")"
     DateExp="$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f3)"
     DataSec=$(date +%s --date="$DateExp")
     if [[ "$VPSsec" -gt "$DataSec" ]]; then    
