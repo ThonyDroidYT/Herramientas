@@ -84,7 +84,8 @@ else
 echo -e "${yellow}Usuarios Actualmente Activos en el Servidor"
 echo -e "${barra}"
 for us in $(echo ${usuarios_ativos[@]}); do
-echo -e "User: " && echo "${us}"
+echo -e "${cyan}Usuario:》${green} ${us}" 
+#echo "${us}"
 done
 echo -e "${barra}"
 fi
