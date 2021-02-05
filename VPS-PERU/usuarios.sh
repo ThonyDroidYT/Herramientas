@@ -719,7 +719,7 @@ usr=$user
    echo -e "${yellow}$usr $never"
    continue
    }
-DataSEC=$(date +%s --date="$DataUser
+DataSEC=$(date +%s --date="$DataUser)
 if [[ "$DataSEC" -lt "$DataVPS" ]]; then
 echo -e"${yellow}$usr $expired"
 rm_user "$user" && echo -e "($removido)"
@@ -734,7 +734,7 @@ backup_fun () {
 echo -e "${yellow}HERRAMIENTA DE BACKUP DE USUARIOS"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}CREAR BACKUP ${plain}"
-echo -e "${num1} ${cyan}RESTAURAR BACKUP ${plain}"
+echo -e "${num2} ${cyan}RESTAURAR BACKUP ${plain}"
 echo -e "${barra}"
 unset selection
 while [[ ${selection} != @([1-2]) ]]; do
