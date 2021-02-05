@@ -1,4 +1,8 @@
 #!/bin/bash
+USRdatabase="/etc/ADM-PEuser"
+[[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
+sort ${USRdatabase} | uniq > ${USRdatabase}tmp
+mv -f ${USRdatabase}tmp ${USRdatabase}
 #BARRAS AZUL
 #barra="\033[1;34m======================================================\033[0m"
 #barra="\033[1;34m**********************************************************\033[0m"
