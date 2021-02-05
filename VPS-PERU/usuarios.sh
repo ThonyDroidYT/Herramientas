@@ -627,7 +627,7 @@ VPSsec=$(date +%s)
 while read user; do
 unset txtvar
 data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
-txtvar=$(printf '%-21s' "${yellow}$user
+txtvar=$(printf '%-21s' "${yellow}$user")
 if [[ -e "${USRdatabase}" ]]; then
   if [[ $(cat ${USRdatabase}|grep -w "${user}") ]]; then
     txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)")"
