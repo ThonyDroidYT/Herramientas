@@ -761,7 +761,7 @@ nome=$(echo ${line}|cut -d'|' -f1)
   }
 senha=$(echo ${line}|cut -d'|' -f2)
 DateExp=$(echo ${line}|cut -d'|' -f3)
-DataSec=$(date +%s --date="$DateExp
+DataSec=$(date +%s --date="$DateExp")
 [[ "$VPSsec" -lt "$DataSec" ]] && dias="$(($(($DataSec - $VPSsec)) / 86400))" || dias="30"
 limite=$(echo ${line}|cut -d'|' -f4)
 add_user "$nome" "$senha" "$dias" "$limite" && echo -e "${green}$nome [OK]" || echo -e "${green}$nome [ERROR]"
