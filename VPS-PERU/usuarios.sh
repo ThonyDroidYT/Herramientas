@@ -719,7 +719,7 @@ usr=$user
    echo -e "${yellow}$usr $never"
    continue
    }
-DataSEC=$(date +%s --date="$DataUser)
+DataSec=$(date +%s --date="$DateExp")
 if [[ "$DataSEC" -lt "$DataVPS" ]]; then
 echo -e"${yellow}$usr $expired"
 rm_user "$user" && echo -e "($removido)"
