@@ -129,7 +129,7 @@ while true; do
      break
 done
 while true; do
-     echo -e "${cyan}Limite de Conexión de Nuevo Usuario$plain}"
+     echo -e "${yellow}Limite de Conexión de Nuevo Usuario ${plain}"
      read -p "Límite: 》" limiteuser
      if [[ -z "$limiteuser" ]]; then
      err_fun 11 && continue
