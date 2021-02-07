@@ -236,7 +236,7 @@ red=$(tput setaf 1)
 gren=$(tput setaf 2)
 yellow=$(tput setaf 3)
 if [[ ! -e "${dir_user}" ]]; then
-echo -e "${red}No Fue Identificado una Base de Datos Con Usuarios")"
+echo -e "${red}No Fue Identificado una Base de Datos Con Usuarios"
 echo -e "${red}Los Usuarios a Seguir No Contienen Ninguna Información"
 echo -e "${barra}"
 fi
