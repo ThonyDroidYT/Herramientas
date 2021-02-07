@@ -222,6 +222,7 @@ echo -e "${cyan}USUARIO: ${green}$name ${plain}"
 echo -e "${cyan}CONTRASEÑA: ${green}$pass ${plain}"
 echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
+mkdir /etc/TDscript
 touch $dir_user
 echo "Contraseña: $pass" > $dir_user/$name
 echo "Límite: $limit" >> $dir_user/$name
