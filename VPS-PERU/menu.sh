@@ -208,6 +208,7 @@ dir_user="/etc/TDscript/Usuarios"
 USERdatabase="/etc/TDscript/Usuarios/USRdatabase"
 valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
+#datexpe=$(date "+%F" -d " + $daysrnf days") && valid=$(date '+%C%y-%m-%d' -d " + $daysrnf days")
 #CREAR USER
 echo -e "${yellow}Ingrese el Nombre Para El Nuevo Usuario ${plain}"
 read -p "Nombre: 》" name
@@ -231,7 +232,7 @@ echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
 echo -e "${barra}"
 echo -e "${green}USUARIO $name CREADO CON ÉXITO!! ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
-echo "$name|$pass|$datexp|$limit" >> $USERdatabase
+echo "$name|$pass|${datexp}|$limit" >> $USERdatabase
 echo "Usuario: $name" > $dir_user/$name
 echo "Contraseña: $pass" > $dir_user/$name
 echo "Limite: $limit" >> $dir_user/$name
