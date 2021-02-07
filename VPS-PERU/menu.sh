@@ -208,7 +208,7 @@ read -p "Contraseña: 》" pass
 echo -e "${yellow}Ingresé la Duración del Usuario $name${plain}"
 read -p "Duración: 》" daysrnf
 echo -e "${yellow} Ingresé la Duración del Usuario $name${plain}"
-read -p "Limite: 》" name
+read -p "Limite: 》" limit
 #CREAR
 #verificar_usuario
 useradd -M -s /bin/false $name -e $valid
