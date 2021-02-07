@@ -230,7 +230,7 @@ menu
 }
 
 ver_user () {
-cd ${dir_user}
+cd /etc/TDscript
 ls
 }
 
