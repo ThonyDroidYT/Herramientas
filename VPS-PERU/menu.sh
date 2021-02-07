@@ -201,9 +201,9 @@ crear_usuario () {
 #mkdir $dir_user
 #mkdir $USERdatabase
 #fi
-[[ ! -e /etc/TDscript ]] && mkdir /etc/TDscript
+[[ ! -e /etc/TDscript ]] && mkdir /etc/TDscript/
 [[ ! -e ${dir_user} ]] && mkdir ${dir_user}
-[[ ! -e ${USERdatabase} ]] && touch ${USERdatabase}
+[[ ! -e ${USERdatabase} ]] && touch ${USERdatabase}/
 dir_user="/etc/TDscript/Usuarios"
 USERdatabase="/etc/TDscript/Usuarios/USRdatabase"
 valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
