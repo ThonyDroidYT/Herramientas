@@ -273,7 +273,7 @@ for pid in `echo -e "$pids"`; do
     let i++
     done
     if [[ $pidend ]]; then
-    login=$(grep $pid $log |grep "$pidend" |grep "$loginsukses
+    login=$(grep $pid $log |grep "$pidend" |grep "$loginsukses")
     PID=$pid
     user=`echo $login |awk -F" " '{print $10}' | sed -r "s/'//g"`
     waktu=$(echo $login |awk -F" " '{print $2"-"$1,$3}')
