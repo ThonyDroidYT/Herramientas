@@ -217,11 +217,11 @@ useradd -M -s /bin/false $name -e $valid
 echo -e "${barra}"
 echo -e "${green}USUARIO $name CREADO CON ÉXITO!! ${plain}"
 echo -e "${barra}"
-echo -e "${cyan}IP: 》${green}$IP ${plain}"
-echo -e "${cyan}USUARIO: 》${green}$name ${plain}"
-echo -e "${cyan}CONTRASEÑA: 》${green}$pass ${plain}"
-echo -e "${cyan}EXPIRACIÓN: 》${green}$datexp ${plain}"
-echo -e "${cyan}LIMITE DE CONEXIÓN:》${green}$limit ${plain}"
+echo -e "${cyan}IP DEL VPS: ${green}$IP ${plain}"
+echo -e "${cyan}USUARIO: ${green}$name ${plain}"
+echo -e "${cyan}CONTRASEÑA: ${green}$pass ${plain}"
+echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
+echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
 touch $dir_user
 echo "Contraseña: $pass" > $dir_user/$name
 echo "Límite: $limit" >> $dir_user/$name
