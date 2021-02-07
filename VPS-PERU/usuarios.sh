@@ -357,7 +357,7 @@ while true; do
      err_fun 2 && continue
      elif [[ "${#nomeuser}" -gt "24" ]]; then
      err_fun 3 && continue
-     elif [[ "$(echo ${usuarios_ativos[@]}|grep -w "$nomeuser" ]]; then
+     elif [[ "$(echo ${usuarios_ativos[@]}|grep -w "$nomeuser")" ]]; then
      err_fun 14 && continue
      fi
      break
