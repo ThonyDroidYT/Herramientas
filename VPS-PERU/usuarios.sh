@@ -305,7 +305,7 @@ unset RECIVED; unset SEND; unset HOUR
  IDLOCAL=$(echo ${line}|cut -d',' -f2)
  RECIVED+="$(echo ${line}|cut -d',' -f3)+"
  SEND+="$(echo ${line}|cut -d',' -f4)+"
- DATESEC=$(date +%s --date="$(echo ${line}|cut -d',' -f5|cut -d' ' -f1,2,3,4)
+ DATESEC=$(date +%s --date="$(echo ${line}|cut -d',' -f5|cut -d' ' -f1,2,3,4)")
  TIMEON="$(($(date +%s)-${DATESEC}))"
   MIN=$(($TIMEON/60)) && SEC=$(($TIMEON-$MIN*60)) && HOR=$(($MIN/60)) && MIN=$(($MIN-$HOR*60))
   HOUR+="${HOR}h:${MIN}m:${SEC}s\n"
