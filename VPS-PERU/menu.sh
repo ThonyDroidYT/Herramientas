@@ -187,7 +187,7 @@ echo -e "${barra}"
 menu
 }
 
-verificar_usuarios () {
+verificar_usuario () {
 if cat /etc/passwd |grep $name: |grep -vi [a-z]$name |grep -v [0-9]$name > /dev/null
 then
 echo -e "${red}Error! ${green}Este Usuario Ya Existe! ${plain}"
@@ -256,7 +256,7 @@ exit;;
 1)administrar_usuarios;;
 2)new_user;;
 3)puertos_ssh;;
-4)crear_usuarios;;
+4)crear_usuario;;
 5)ver_user;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
