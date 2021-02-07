@@ -187,6 +187,48 @@ echo -e "${barra}"
 menu
 }
 
+verificar_usuarios () {
+if cat /etc/passwd |grep $name: |grep -vi [a-z]$name |grep -v [0-9]$name > /dev/null
+then
+echo -e "${red}Error! ${green}Este Usuario Ya Existe! ${plain}"
+return
+fi
+}
+
+#VERIFICAR
+crear_usuario () {
+dir_user="/etc/TDscript/Usuarios"
+valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
+datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
+#CREAR USER
+echo -e "${yellow}Ingrese el Nombre Para El Nuevo Usuario ${plain}"
+read -p "Nombre: 》" name
+echo -e "${yellow}Ingrese la Contraseña Para el Usuario $name${plain}"
+read -p "Contraseña: 》" pass
+echo -e "${yellow}Ingresé la Duración del Usuario $name${plain}"
+read -p "Duración: 》" daysrnf
+echo -e "${yellow} Ingresé la Duración del Usuario $name${plain}"
+read -p "Limite: 》" name
+#CREAR
+verificar_usuario
+useradd -M -s /bin/false $name -e $valid
+(echo $pass; echo $pass)|passwd $name 2>/dev/null
+#CREAR
+echo -e "${barra}"
+echo -e "${green}USUARIO $name CREADO CON ÉXITO!! ${plain}"
+echo -e "${barra}"
+echo -e "${cyan}IP: 》${green}$IP ${plain}"
+echo -e "${cyan}USUARIO: 》${green}$name ${plain}"
+echo -e "${cyan}CONTRASEÑA: 》${green}$pass ${plain}"
+echo -e "${cyan}EXPIRACIÓN: 》${green}$datexp ${plain}"
+echo -e "${cyan}LIMITE DE CONEXIÓN:》${green}$limit ${plain}"
+echo "Contraseña: $pass" > $dir_user/$name
+echo "Límite: $limit" >> $dir_user/$name
+echo "Expiración: $valid" >> $dir_user/$name
+echo -e "${barra}"
+menu
+}
+
 #MENU SCRIPT
 menu () {
 echo -e "${barra}"
@@ -195,7 +237,7 @@ echo -e "${barra}"
 echo -e "${num1} ${cyan}ADMININISTRAR USUARIOS  ${plain}"
 echo -e "${num2} ${cyan}CREAR USUARIO  ${plain}"
 echo -e "${num3} ${cyan}PUERTOS ACTIVOS  ${plain}"
-echo -e "${num4} ${cyan}FUNTION FOUR  ${plain}"
+echo -e "${num4} ${cyan}NUEVO CREADOR DE USUARIOS  ${plain}"
 echo -e "${num5} ${cyan}FUNTION FIVE  ${plain}"
 echo -e "${num0} ${red}EXIT SCRIPT ${plain}"
 echo -e "${barra}"
@@ -208,7 +250,7 @@ exit;;
 1)administrar_usuarios;;
 2)new_user;;
 3)puertos_ssh;;
-4)funtion_four;;
+4)crear_usuarios;;
 5)funtion_five;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
