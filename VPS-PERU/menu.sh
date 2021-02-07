@@ -197,7 +197,7 @@ fi
 
 #VERIFICAR
 crear_usuario () {
-dir_user="/etc/TDscript"
+dir_user="/etc/TDscript/Usuarios"
 valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
 #CREAR USER
@@ -224,6 +224,10 @@ echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
 mkdir $dir_user
 echo "Contraseña: $pass" > $dir_user/$name
+#echo "" >> USERdatabase
+#echo "" >> USERdatabase
+#echo "" >> USERdatabase
+echo "$name|$pass|${datexp}|$limit" >> ${USERdatabase}
 echo "Límite: $limit" >> $dir_user/$name
 echo "Expiración: $valid" >> $dir_user/$name
 echo -e "${barra}"
@@ -231,10 +235,11 @@ menu
 }
 
 detalles_usuarios () {
+USERdatabase="/etc/TDscript/Usuarios/USRdatabase"
 red=$(tput setaf 1)
 gren=$(tput setaf 2)
 yellow=$(tput setaf 3)
-if [[ ! -e "${dir_user}" ]]; then
+if [[ ! -e "${USERdatabase}" ]]; then
 echo -e "${red}No Fue Identificado una Base de Datos Con Usuarios"
 echo -e "${red}Los Usuarios a Seguir No Contienen Ninguna Información"
 echo -e "${barra}"
@@ -250,10 +255,10 @@ while read user; do
 unset txtvar
 data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
 txtvar=$(printf '%-21s' "${yellow}$user")
-if [[ -e "${dir_user}" ]]; then
-  if [[ $(cat ${dir_user}|grep -w "${user}") ]]; then
-    txtvar+="$(printf '%-21s' "${yellow}$(cat ${dir_user}|grep -w "${user}"|cut -d'|' -f2)")"
-    DateExp="$(cat ${dir_user}|grep -w "${user}"|cut -d'|' -f3)"
+if [[ -e "${USERdatabase}" ]]; then
+  if [[ $(cat ${USERdatabase}|grep -w "${user}") ]]; then
+    txtvar+="$(printf '%-21s' "${yellow}$(cat ${USERdatabase}|grep -w "${user}"|cut -d'|' -f2)")"
+    DateExp="$(cat ${USERdatabase}|grep -w "${user}"|cut -d'|' -f3)"
     DataSec=$(date +%s --date="$DateExp")
     if [[ "$VPSsec" -gt "$DataSec" ]]; then    
     EXPTIME="${red}[Exp]"
@@ -261,7 +266,7 @@ if [[ -e "${dir_user}" ]]; then
     EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
     fi
     txtvar+="$(printf '%-26s' "${yellow}${DateExp}${EXPTIME}")"
-    txtvar+="$(printf '%-11s' "${yellow}$(cat ${dir_user}|grep -w "${user}"|cut -d'|' -f4)")"
+    txtvar+="$(printf '%-11s' "${yellow}$(cat ${USERdatabase}|grep -w "${user}"|cut -d'|' -f4)")"
     else
     txtvar+="$(printf '%-21s' "${red}???")"
     txtvar+="$(printf '%-21s' "${red}???")"
@@ -272,6 +277,7 @@ echo -e "$txtvar"
 done <<< "$(mostrar_usuarios)"
 echo -e "${barra}"
 }
+
 ver_user () {
 cd /etc/TDscript
 ls
