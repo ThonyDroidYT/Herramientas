@@ -202,8 +202,8 @@ crear_usuario () {
 #mkdir $USERdatabase
 #fi
 [[ ! -e /etc/TDscript ]] && mkdir /etc/TDscript/
-[[ ! -e ${dir_user} ]] && mkdir ${dir_user}
-[[ ! -e ${USERdatabase} ]] && touch ${USERdatabase}/
+[[ ! -e ${dir_user} ]] && mkdir $dir_user/
+[[ ! -e ${USERdatabase} ]] && touch $USERdatabase
 dir_user="/etc/TDscript/Usuarios"
 USERdatabase="/etc/TDscript/Usuarios/USRdatabase"
 valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
@@ -217,6 +217,7 @@ echo -e "${yellow}Ingresé la Duración del Usuario $name${plain}"
 read -p "Duración: 》" daysrnf
 echo -e "${yellow} Ingresé la Duración del Usuario $name${plain}"
 read -p "Limite: 》" limit
+clear
 #CREAR
 #verificar_usuario
 useradd -M -s /bin/false $name -e $valid
