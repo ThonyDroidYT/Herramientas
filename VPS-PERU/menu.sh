@@ -197,7 +197,12 @@ fi
 
 #VERIFICAR
 crear_usuario () {
+if [[ ! -e "${USERdatabase}" ]]; then
+mkdir $dir_user
+mkdir $USERdatabase
+fi
 dir_user="/etc/TDscript/Usuarios"
+USERdatabase="/etc/TDscript/Usuarios/USRdatabase"
 valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 datexp=$(date "+%d/%m/%Y" -d " +$daysrnf days")
 #CREAR USER
@@ -222,8 +227,7 @@ echo -e "${cyan}USUARIO: ${green}$name ${plain}"
 echo -e "${cyan}CONTRASEÑA: ${green}$pass ${plain}"
 echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
-mkdir $dir_user
-echo "$name|$pass|${datexp}|$limit" >> $USERdatabase
+echo "$name|$pass|$datexp|$limit" >> $USERdatabase
 echo "Usuario: $name" > $dir_user/$name
 echo "Contraseña: $pass" > $dir_user/$name
 echo "Limite: $limit" >> $dir_user/$name
