@@ -1,8 +1,4 @@
 #!/bin/bash
-USRdatabase="/etc/ADM-PEuser"
-[[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
-sort ${USRdatabase} | uniq > ${USRdatabase}tmp
-mv -f ${USRdatabase}tmp ${USRdatabase}
 #BARRAS AZUL
 #barra="\033[1;34m======================================================\033[0m"
 #barra="\033[1;34m**********************************************************\033[0m"
@@ -81,6 +77,10 @@ echo "$u"
 done
 }
 new_user () {
+USRdatabase="/etc/ADM-PEuser"
+[[ ! -e ${USRdatabase} ]] && touch ${USRdatabase}
+sort ${USRdatabase} | uniq > ${USRdatabase}tmp
+mv -f ${USRdatabase}tmp ${USRdatabase}
 clear
 usuarios_ativos=($(mostrar_usuarios))
 if [[ -z ${usuarios_ativos[@]} ]]; then
@@ -229,6 +229,11 @@ echo -e "${barra}"
 menu
 }
 
+ver_user () {
+cd ${dir_user}
+ls
+}
+
 #MENU SCRIPT
 menu () {
 echo -e "${barra}"
@@ -238,7 +243,7 @@ echo -e "${num1} ${cyan}ADMININISTRAR USUARIOS  ${plain}"
 echo -e "${num2} ${cyan}CREAR USUARIO  ${plain}"
 echo -e "${num3} ${cyan}PUERTOS ACTIVOS  ${plain}"
 echo -e "${num4} ${cyan}NUEVO CREADOR DE USUARIOS  ${plain}"
-echo -e "${num5} ${cyan}FUNTION FIVE  ${plain}"
+echo -e "${num5} ${cyan}VER USUARIOS  ${plain}"
 echo -e "${num0} ${red}EXIT SCRIPT ${plain}"
 echo -e "${barra}"
 #echo -e "${blue}SELECIONE UNA OPCIÓN: 》 ${yellow}"; read multiscripts
@@ -251,7 +256,7 @@ exit;;
 2)new_user;;
 3)puertos_ssh;;
 4)crear_usuarios;;
-5)funtion_five;;
+5)ver_user;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
