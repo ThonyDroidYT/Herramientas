@@ -183,7 +183,7 @@ NOREPEAT+="$porta\n"
 svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
 echo -e "\033[1;33m ➾ \e[1;31m $svcs\033[1;32m: \033[1;33m ➢ \e[1;32m $porta "
 done
-echo -e "${barra}"
+#echo -e "${barra}"
 menu
 }
 
