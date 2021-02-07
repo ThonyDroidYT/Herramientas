@@ -232,6 +232,7 @@ menu
 ver_user () {
 cd /etc/TDscript
 ls
+#menu
 }
 
 #MENU SCRIPT
