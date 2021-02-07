@@ -231,6 +231,48 @@ echo -e "${barra}"
 menu
 }
 
+detalles_usuarios () {
+red=$(tput setaf 1)
+gren=$(tput setaf 2)
+yellow=$(tput setaf 3)
+if [[ ! -e "${dir_user}" ]]; then
+echo -e "${red}No Fue Identificado una Base de Datos Con Usuarios")"
+echo -e "${red}Los Usuarios a Seguir No Contienen Ninguna Información"
+echo -e "${barra}"
+fi
+txtvar=$(printf '%-16s' "USUARIO")
+txtvar+=$(printf '%-16s' "CONTRASEÑA")
+txtvar+=$(printf '%-16s' "EXPIRACIÓN")
+txtvar+=$(printf '%-6s' "LIMITE")
+echo -e "\033[1;33m${txtvar}"
+echo -e "${barra}"
+VPSsec=$(date +%s)
+while read user; do
+unset txtvar
+data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
+txtvar=$(printf '%-21s' "${yellow}$user")
+if [[ -e "${dir_user}" ]]; then
+  if [[ $(cat ${dir_user}|grep -w "${user}") ]]; then
+    txtvar+="$(printf '%-21s' "${yellow}$(cat ${dir_user}|grep -w "${user}"|cut -d'|' -f2)")"
+    DateExp="$(cat ${dir_user}|grep -w "${user}"|cut -d'|' -f3)"
+    DataSec=$(date +%s --date="$DateExp")
+    if [[ "$VPSsec" -gt "$DataSec" ]]; then    
+    EXPTIME="${red}[Exp]"
+    else
+    EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
+    fi
+    txtvar+="$(printf '%-26s' "${yellow}${DateExp}${EXPTIME}")"
+    txtvar+="$(printf '%-11s' "${yellow}$(cat ${dir_user}|grep -w "${user}"|cut -d'|' -f4)")"
+    else
+    txtvar+="$(printf '%-21s' "${red}???")"
+    txtvar+="$(printf '%-21s' "${red}???")"
+    txtvar+="$(printf '%-11s' "${red}???")"
+  fi
+fi
+echo -e "$txtvar"
+done <<< "$(mostrar_usuarios)"
+echo -e "${barra}"
+}
 ver_user () {
 cd /etc/TDscript
 ls
@@ -259,7 +301,7 @@ exit;;
 2)new_user;;
 3)puertos_ssh;;
 4)crear_usuario;;
-5)ver_user;;
+5)detalles_usuarios;;
 *)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
 exit ;;
 esac
