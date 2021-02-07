@@ -210,7 +210,7 @@ read -p "Duración: 》" daysrnf
 echo -e "${yellow} Ingresé la Duración del Usuario $name${plain}"
 read -p "Limite: 》" name
 #CREAR
-verificar_usuario
+#verificar_usuario
 useradd -M -s /bin/false $name -e $valid
 (echo $pass; echo $pass)|passwd $name 2>/dev/null
 #CREAR
@@ -222,6 +222,7 @@ echo -e "${cyan}USUARIO: 》${green}$name ${plain}"
 echo -e "${cyan}CONTRASEÑA: 》${green}$pass ${plain}"
 echo -e "${cyan}EXPIRACIÓN: 》${green}$datexp ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN:》${green}$limit ${plain}"
+touch $dir_user
 echo "Contraseña: $pass" > $dir_user/$name
 echo "Límite: $limit" >> $dir_user/$name
 echo "Expiración: $valid" >> $dir_user/$name
