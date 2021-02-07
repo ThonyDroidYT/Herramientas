@@ -227,7 +227,7 @@ echo "Contraseña: $pass" > $dir_user/$name
 #echo "" >> USERdatabase
 #echo "" >> USERdatabase
 #echo "" >> USERdatabase
-echo "$name|$pass|${datexp}|$limit" >> ${USERdatabase}
+echo "$name|$pass|${datexp}|$limit" >> $USERdatabase
 echo "Límite: $limit" >> $dir_user/$name
 echo "Expiración: $valid" >> $dir_user/$name
 echo -e "${barra}"
