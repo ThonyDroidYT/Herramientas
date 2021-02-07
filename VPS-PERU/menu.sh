@@ -223,12 +223,12 @@ useradd -M -s /bin/false $name -e $valid
 (echo $pass; echo $pass)|passwd $name 2>/dev/null
 #CREAR
 echo -e "${barra}"
-echo -e "${green}USUARIO $name CREADO CON ÉXITO!! ${plain}"
-echo -e "${barra}"
 echo -e "${cyan}IP DEL VPS: ${green}$IP ${plain}"
 echo -e "${cyan}USUARIO: ${green}$name ${plain}"
 echo -e "${cyan}CONTRASEÑA: ${green}$pass ${plain}"
 echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
+echo -e "${barra}"
+echo -e "${green}USUARIO $name CREADO CON ÉXITO!! ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
 echo "$name|$pass|$datexp|$limit" >> $USERdatabase
 echo "Usuario: $name" > $dir_user/$name
