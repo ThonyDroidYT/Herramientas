@@ -282,12 +282,14 @@ fi
 echo -e "$txtvar"
 done <<< "$(mostrar_usuarios)"
 echo -e "${barra}"
+menu
+clear
 }
 
 ver_user () {
 cd /etc/TDscript
 ls
-#menu
+menu
 }
 
 #MENU SCRIPT
