@@ -406,7 +406,7 @@ done
      echo -e "➾ Usuario: " && echo -e "$nomeuser"
      echo -e "➾ Contraseña: " && echo -e "$senhauser"
      echo -e "➾ Dias de Duración: " && echo -e "$diasuser"
-     echo -e "➾ Fecha de Expiración: " && echo -e "$(date "+%F" -d " + $diasuser days"
+     echo -e "➾ Fecha de Expiración: " && echo -e "$(date "+%F" -d " + $diasuser days")"
      echo -e "➾ Limite de Conexión: " && echo -e "$limiteuser"
      echo -e "➾ Creado Con: NEW-ADM-PLUS "
 echo""
