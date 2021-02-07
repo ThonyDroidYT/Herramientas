@@ -492,7 +492,7 @@ fi
      echo -e "${barra}"
      return 1
      }
-[[ ! $(echo ${usuarios_ativos[@]}|grep -w "$useredit ]] && {
+[[ ! $(echo ${usuarios_ativos[@]}|grep -w "$useredit") ]] && {
      echo -e "${green}Error, Usuario Invalido"
      echo -e "${barra}"
      return 1
@@ -549,7 +549,7 @@ fi
      echo -e "${barra}"
      return 1
      }
-[[ ! $(echo ${usuarios_ativos[@]}|grep -w "$useredit ]] && {
+[[ ! $(echo ${usuarios_ativos[@]}|grep -w "$useredit") ]] && {
      echo -e "${green}Error, Usuario Invalido"
      echo -e "${barra}"
      return 1
