@@ -449,7 +449,7 @@ fi
      echo -e "${barra}"
      return 1
      }
-[[ ! $(echo ${usuarios_ativos[@]}|grep -w "$usuario_del ]] && {
+[[ ! $(echo ${usuarios_ativos[@]}|grep -w "$usuario_del") ]] && {
      echo -e "${green}Error, Usuario Invalido"
      echo -e "${barra}"
      return 1
