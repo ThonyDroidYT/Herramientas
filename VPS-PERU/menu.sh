@@ -223,12 +223,10 @@ echo -e "${cyan}CONTRASEÑA: ${green}$pass ${plain}"
 echo -e "${cyan}EXPIRACIÓN: ${green}$datexp ${plain}"
 echo -e "${cyan}LIMITE DE CONEXIÓN: ${green}$limit ${plain}"
 mkdir $dir_user
-echo "Contraseña: $pass" > $dir_user/$name
-#echo "" >> USERdatabase
-#echo "" >> USERdatabase
-#echo "" >> USERdatabase
 echo "$name|$pass|${datexp}|$limit" >> $USERdatabase
-echo "Límite: $limit" >> $dir_user/$name
+echo "Usuario: $name" > $dir_user/$name
+echo "Contraseña: $pass" > $dir_user/$name
+echo "Limite: $limit" >> $dir_user/$name
 echo "Expiración: $valid" >> $dir_user/$name
 echo -e "${barra}"
 menu
