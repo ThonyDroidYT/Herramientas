@@ -1,3 +1,4 @@
+#!/bin/bash
 mportas () {
 unset portas
 portas_var=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
@@ -8,3 +9,4 @@ done <<< "$portas_var"
 i=1
 echo -e "$portas"
 }
+mportas
