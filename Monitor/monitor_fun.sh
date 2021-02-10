@@ -1,5 +1,6 @@
 #!/bin/bash
 #Fun_trans
+IP=$(wget -qO- ipv4.icanhazip.com)
 fun_trans () { 
 local texto
 local retorno
