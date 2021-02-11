@@ -5,6 +5,7 @@ fun_trans () {
 local texto
 local retorno
 declare -A texto
+SCPdir="/etc/newadm"
 SCPidioma="${SCPdir}/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
 local LINGUAGE=$(cat ${SCPidioma})
