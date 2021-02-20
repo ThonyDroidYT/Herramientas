@@ -122,7 +122,7 @@ menu
 decrypt_shc () {
 clear
 cd shc-${version}
-[[ -e $HOME/shc-$version}/unshc.sh ]] && wget https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh; chmod 777 unshc.sh
+[[ ! -e $HOME/shc-$version}/unshc.sh ]] && wget https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh; chmod 777 unshc.sh &> /dev/null
 fun_bar
 echo -e "${yellow}DESENCRIPTAR SCRIPT SHC ${plain}"
 echo -e "${cyan}Ingrese el Nombre del Script a Desencriptar ${plain}"
