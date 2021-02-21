@@ -1,5 +1,4 @@
 #!/bin/bash
-clear
 #BARRA AZUL
 #barra="\033[1;34m======================================================\033[0m"
 #barra="\033[1;34m**********************************************************\033[0m"
@@ -219,6 +218,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AA
 }
 changelog () {
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
+return 0
 }
 #VPS-MX
 #vpsmx-8-3 ()
