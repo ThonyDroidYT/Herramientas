@@ -147,13 +147,11 @@ exit;;
 1)vpsmx;;
 2)vpsmx-8-3;;
 3)return 0;;
-#*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
-#exit ;;
 esac
 }
 #MULTISCRIPTS
 vpsmx () {
-sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
+apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
 }
 dankel2 () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/instala.sh; chmod 777 instala.sh && ./instala.sh
