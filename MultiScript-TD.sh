@@ -139,19 +139,18 @@ echo -e "${num1} ${cyan}INSTALAR VPS-MX ${red}8.2 ${cyan}BY @KALIX1 ${plain}"
 echo -e "${num2} ${cyan}INSTALAR VPS-MX ${red}8.3 ${cyan}BY @KALIX1  ${plain}"
 echo -e "${num3} ${red}REGRESAR ${plain}"
 echo -e "${num0} ${red}SALIR ${plain}"
-read -p "SELECIONE UNA OPCIÓN: 》" VPS-MX
-case $VPS-MX in
+read -p "SELECIONE UNA OPCIÓN: 》" VPSMX
+case $VPSMX in
 0)
 clear
 exit;;
 1)vpsmx;;
 2)vpsmx-8-3;;
 3)return 0;;
-*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
-exit ;;
+#*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
+#exit ;;
 esac
 }
-
 #MULTISCRIPTS
 vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
