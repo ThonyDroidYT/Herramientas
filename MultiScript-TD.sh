@@ -154,7 +154,7 @@ vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
 }
 vpsmx-8.3 () 
-apt install curl -y; apt update -y; apt upgrade -y; wget https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3?dl=0 -O VPS-MX.sh; chmod 777 *.sh; ./VPS-MX.sh
+sudo apt-get install curl -y; apt-get update -y; apt-get upgrade -y; wget https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3?dl=0 -O VPS-MX.sh; chmod 777 *.sh; ./VPS-MX.sh
 }
 dankel2 () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/instala.sh; chmod 777 instala.sh && ./instala.sh
