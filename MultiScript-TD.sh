@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 #BARRA AZUL
 #barra="\033[1;34m======================================================\033[0m"
 #barra="\033[1;34m**********************************************************\033[0m"
@@ -115,7 +116,7 @@ echo -e "\033[1;31mIP:\033[1;37m $IP   \033[1;31mEn uso: \033[1;37m$_usor \033[1
 }
 #MEMORIA 2
 memoria2 () {
-echo -e "${barra}"
+echo -e "${barra1}"
 echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m$IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
@@ -125,7 +126,7 @@ vpsmxmenu () {
 clear
 echo -e "${barra1}"
 echo -e "${Rojo} ${cyan}           VPS-MX VERSIÓNES     ${green}[BY: @THONY_DROIDYT]     ${plain}"
-memoria
+memoria2
 date
 echo -e "${barra1}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX ${red}8.2 ${cyan}BY @KALIX1 ${plain}"
