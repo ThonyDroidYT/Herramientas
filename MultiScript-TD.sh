@@ -139,7 +139,11 @@ clear
 exit;;
 1)vpsmx;;
 2)vpsmx-8-3;;
-3)return 0;;
+3)
+clear
+return;;
+*)echo -e "${red}¡POR FAVOR SELECIONE EL NÚMERO CORRECTO! ${plain}"
+exit ;;
 esac
 }
 
