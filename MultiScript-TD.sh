@@ -120,15 +120,8 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mIP:\033[1;37m$IP     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 }
-#Actualizar Archivos
-fun_update () {
-apt-get update -y
-apt-get upgrade -y
-dpkg --configure -a
-clear
-}
 
-vpsmx-menu () {
+vpsmxmenu () {
 clear
 echo -e "${barra1}"
 echo -e "${Rojo} ${cyan}           VPS-MX VERSIÓNES     ${green}[BY: @THONY_DROIDYT]     ${plain}"
@@ -148,6 +141,14 @@ exit;;
 2)vpsmx-8-3;;
 3)return 0;;
 esac
+}
+
+#Actualizar Archivos
+fun_update () {
+apt-get update -y
+apt-get upgrade -y
+dpkg --configure -a
+clear
 }
 #MULTISCRIPTS
 vpsmx () {
@@ -216,7 +217,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 }
 #VPS-MX
 vpsmx-8-3 ()
-wget -O VPS-MX.sh https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3; chmod 777 VPS-MX.sh; ./VPS-MX.sh
+bash <(curl -Ls https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3)
 }
 #MENU
 #fun_update
@@ -248,7 +249,7 @@ case $multiscripts in
 0)
 clear
 exit;;
-1)vpsmx-menu;;
+1)vpsmxmenu;;
 2)dankel;;
 3)vpspack;;
 4)sshplus;;
