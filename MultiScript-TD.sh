@@ -138,7 +138,7 @@ case $VPSMX in
 clear
 exit;;
 1)vpsmx;;
-2)vpsmx-8-3;;
+2)bash <(curl -Ls https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3.sh);;
 3)
 clear
 return;;
@@ -220,9 +220,8 @@ changelog () {
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-Changelog.sh)
 }
 #VPS-MX
-vpsmx-8-3 ()
-bash <(curl -Ls https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3)
-}
+#vpsmx-8-3 ()
+#}
 #MENU
 #fun_update
 limpiar
