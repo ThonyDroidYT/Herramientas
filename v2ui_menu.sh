@@ -26,7 +26,7 @@ num12='\033[1;32m [12] \033[1;31m>'
 #BARRA
 barra='\033[1;34m=========================================================\033[0m'
 #LOGO
-admplus='\033[1;32m [NEW-ADM-PLUS] \033[0m'
+admplus='\033[1;32m[NEW-ADM-PLUS]\033[0m'
 
 #INICIO MENU
 menu () {
@@ -69,7 +69,7 @@ v2-ui uninstall
 #v2ui_menu
 
 # EJECUCIÓN DEL MENU
-#v2ui_menu () {
+v2ui_menu () {
 echo -e "${barra}"
 echo -e "${cyan} ADMINISTRAR PANEL WEB V2RAY ${admplus}"
 echo -e "${barra}"
@@ -86,10 +86,7 @@ echo -e "${green} [10] ${red}> ${cyan}INSTALAR V2-UI ${plain}"
 echo -e "${green} [11] ${red}> ${cyan}DESINSTALAR V2-UI ${plain}"
 echo -e "${num0} SALIR DE SCRIPT ${plain}"
 echo -e "${barra}"
-while [[ ${panelv2rayadm} != @(0|[1-11]) ]]; do
 read -p "Escoge una Opcion [0-11]: 》" panelv2rayadm
-tput cuu1 && tput dl1
-done
 case $panelv2rayadm in
 1)menu;;
 2)v2-ui start;;
@@ -104,3 +101,5 @@ case $panelv2rayadm in
 11)desinstalar;;
 0)exit;;
 esac
+}
+v2ui_menu
