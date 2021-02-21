@@ -5,6 +5,7 @@
 barra="\033[1;34m+++++++++++++++++++++++++++++++++++++++++++++++++++++++\033[0m"
 #barra="\033[1;34m###############################################\033[0m"
 #barra="\033[1;34m_____________________________________________________\033[0m"
+barra1="\e[1;31m————————————————————————————————————————————————————\e[0m"
 #FUNCION LIMPIAR
 limpiar () {
 rm -rf MultiScript-TD.sh
@@ -58,7 +59,7 @@ num13='\033[1;32m [13] \033[1;31m>'
 vmulti="\033[1;33mv1.2"
 vpack="\033[1;31mFREE"
 vssh="\033[1;31mv31"
-vmx="\033[1;31mv8.1"
+vmx="\033[1;31mv8.2"
 vadm="\033[1;31mv6.0"
 vadmvps="\033[1;31mv1.6"
 vdank="\033[1;31mv6.0"
@@ -128,11 +129,11 @@ clear
 }
 vpsmx-menu () {
 clear
-echo -e "${barra}"
+echo -e "${barra1}"
 echo -e "${Rojo} ${cyan}           VPS-MX VERSIÓNES     ${green}[BY: @THONY_DROIDYT]     ${plain}"
 memoria
 date
-echo -e "${barra}"
+echo -e "${barra1}"
 echo -e "${num1} ${cyan}INSTALAR VPS-MX ${red}8.2 ${cyan}BY @KALIX1 ${plain}"
 echo -e "${num2} ${cyan}INSTALAR VPS-MX ${red}8.3 ${cyan}BY @KALIX1  ${plain}"
 echo -e "${num3} ${red}REGRESAR ${plain}"
