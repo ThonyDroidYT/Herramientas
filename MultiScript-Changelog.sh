@@ -23,4 +23,5 @@ multi_scripts () {
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/MultiScript-TD.sh)
 }
 cambios
-multi_scripts
+return
+#multi_scripts
