@@ -1,6 +1,6 @@
 #!/bin/bash
 #echo -e "\033[1;41m\033[1;31mLista de Cambios ${name} ${version} ${plain}"
-version="\033[1;32m1.2"
+version="\033[1;32m1.3"
 name="\033[1;33mMULTISCRIPT-TD"
 plain="\033[0m"
 cyan="\033[1;36m"
@@ -13,8 +13,8 @@ fix="\033[1;31mCorregido:"
 cambios () {
 clear
 echo -e "\033[1;41m\033[1;36mLista de Cambios ${name} ${version} ${plain}"
-#echo -e "${add} ${cyan}SSLH MULTIPLEX ${red}BETA ${plain}"
-echo -e "${fix} ${cyan}Traductor Script Algunas VPS ${plain}"
+#echo -e "${add} ${cyan}VPS-MX 8.3 ${red}BETA ${plain}"
+echo -e "${fix} ${cyan}VPS-MX 8.2 ${plain}"
 echo -e "${add} ${cyan}VPS-PACK ${red}5.8 ${plain}"
 echo -e "${add} ${cyan}ADM-MANAGER-ALPHA-MOD ${red}BETA ${plain}"
 }
