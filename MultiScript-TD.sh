@@ -127,6 +127,7 @@ apt-get upgrade -y
 dpkg --configure -a
 clear
 }
+
 vpsmx-menu () {
 clear
 echo -e "${barra1}"
@@ -150,12 +151,13 @@ exit;;
 exit ;;
 esac
 }
+
 #MULTISCRIPTS
 vpsmx () {
 sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/VPS-Free/master/instalscript.sh; chmod 777 instalscript.sh; ./instalscript.sh
 }
 vpsmx-8-3 ()
-wget https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3?dl=0 -O VPS-MX.sh; chmod 777 *.sh; ./VPS-MX.sh
+wget https://www.dropbox.com/s/siqbgtwq8jjndfj/VPS-MX-8.3?dl=0 -O VPS-MX.sh; chmod 777 VPS-MX.sh; ./VPS-MX.sh
 }
 dankel2 () {
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-MANAGER-DANKELTHAHER-FREE/master/instala.sh; chmod 777 instala.sh && ./instala.sh
