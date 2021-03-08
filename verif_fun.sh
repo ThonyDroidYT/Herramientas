@@ -15,4 +15,8 @@ exit 0
 
 #verif 2
 verif_fun2 () {
+vo=$(curl -sSL "${P_SERVER}/unlockadm")
+vo2=$(wget -qO- https://git.io/unlockadm)
+vp=$(cat /usr/bin/vendor_code)
+[[ $vo = $vp ]] && menu || exit 0
 }
