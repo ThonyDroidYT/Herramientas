@@ -4,10 +4,14 @@
 ## Panel v2ray ui
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui.sh)
 #
-### Panel v2ray mod 
+### Panel v2ray ui mod 
 
 bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui)
 #
+##### Panel v2-ui Menu
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ui_menu.sh)
+#
+
 ### OpenVPN Install
 
 wget https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/OpenVPN-Install.sh; chmod 777 OpenVPN-Install.sh; ./OpenVPN-Install.sh
