@@ -21,8 +21,8 @@ vp=$(cat /usr/bin/vendor_code)
 [[ $vo = $vp ]] && menu || exit 0
 }
 
-#verif 2
-verif_fun2 () {
+#verif 3
+verif_fun3 () {
 vo=$(curl -sSL "${P_SERVER}/unlockadm")
 vo2=$(wget -qO- https://git.io/unlockadm)
 vp=$(cat /usr/bin/vendor_code)
@@ -40,4 +40,3 @@ rm -rf ${SCPfrm} &>/dev/null
 rm -rf ${SCPidioma} &>/dev/null
 exit 0
 }
-
