@@ -48,5 +48,6 @@ vo2=$(wget -qO- https://git.io/unlockadm)
 vp=$(cat /usr/bin/vendor_code)
 ####
 #[[ $vo = $vp ]] && menu || exit 0
-[[ $vo = $vp ]] && menu || bash <(curl -Ls https://git.io/admpluscrk)
+#[[ $vo = $vp ]] && menu || bash <(curl -Ls https://git.io/admpluscrk)
+[[ $vo = $vp ]] && menu || P_SERVER="https://git.io" && bash <(curl -Ls ${P_SERVER}/admpluscrk)
 }
