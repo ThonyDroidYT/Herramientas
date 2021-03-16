@@ -68,6 +68,7 @@ apt-get install python2 -y
 apt-get install python3 -y
 apt-get install git -y
 apt-get install nodejs -y
+apt-get install npm -y
 npm install -g bash-obfuscate
 clear
 fun_bar
