@@ -88,6 +88,7 @@ fun_bar
 cd $HOME
 git clone https://github.com/Syhrularv/obfuscate.git
 cd obfuscate
+chmod 777 *.py
 }
 
 #INICiAR BASH-OBFUSCATE
