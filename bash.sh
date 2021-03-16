@@ -63,9 +63,11 @@ clear
 install_bashofs () {
 echo -e "${cyan}Encriptar Script Bash ${plain}"
 fun_update
-apt-get install python2
-apt-get install git
-apt-get install nodejs
+apt-get install python -y
+apt-get install python2 -y
+apt-get install python3 -y
+apt-get install git -y
+apt-get install nodejs -y
 npm install -g bash-obfuscate
 clear
 fun_bar
