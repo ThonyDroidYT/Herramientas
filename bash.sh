@@ -80,9 +80,11 @@ cd obfuscate
 install_bashofs_termux () {
 echo -e "${cyan}Encriptar Script Bash ${plain}"
 pkg update -y; pkg upgrade -y
+pkg install python
 pkg install python2 -y
 pkg install git -y
 pkg install install nodejs -y
+pkg install npm -y
 npm install -g bash-obfuscate -y
 clear
 fun_bar
