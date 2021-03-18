@@ -52,8 +52,18 @@ SEMCOR='\e[0m'
     msg -bar
     exit 0
     }
-#colores
+#amarillo
     [[ "$1" = "--ama" ]] && {
     msg -ama "$2"
+    exit 0
+    }
+#azul
+    [[ "$1" = "--azu" ]] && {
+    msg -azu "$2"
+    exit 0
+    }
+#purple
+    [[ "$1" = "--ama" ]] && {
+    msg -purple "$2"
     exit 0
     }
