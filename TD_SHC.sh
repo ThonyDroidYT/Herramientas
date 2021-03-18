@@ -138,7 +138,6 @@ echo -e "${green}iniciando Instalación!${plain}"
 cd shc-${version}
 [[ ! -e $HOME/shc-${version}/unshc.sh ]] && wget -O $HOME/shc-${version}/unshc.sh https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh &> /dev/null
 chmod 777 $HOME/shc-${version}/unshc.sh
-clear
 fun_bar
 echo -e "${green}Instalación Con Éxito!${plain}"
 echo -e "${yellow}DESENCRIPTAR SCRIPT SHC ${plain}"
