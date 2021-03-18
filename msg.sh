@@ -47,8 +47,13 @@ SEMCOR='\e[0m'
   "-bar2"|"-bar")cor="${COLOR[4]}=========================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
  esac
 }
-#menu
+#barra
     [[ "$1" = "--barra" ]] && {
     msg -bar
+    exit 0
+    }
+#colores
+    [[ "$1" = "--ama" ]] && {
+    msg -ama
     exit 0
     }
