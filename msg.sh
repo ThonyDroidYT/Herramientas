@@ -54,6 +54,6 @@ SEMCOR='\e[0m'
     }
 #colores
     [[ "$1" = "--ama" ]] && {
-    msg -ama "$1"
+    msg -ama "$2"
     exit 0
     }
