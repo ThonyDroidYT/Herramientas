@@ -6,8 +6,14 @@ cd /etc/newadm && bash menu --barra
 barra2 () {
 bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra
 }
-azul () {
+ama () {
 bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --ama "$1"
+}
+azu () {
+bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --azu "$1"
+}
+purple () {
+bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --purple "$1"
 }
 color () {
 COLOR=$1
@@ -27,4 +33,6 @@ color ${yellow} "Hola Bienvenido :'3 "
 barra
 color ${cyan} "Este es un Mensaje de Prueba"
 barra2
-azul "Hola"
+ama "Hola"
+barra2
+purple "Bienvenido"
