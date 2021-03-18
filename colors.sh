@@ -3,6 +3,9 @@
 barra () {
 cd /etc/newadm && bash menu --barra
 }
+barra2 () {
+bash <(curl -Ls
+}
 color () {
 COLOR=$1
 echo -e "\033[${COLOR}${@:2}\033[0m"
