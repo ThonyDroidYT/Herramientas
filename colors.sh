@@ -14,6 +14,7 @@ yellow="\e[1;33m"
 cyan="\e[1;36m"
 plain="\e[0m"
 #Modo de uso: color ${BLUE} "Mensaje"
+clear
 barra
 color ${yellow} "Hola Bienvenido :'3 "
 barra
