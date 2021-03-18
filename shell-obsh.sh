@@ -46,7 +46,7 @@ clear
 
 #MENU SCRIPT
 echo -e "${barra}"
-echo -e "${Rojo} ${cyan}  SHELL COMPILER - ENCRIPTADOR BASH ${green}[BY: @THONY_DROIDYT]     ${plain}"
+echo -e "${Rojo} ${cyan} SHELL COMPILER - ENCRIPTADOR BASH ${green}[BY: @THONY_DROIDYT]${plain}"
 echo -e "${barra}"
 echo -e "${num1} ${cyan}USAR SHC  ${plain}"
 echo -e "${num2} ${cyan}USAR BASH_OBFUSCATE ${plain}"
