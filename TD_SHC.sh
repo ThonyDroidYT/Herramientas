@@ -118,7 +118,6 @@ menu
 }
 install_shc () {
 echo -e "${cyan}Descargando Archivos${plain}"
-
 fun_bar 'fun_update'
 echo -e "${yellow}Descargando Archivos Necesarios!${plain}"
 fun_bar 'sudo apt update'
@@ -152,6 +151,7 @@ menu
 #Inportar Script
 import_script () {
 clear
+[[ ! -e $HOME/shc-$version} ]] && mkdir shc-${version}
 cd shc-${version}
 echo -e "${yellow}IMPORTAR SCRIPT DESDE UN LINK ${plain}"
 echo -e "${cyan}Ingrese el Link del Script a Importar ${plain}"
