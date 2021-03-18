@@ -22,3 +22,4 @@ barra
 color ${yellow} "Hola Bienvenido :'3 "
 barra
 color ${cyan} "Este es un Mensaje de Prueba"
+barra2
