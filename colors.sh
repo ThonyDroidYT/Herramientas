@@ -50,5 +50,5 @@ barra2
 azu "@Usuario"
 verm2 "∆==============================∆"
 msg -verd "Hola Amigos"
-msg -verm2
+msg -verm2 "Welcome"
 msg -bar
