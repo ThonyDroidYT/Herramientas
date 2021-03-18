@@ -1,3 +1,4 @@
+#!/bin/bash
 # Funcoes Globais
 msg () {
 #local colors="/etc/new-adm-color"
