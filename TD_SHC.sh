@@ -126,7 +126,7 @@ fun_bar 'sudo apt install build-essential'
 fun_bar 'sudo apt-get install manpages-dev'
 fun_bar 'sudo apt-get install gcc'
 fun_bar 'sudo apt-get install shc'
-mkdir shc-${version}
+[[ ! -d shc-${version} ]] && mkdir shc-${version}
 echo -e "${green}Instalación Con Éxito!${plain}"
 }
 
@@ -134,6 +134,7 @@ echo -e "${green}Instalación Con Éxito!${plain}"
 decrypt_shc () {
 clear
 echo -e "${green}iniciando Instalación!${plain}"
+[[ ! -d shc-${version} ]] && mkdir shc-${version}
 cd shc-${version}
 [[ ! -e $HOME/shc-$version}/unshc.sh ]] && wget https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh &> /de/null; chmod 777 unshc.sh &> /dev/null
 clear
@@ -165,7 +166,7 @@ menu
 
 #Encriptar Script
 encript_script () {
-[[ ! -e $HOME/shc-$version} ]] && mkdir shc-${version}
+[[ ! -d shc-${version} ]] && mkdir shc-${version}
 cd shc-${version}
 clear
 echo -e "${yellow}Encriptar Script ${plain}"
