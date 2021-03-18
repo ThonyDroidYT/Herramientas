@@ -23,6 +23,7 @@ msg () {
   -bar)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra;;
   -verd)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verd "$2";;
   -verm2)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$2";;
+  -rojo)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --rojo "$2";;
  esac
 }
 color () {
@@ -51,4 +52,6 @@ azu "@Usuario"
 verm2 "∆==============================∆"
 msg -verd "Hola Amigos"
 msg -verm2 "Welcome"
+msg -bar
+msg -rojo "By @Thony_DroidYT"
 msg -bar
