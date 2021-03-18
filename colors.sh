@@ -6,6 +6,9 @@ cd /etc/newadm && bash menu --barra
 barra2 () {
 bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra
 }
+azul () {
+bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --ama "Hola"
+}
 color () {
 COLOR=$1
 #echo -e "\033[${COLOR}${@:2}\033[0m"
