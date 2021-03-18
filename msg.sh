@@ -67,3 +67,13 @@ SEMCOR='\e[0m'
     msg -purple "$2"
     exit 0
     }
+#verd
+    [[ "$1" = "--verd" ]] && {
+    msg -verd "$2"
+    exit 0
+    }
+#purple
+    [[ "$1" = "--verm2" ]] && {
+    msg -verm2 "$2"
+    exit 0
+    }
