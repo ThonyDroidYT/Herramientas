@@ -7,7 +7,7 @@ barra2 () {
 bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra
 }
 azul () {
-bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --ama "Hola"
+bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --ama "$1"
 }
 color () {
 COLOR=$1
@@ -27,3 +27,4 @@ color ${yellow} "Hola Bienvenido :'3 "
 barra
 color ${cyan} "Este es un Mensaje de Prueba"
 barra2
+azul "Hola"
