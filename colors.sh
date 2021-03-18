@@ -15,6 +15,9 @@ bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --azu "$1"
 purple () {
 bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --purple "$1"
 }
+verm2 () {
+bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$1"
+}
 color () {
 COLOR=$1
 #echo -e "\033[${COLOR}${@:2}\033[0m"
@@ -38,3 +41,4 @@ barra2
 purple "Bienvenido"
 barra2
 azu "@Usuario"
+verm2 "∆==============================∆"
