@@ -36,4 +36,5 @@ barra2
 ama "Hola"
 barra2
 purple "Bienvenido"
+barra2
 azu "@Usuario"
