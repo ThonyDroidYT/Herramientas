@@ -77,3 +77,13 @@ SEMCOR='\e[0m'
     msg -verm2 "$2"
     exit 0
     }
+#blanco
+    [[ "$1" = "--bra" ]] && {
+    msg -bra "$2"
+    exit 0
+    }
+#fondo rojo
+    [[ "$1" = "--rojo" ]] && {
+    msg -rojo "$2"
+    exit 0
+    }
