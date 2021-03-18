@@ -4,7 +4,7 @@ barra () {
 cd /etc/newadm && bash menu --barra
 }
 barra2 () {
-bash <(curl -Ls
+bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh)
 }
 color () {
 COLOR=$1
