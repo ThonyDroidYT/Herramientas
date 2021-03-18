@@ -165,6 +165,7 @@ menu
 
 #Encriptar Script
 encript_script () {
+[[ ! -e $HOME/shc-$version} ]] && mkdir shc-${version}
 cd shc-${version}
 clear
 echo -e "${yellow}Encriptar Script ${plain}"
