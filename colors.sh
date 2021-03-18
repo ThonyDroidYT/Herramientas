@@ -8,14 +8,15 @@ bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra
 }
 color () {
 COLOR=$1
-echo -e "\033[${COLOR}${@:2}\033[0m"
+#echo -e "\033[${COLOR}${@:2}\033[0m"
+echo -e "${COLOR}${@:2}\033[0m"
 }
-red="1;31m"
-green="1;32m"
-blue="1;34m"
-yellow="1;33m"
-cyan="1;36m"
-plain="0m"
+red="\e[1;31m"
+green="\e[1;32m"
+blue="\e[1;34m"
+yellow="\e[1;33m"
+cyan="\e[1;36m"
+plain="\e[0m"
 #Modo de uso: color ${BLUE} "Mensaje"
 clear
 barra
