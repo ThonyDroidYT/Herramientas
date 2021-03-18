@@ -18,6 +18,11 @@ bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --purple "$1
 verm2 () {
 bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$1"
 }
+fun_trans () {
+texto=$1
+[[ -z /etc/newadm/idioma ]] && id=$(cat /etc/newadm/idioma) || id=es
+echo -e "$(source trans -b es:${id} "$texto")"
+}
 msg () {
  case $1 in
   -bar)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra;;
@@ -55,3 +60,4 @@ msg -verm2 "Welcome"
 msg -bar
 msg -rojo "By @Thony_DroidYT"
 msg -bar
+fun_trans "Hola Hermano"
