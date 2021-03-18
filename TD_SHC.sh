@@ -97,7 +97,7 @@ menu
 }
 
 #Install SHC
-install_shc () {
+install_shc2 () {
 clear
 #mkdir shc-${version}
 echo -e "${cyan}Descargando Archivos${plain}"
@@ -116,7 +116,20 @@ chmod 777 *
 echo -e "${green}Instalación Con Éxito!${plain}"
 menu
 }
+install_shc () {
+echo -e "${cyan}Descargando Archivos${plain}"
 
+fun_bar 'fun_update'
+echo -e "${yellow}Descargando Archivos Necesarios!${plain}"
+fun_bar 'sudo apt update'
+fun_bar 'sudo apt upgrade'
+fun_bar 'sudo apt install build-essential'
+fun_bar 'sudo apt-get install manpages-dev'
+fun_bar 'sudo apt-get install gcc'
+fun_bar 'sudo apt-get install shc'
+mkdir shc-${version}
+echo -e "${green}Instalación Con Éxito!${plain}"
+}
 
 #DECRIPT SHC
 decrypt_shc () {
@@ -156,7 +169,8 @@ echo -e "${red}¡Nota! ${green}Para encriptar tu script debes tenerlo ya en la c
 echo -e "${green}De lo contrario use la segunda opción para subir su archivo${plain}"
 echo -e "${cyan}Ingrese el Nombre del Script a Encriptar ${plain}"
 read -p "NOMBRE: 》" name
-shc -v -f $name
+shc -f $name
+rm -rf $name.x.c
 cp -i $name.x /var/www/html/$name.x
 fun_bar
 echo -e "${green}Archivo ${red} $name.x ${green}Encriptado Correctamente!! ${plain}"
