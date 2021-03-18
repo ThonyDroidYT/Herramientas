@@ -136,7 +136,7 @@ clear
 echo -e "${green}iniciando Instalación!${plain}"
 [[ ! -d shc-${version} ]] && mkdir shc-${version}
 cd shc-${version}
-[[ ! -e $HOME/shc-$version}/unshc.sh ]] && wget https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh &> /de/null; chmod 777 unshc.sh &> /dev/null
+[[ ! -e $HOME/shc-${version}/unshc.sh ]] && wget -O $HOME/shc-${version}/unshc.sh https://raw.githubusercontent.com/yanncam/UnSHc/master/latest/unshc.sh &> /de/null; chmod 777 $HOME/shc-${version}/unshc.sh &> /dev/null
 clear
 fun_bar
 echo -e "${green}Instalación Con Éxito!${plain}"
