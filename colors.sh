@@ -21,8 +21,8 @@ bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$1"
 msg () {
  case $1 in
   -bar)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --barra;;
-  -verd)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verd "$1";;
-  -verm2)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$1";;
+  -verd)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verd "$2";;
+  -verm2)bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$2";;
  esac
 }
 color () {
