@@ -63,7 +63,7 @@ SEMCOR='\e[0m'
     exit 0
     }
 #purple
-    [[ "$1" = "--ama" ]] && {
+    [[ "$1" = "--purple" ]] && {
     msg -purple "$2"
     exit 0
     }
