@@ -12,6 +12,20 @@ texto3=$(source trans -b es:${id2} "${@:2}")
 COLOR=$1
 echo -e "${COLOR}$(source trans -b es:${id2} "${@:2}")\033[0m"
 }
+#idioma
+idioma () {
+barra
+color ${Morado} "Cambiar Idioma Del Script"
+barra
+color ${green} "[1]" && color ${red} ">" && color ${cyan} "Cambiar Idioma"
+color ${green} "[2]" && color ${red} ">" && color ${cyan} "Salir del Script"
+read -p "Opción: 》" opcion
+case $opcion ip
+0)exit 0;;
+1);;
+2)exit 0;;
+esac
+}
 #Colores Claro
 plain='\033[0m'
 red='\033[1;31m'
@@ -21,6 +35,7 @@ blue='\033[1;34m'
 purple='\033[1;35m'
 cyan='\033[1;36m'
 white='\033[1;37m'
+
 #Fondo Bash
 Gris="\033[1;100m"
 Rojo="\033[1;41m"
