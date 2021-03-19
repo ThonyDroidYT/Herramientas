@@ -20,7 +20,7 @@ barra
 color ${green} "[1]" && color ${red} ">" && color ${cyan} "Cambiar Idioma"
 color ${green} "[2]" && color ${red} ">" && color ${cyan} "Salir del Script"
 read -p "Opción: 》" opcion
-case $opcion ip
+case $opcion in
 0)exit 0;;
 1);;
 2)exit 0;;
