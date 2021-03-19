@@ -30,4 +30,8 @@ Morado2="\033[105m"
 Celeste="\033[46m"
 Verde="\033[102m"
 Verdecana="\033[42m"
+
+barra
 color ${Rojo} "Muchas Gracias Por Usar este Script"
+barra
+color ${Verdecana} "Gracias de Todo Corazón"
