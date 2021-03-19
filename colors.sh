@@ -20,8 +20,8 @@ bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$1"
 }
 fun_trans () {
 texto=$1
-texto2=$(source trans -b es:${id} "$texto")
 [[ -z /etc/newadm/idioma ]] && id=$(cat /etc/newadm/idioma) || id=es
+texto2=$(source trans -b es:${id} "$texto")
 #echo -e "$(source trans -b es:${id} "$texto")"
 echo -e "$texto2"
 }
@@ -34,9 +34,13 @@ msg () {
  esac
 }
 color () {
+[[ -z /etc/newadm/idioma ]] && id=$(cat /etc/newadm/idioma) || id=es
+#texto2=$(source trans -b es:${id} "$texto")
+texto2=$(source trans -b es:${id} "${@:2}")
 COLOR=$1
 #echo -e "\033[${COLOR}${@:2}\033[0m"
-echo -e "${COLOR}${@:2}\033[0m"
+#echo -e "${COLOR}${@:2}\033[0m"
+echo -e "${COLOR}${texto2}\033[0m"
 }
 red="\e[1;31m"
 green="\e[1;32m"
