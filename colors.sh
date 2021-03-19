@@ -21,7 +21,7 @@ bash <(curl -Ls https://thonydroidyt.github.io/Herramientas/msg.sh) --verm2 "$1"
 fun_trans () {
 texto=$1
 #[[ -z /etc/newadm/idioma ]] 
-[[ -e "/etc/newadm/idioma" ]] && id=$(cat /etc/newadm/idioma) || && id=es
+[[ -e "/etc/newadm/idioma" ]] && id=$(cat /etc/newadm/idioma) || id=es
 texto2=$(source trans -b es:${id} "$texto")
 #echo -e "$(source trans -b es:${id} "$texto")"
 echo -e "$texto2"
