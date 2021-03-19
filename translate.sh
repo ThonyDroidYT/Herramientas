@@ -1,4 +1,9 @@
 #!/bin/bash
+#barra
+barra () {
+cd /etc/newadm && bash menu --barra
+}
+#color
 color () {
 [[ -e "/etc/newadm/idioma" ]] && id2=$(cat /etc/newadm/idioma) || id2=es
 texto3=$(source trans -b es:${id2} "${@:2}")
