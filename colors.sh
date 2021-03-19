@@ -35,14 +35,14 @@ msg () {
  esac
 }
 color () {
-[[ -e "/etc/newadm/idioma" ]] && id=$(cat /etc/newadm/idioma) || id=es
+[[ -e "/etc/newadm/idioma" ]] && id2=$(cat /etc/newadm/idioma) || id2=es
 #texto2=$(source trans -b es:${id} "$texto")
 texto2=$(source trans -b es:${id} "${@:2}")
 COLOR=$1
 #echo -e "\033[${COLOR}${@:2}\033[0m"
 #echo -e "${COLOR}${@:2}\033[0m"
 #echo -e "${COLOR}${texto2}\033[0m"
-echo -e "${COLOR}$(source trans -b es:${id} "${@:2}")\033[0m"
+echo -e "${COLOR}$(source trans -b es:${id2} "${@:2}")\033[0m"
 }
 red="\e[1;31m"
 green="\e[1;32m"
@@ -69,4 +69,4 @@ msg -bar
 msg -rojo "By @Thony_DroidYT"
 msg -bar
 fun_trans "Hola Hermano"
-color ${cyan} "Como estas"
+color ${cyan} "Hola acomo estas?"
