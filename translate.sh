@@ -6,6 +6,7 @@ bash /etc/newadm/menu --barra
 }
 #color
 color () {
+[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://git.io/trans &> /dev/null
 [[ -e "/etc/newadm/idioma" ]] && id2=$(cat /etc/newadm/idioma) || id2=es
 texto3=$(source trans -b es:${id2} "${@:2}")
 COLOR=$1
