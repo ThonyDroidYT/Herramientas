@@ -69,4 +69,4 @@ msg -bar
 msg -rojo "By @Thony_DroidYT"
 msg -bar
 fun_trans "Hola Hermano"
-color ${cyan} "Hola acomo estas?"
+color ${cyan} "Hola como estás?"
