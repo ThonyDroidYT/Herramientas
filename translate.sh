@@ -22,7 +22,13 @@ color ${green} "[2]" && color ${red} ">" && color ${cyan} "Salir del Script"
 read -p "Opción: 》" opcion
 case $opcion in
 0)exit 0;;
-1);;
+1)
+color ${yellow} "Ingresé su idioma en iniciales"
+color ${cyan} "Por ejemplo: pt es en in"
+read -p "Idioma: 》" lang
+sed -i "s;id=es;id=$lang;g" $scriptname
+color ${green} "Idioma Cambiado Correctamente"
+;;
 2)exit 0;;
 esac
 }
