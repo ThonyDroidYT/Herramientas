@@ -41,7 +41,8 @@ texto2=$(source trans -b es:${id} "${@:2}")
 COLOR=$1
 #echo -e "\033[${COLOR}${@:2}\033[0m"
 #echo -e "${COLOR}${@:2}\033[0m"
-echo -e "${COLOR}${texto2}\033[0m"
+#echo -e "${COLOR}${texto2}\033[0m"
+echo -e "${COLOR}$(source trans -b es:${id} "${@:2}")\033[0m"
 }
 red="\e[1;31m"
 green="\e[1;32m"
