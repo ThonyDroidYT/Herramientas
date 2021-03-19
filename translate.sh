@@ -1,7 +1,8 @@
 #!/bin/bash
 #barra
 barra () {
-cd /etc/newadm && bash menu --barra
+#cd /etc/newadm && bash menu --barra
+bash /etc/newadm/menu --barra
 }
 #color
 color () {
