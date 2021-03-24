@@ -3,8 +3,8 @@
 clear
 clear
 SCPdir="/etc/newadm"
-SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
-SCPinst="/etc/ger-inst"&& [[ ! -d ${SCPinst} ]] && exit
+SCPfrm="/etc/ger-frm" #&& [[ ! -d ${SCPfrm} ]] && exit
+SCPinst="/etc/ger-inst" #&& [[ ! -d ${SCPinst} ]] && exit
 declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" )
 err_fun () {
      case $1 in
@@ -90,7 +90,6 @@ addusr () {
 clear 
 clear
 msg -bar
-msg -tit
 msg -ama "             AGREGAR USUARIO | UUID V2RAY"
 msg -bar
 ##DAIS
@@ -161,7 +160,6 @@ msg -ne "Enter Para Continuar" && read enter
 ${SCPinst}/v2ray.sh
 }
 msg -bar
-msg -tit
 msg -ama "             ELIMINAR USUARIO | UUID V2RAY"
 msg -bar
 echo -e "\e[97m               USUARIOS REGISTRADOS"
@@ -189,7 +187,6 @@ mosusr_kk() {
 clear 
 clear
 msg -bar
-msg -tit
 msg -ama "         USUARIOS REGISTRADOS | UUID V2RAY"
 msg -bar
 # usersss=$(cat ${SCPdir}/RegV2ray|cut -d '|' -f1)
@@ -239,7 +236,6 @@ lim_port () {
 clear 
 clear
 msg -bar
-msg -tit
 msg -ama "          LIMITAR MB X PORT | UUID V2RAY"
 msg -bar
 ###VER
@@ -409,7 +405,6 @@ statgen="$(echo $PID_GEN)"
 clear 
 clear
 msg -bar
-msg -tit
 msg -ama "          ELIMINAR EXPIRADOS | UUID V2RAY"
 msg -bar
 echo ""
@@ -439,7 +434,6 @@ statgen="$(echo $PID_GEN)"
 SPR & 
 msg -bar3
 msg -bar
-msg -tit
 msg -ama "$(fun_trans "        INSTALADOR DE V2RAY (PASO A PASO) ")"
 msg -bar
 ## INSTALADOR
