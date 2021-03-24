@@ -96,12 +96,14 @@ msg -bar
 valid=$(date '+%C%y-%m-%d' -d " +31 days")		  
 ##CORREO		  
 MAILITO=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)
-##ADDUSERV2RAY		  
+##ADDUSERV2RAY
+msg -ama "$(fun_trans "CORREO ELECTRÓNICO")" && read correo
+[[ -z $correo ]] && correo="$MAILITO@gmail.com"
 UUID=`uuidgen`	  
 sed -i '13i\           \{' /etc/v2ray/config.json
 sed -i '14i\           \"alterId": 0,' /etc/v2ray/config.json
 sed -i '15i\           \"id": "'$UUID'",' /etc/v2ray/config.json
-sed -i '16i\           \"email": "'$MAILITO'@gmail.com"' /etc/v2ray/config.json
+sed -i '16i\           \"email": "'$MAIL'@gmail.com"' /etc/v2ray/config.json
 sed -i '17i\           \},' /etc/v2ray/config.json
 echo ""
 while true; do
