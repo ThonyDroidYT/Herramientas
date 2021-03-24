@@ -97,6 +97,7 @@ valid=$(date '+%C%y-%m-%d' -d " +31 days")
 ##CORREO		  
 MAILITO=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)
 ##ADDUSERV2RAY
+msg -verd "$(fun_trans "INGRESE UN CORREO O PRESIONA ENTER PARA GENERAR UNO ALERTORIO")"
 msg -ama "$(fun_trans "CORREO ELECTRÓNICO")" && read correo
 [[ -z $correo ]] && correo="$MAILITO@gmail.com"
 UUID=`uuidgen`	  
