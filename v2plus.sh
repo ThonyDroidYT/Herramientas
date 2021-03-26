@@ -248,8 +248,9 @@ add_uuid () {
       ;;
   esac
 }
+#menu
 start_run(){
-   #menu
+  clear
   _banner
   display_uuid
   display_menu
