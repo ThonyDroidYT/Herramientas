@@ -23,7 +23,7 @@ display_uuid () {
     printf "[\033[1;32m${x}\033[0m]\033[1;36m ${i}\033[0m\n"
     x=$((x+1))
   done
-  printf "\n\n"
+  printf "\n"
 }
 display_name () {
   printf "\033[1;32mSUS UUID ACTIVOS\033[0m\n"
