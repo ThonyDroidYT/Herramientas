@@ -113,7 +113,25 @@ set_exp_date () {
   cronjob="${result} * $croncmd"
   ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
 }
+#New
 DoUUIDAdd (){
+  email=$
+  jq '.inbounds[].settings.clients[.inbounds[].settings.clients| length] |= . + {"id": "'"${1}"'","alterId": 0,"email": $email}' $V2RAYFILE >> $TMPFILE
+  cat $TMPFILE > $V2RAYFILE
+  rm $TMPFILE
+  systemctl restart v2ray &>/dev/null
+  if [[ "$OPTEXPA" == "true" ]]
+  then
+    set_exp_date "${1}"
+  fi
+  sleep 2
+  if [[ "$ASKCONTINUE" == "true" ]]
+  then
+    ask_end
+  fi
+}
+#Backu0
+DoUUIDAdd_backup (){
   jq '.inbounds[].settings.clients[.inbounds[].settings.clients| length] |= . + {"id": "'"${1}"'","level": 1,"alterId": 64}' $V2RAYFILE >> $TMPFILE
   cat $TMPFILE > $V2RAYFILE
   rm $TMPFILE
