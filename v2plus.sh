@@ -12,10 +12,20 @@ bash /etc/newadm/menu --barra
 }
 _banner () {
   barra
-  echo -e "\033[1;34m=           \033[1;36mV2RAY MANAGER \033[1;32m[NEW-ADM-PLUS]          \033[1;34m=\e[0m"
+  echo -e "\033[1;34m=           \033[1;33mV2RAY MANAGER \033[1;32m[NEW-ADM-PLUS]          \033[1;34m=\e[0m"
   barra
 }
 display_uuid () {
+  printf "\033[1;32mSUS UUID ACTIVOS\033[0m\n"
+  x=0
+  for i in $(jq -r ".inbounds[].settings.clients[].id" $V2RAYFILE)
+  do
+    printf "[\033[1;32m${x}\033[0m]\033[1;36m ${i}\033[0m\n"
+    x=$((x+1))
+  done
+  printf "\n\n"
+}
+display_name () {
   printf "\033[1;32mSUS UUID ACTIVOS\033[0m\n"
   x=0
   for i in $(jq -r ".inbounds[].settings.clients[].id" $V2RAYFILE)
@@ -43,6 +53,7 @@ ask_end () {
 
 }
 display_menu () {
+  clear
   printf "\033[1;32m-- MENU --\033[0m\n"
   printf "[\033[1;32m1\033[0m]\033[1;36m AGREGAR\033[0m\n"
   printf "[\033[1;32m2\033[0m]\033[1;36m ELIMINAR\033[0m\n"
