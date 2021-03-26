@@ -115,7 +115,7 @@ set_exp_date () {
 }
 #New
 DoUUIDAdd (){
-  email=$
+  email=${2}
   jq '.inbounds[].settings.clients[.inbounds[].settings.clients| length] |= . + {"id": "'"${1}"'","alterId": 0,"email": $email}' $V2RAYFILE >> $TMPFILE
   cat $TMPFILE > $V2RAYFILE
   rm $TMPFILE
@@ -148,6 +148,11 @@ DoUUIDAdd_backup (){
 }
 add_existing_uuid () {
   read -r -p "$(printf '\033[1;32mIngrese el UUID: 》\033[1;33m\n')" UUIDINP
+  #add uuid
+  RAMDOM=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)    
+  read -r -p "$(printf '\033[1;32mIntroduce un correo o presiona Enter para generar uno \033[0m\n')" CORREO
+  [ -z "$CORREO" ] && CORREO="$RAMDOM@gmail.com"
+  printf "\033[1;33m CORREO: $CORREO \033[0m\n"
   read -r -p "$(printf '\033[1;32m¿Quiere agregar una fecha de vencimiento? [S/N]\033[1;33m\n')" ASKFOREXPDATE
   case $ASKFOREXPDATE in
 
@@ -166,7 +171,7 @@ add_existing_uuid () {
       ;;
 
     n|N)
-      DoUUIDAdd "$UUIDINP"
+      DoUUIDAdd "$UUIDINP" "$CORREO"
       ;;
 
     *)
@@ -177,12 +182,17 @@ add_existing_uuid () {
       ;;
   esac
 }
+#add uuid new
 add_generated_uuid () {
 
   #TheUUID=$(curl -skL -w #"\n" https://www.uuidgenerator.net/api/version4)
   TheUUID=$(cat /proc/sys/kernel/random/uuid)
   printf "\033[1;33mSu código UUID: 》\033[1;36m $TheUUID\033[0m\n"
-  read -r -p "$(printf '\033[1;32m¿Quiere agregar una fecha de vencimiento? [s/n]\033[1;33m\n')" ASKFOREXPDATE
+  #add uuid
+  RAMDOM=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)    
+  read -r -p "$(printf '\033[1;32mIntroduce un correo o presiona Enter para generar uno \033[0m\n')" CORREO
+  [ -z "$CORREO" ] && CORREO="$RAMDOM@gmail.com"
+  read -r -p "$(printf '\033[1;32m¿Quiere agregar una fecha de vencimiento? [s/n]\033[0m\n')" ASKFOREXPDATE
   case $ASKFOREXPDATE in
 
     s|S|y|Y)
@@ -195,12 +205,12 @@ add_generated_uuid () {
       else
         OPTEXPA="true"
         OPTEXP=$INPEXPDATE
-        DoUUIDAdd "$TheUUID"
+        DoUUIDAdd "$TheUUID" "$CORREO"
       fi  
       ;;
 
     n|N)
-      DoUUIDAdd "$TheUUID"
+      DoUUIDAdd "$TheUUID" "$CORREO"
       ;;
 
     *)
@@ -211,13 +221,14 @@ add_generated_uuid () {
       ;;
   esac
 }
+#sud menu 2
 add_uuid () {
   clear
   _banner
   printf "\033[1;32m-- MENU --\033[0m\n"
   printf "[\033[1;32m1\033[0m]\033[1;36m Agregar UUID existente\033[0m\n"
   printf "[\033[1;32m2\033[0m]\033[1;36m Generar nuevo y luego agregar\033[0m\n"
-    read -r -p "$(printf '\033[1;32m¿Qué es lo que quieres hacer?: 》\033[1;33m\n')" ADDINPUT
+    read -r -p "$(printf '\033[1;32m¿Qué es lo que quieres hacer?: 》\033[0m\n')" ADDINPUT
 
 
   case $ADDINPUT in
@@ -239,10 +250,11 @@ add_uuid () {
   esac
 }
 start_run(){
+   #menu
   _banner
   display_uuid
   display_menu
-  read -r -p "$(printf '\033[1;32m¿Qué es lo que quieres hacer?\033[1;33m\n')" INPUT
+  read -r -p "$(printf '\033[1;32m¿Qué es lo que quieres hacer?: 》\033[0m\n')" INPUT
 
 
   case $INPUT in
