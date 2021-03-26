@@ -113,7 +113,7 @@ set_exp_date () {
   ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
 }
 #New
-DoUUIDAdd (){
+DoUUIDAdd_fail (){
   email=${2}
   jq '.inbounds[].settings.clients[.inbounds[].settings.clients| length] |= . + {"id": "'"${1}"'","alterId": 0,"email": $email}' $V2RAYFILE >> $TMPFILE
   cat $TMPFILE > $V2RAYFILE
@@ -130,8 +130,9 @@ DoUUIDAdd (){
   fi
 }
 #Backu0
-DoUUIDAdd_backup (){
+DoUUIDAdd (){
   jq '.inbounds[].settings.clients[.inbounds[].settings.clients| length] |= . + {"id": "'"${1}"'","level": 1,"alterId": 64}' $V2RAYFILE >> $TMPFILE
+  echo "$1 | $2 | $INPEXPDATE " >> /etc/newadm/RegV2ray
   cat $TMPFILE > $V2RAYFILE
   rm $TMPFILE
   systemctl restart v2ray &>/dev/null
