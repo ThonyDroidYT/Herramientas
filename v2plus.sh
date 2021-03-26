@@ -53,7 +53,6 @@ ask_end () {
 
 }
 display_menu () {
-  clear
   printf "\033[1;32m-- MENU --\033[0m\n"
   printf "[\033[1;32m1\033[0m]\033[1;36m AGREGAR\033[0m\n"
   printf "[\033[1;32m2\033[0m]\033[1;36m ELIMINAR\033[0m\n"
