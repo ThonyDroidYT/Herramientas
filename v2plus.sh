@@ -129,10 +129,11 @@ DoUUIDAdd_fail (){
     ask_end
   fi
 }
-#Backu0
+#Backup
 DoUUIDAdd (){
+  Expire=$(date "+%F" -d " + $INPEXPDATE days")
   jq '.inbounds[].settings.clients[.inbounds[].settings.clients| length] |= . + {"id": "'"${1}"'","level": 1,"alterId": 64}' $V2RAYFILE >> $TMPFILE
-  echo "$1 | $2 | $INPEXPDATE | ${dd} ${mm}" >> /etc/newadm/RegV2ray
+  echo "$1 | $2 | $Expire" >> /etc/newadm/RegV2ray
   cat $TMPFILE > $V2RAYFILE
   rm $TMPFILE
   systemctl restart v2ray &>/dev/null
