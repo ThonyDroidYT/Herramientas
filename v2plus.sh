@@ -204,8 +204,8 @@ add_existing_uuid () {
   read -r -p "$(printf '\033[1;32mIngrese el UUID: 》\033[1;33m\n')" UUIDINP
   #add uuid
   RAMDOM=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)    
-  read -r -p "$(printf '\033[1;32mIntroduce un correo o presiona Enter para generar uno \033[0m\n')" CORREO
-  [ -z "$CORREO" ] && CORREO="$RAMDOM@gmail.com"
+  read -r -p "$(printf '\033[1;32mIntroduce un nombre o presiona Enter para generar uno\033[0m\n')" CORREO
+  [ -z "$CORREO" ] && CORREO="$RAMDOM"
   printf "\033[1;33m CORREO: $CORREO \033[0m\n"
   read -r -p "$(printf '\033[1;32m¿Quiere agregar una fecha de vencimiento? [S/N]\033[1;33m\n')" ASKFOREXPDATE
   case $ASKFOREXPDATE in
