@@ -187,7 +187,8 @@ add_existing_uuid () {
 add_generated_uuid () {
 
   #TheUUID=$(curl -skL -w #"\n" https://www.uuidgenerator.net/api/version4)
-  TheUUID=$(cat /proc/sys/kernel/random/uuid)
+  #TheUUID=$(cat /proc/sys/kernel/random/uuid)
+  TheUUID=`uuidgen`
   printf "\033[1;33mSu código UUID: 》\033[1;36m $TheUUID\033[0m\n"
   #add uuid
   RAMDOM=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 10)    
