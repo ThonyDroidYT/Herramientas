@@ -1,7 +1,7 @@
 #!/bin/bash
 #UserData
 USRdatabase="/etc/newadm/RegV2ray"
-mosusr_kk() {
+detail_user () {
 clear 
 clear
 msg -bar
