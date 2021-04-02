@@ -4,10 +4,9 @@ USRdatabase="/etc/newadm/RegV2ray"
 detail_user () {
 clear 
 clear
-msg -bar
-msg -tit
-msg -ama "         USUARIOS REGISTRADOS | UUID V2RAY"
-msg -bar
+barra
+echo -e "\033[1;33m         USUARIOS REGISTRADOS | UUID V2RAY"
+barra
 # usersss=$(cat ${USRdatabase}|cut -d '|' -f1)
 # cat ${USRdatabase}|cut -d'|' -f3
 VPSsec=$(date +%s)
@@ -21,13 +20,13 @@ msg -ne "Enter Para Continuar" && read enter
 ${SCPinst}/v2ray.sh
 else
 i=1
-echo -e "\e[97m                 UUID                | USER | EXPIRACION \e[93m"
+echo -e "\e[1;33m                 UUID                | USER | EXPIRACION \e[0m"
 msg -bar
 while read hostreturn ; do
 DateExp="$(cat ${USRdatabase}|grep -w "$hostreturn"|cut -d'|' -f3)"
 if [[ ! -z $DateExp ]]; then             
 DataSec=$(date +%s --date="$DateExp")
-[[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[91m[EXPIRADO]\e[97m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]\e[97m Dias"
+[[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[91m[EXPIRADO]\e[0m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]\e[97m Dias"
 else
 EXPTIME="\e[91m[ S/R ]"
 fi 
