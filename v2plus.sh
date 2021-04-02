@@ -1,4 +1,55 @@
 #!/bin/bash
+#UserData
+USRdatabase="/etc/newadm/RegV2ray"
+mostrar_usuarios () {
+for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
+echo "$u"
+done
+}
+detail_user () {
+red=$(tput setaf 1)
+gren=$(tput setaf 2)
+yellow=$(tput setaf 3)
+if [[ ! -e "${USRdatabase}" ]]; then
+msg -verm "$(fun_trans "No Fue Identificado una Base de Datos Con Usuarios")"
+msg -verm "$(fun_trans "Los Usuarios a Seguir No Contienen Ninguna Información")"
+msg -bar2
+fi
+txtvar=$(printf '%-16s' "USUARIO")
+#txtvar+=$(printf '%-16s' "CONTRASEÑA")
+txtvar+=$(printf '%-16s' "EXPIRACIÓN")
+#txtvar+=$(printf '%-6s' "LIMITE")
+#Final
+echo -e "\033[1;33m${txtvar}"
+msg -bar2
+VPSsec=$(date +%s)
+while read user; do
+unset txtvar
+data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
+txtvar=$(printf '%-21s' "${yellow}$user")
+if [[ -e "${USRdatabase}" ]]; then
+  if [[ $(cat ${USRdatabase}|grep -w "${user}") ]]; then
+    txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)")"
+    DateExp="$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f3)"
+    DataSec=$(date +%s --date="$DateExp")
+    if [[ "$VPSsec" -gt "$DataSec" ]]; then    
+    EXPTIME="${red}[Exp]"
+    else
+    EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
+    fi
+    txtvar+="$(printf '%-26s' "${yellow}${DateExp}${EXPTIME}")"
+    txtvar+="$(printf '%-11s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f4)")"
+    else
+    txtvar+="$(printf '%-21s' "${red}???")"
+    txtvar+="$(printf '%-21s' "${red}???")"
+    txtvar+="$(printf '%-11s' "${red}???")"
+  fi
+fi
+echo -e "$txtvar"
+done <<< "$(mostrar_usuarios)"
+msg -bar2
+}
+#fin_user
 TMPFILE="/root/tmp.json"
 #V2RAYFILE="/usr/local/etc/v2ray/config.json"
 V2RAYFILE="/etc/v2ray/config.json"
@@ -52,11 +103,13 @@ ask_end () {
   esac
 
 }
+#Display Menu
 display_menu () {
   printf "\033[1;32m-- MENU --\033[0m\n"
   printf "[\033[1;32m1\033[0m]\033[1;36m AGREGAR\033[0m\n"
   printf "[\033[1;32m2\033[0m]\033[1;36m ELIMINAR\033[0m\n"
   printf "[\033[1;32m3\033[0m]\033[1;36m SALIR\033[0m\n"
+  printf "[\033[1;32m4\033[0m]\033[1;36m Mostrar Usuarios \033[0m\n"
 }
 DoDelete_uuid () {
   jq 'del(.inbounds[].settings.clients['"$1"'])' $V2RAYFILE >> $TMPFILE
@@ -278,7 +331,13 @@ start_run(){
       sleep 2
       exit
       ;;
-
+    4)
+      barra
+      printf '\033[1;32mDetalles de Usuarios \033[1;33m\n'
+      barra
+      detail_user
+      barra
+      ;;
     *)
       printf "\033[1;31mELECCIÓN INVALIDA\033[0m\n"
       sleep 2
