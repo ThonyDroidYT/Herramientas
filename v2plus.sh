@@ -2,7 +2,6 @@
 #UserData
 USRdatabase="/etc/newadm/RegV2ray"
 detail_user () {
-clear 
 clear
 barra
 echo -e "\033[1;33m         USUARIOS REGISTRADOS | UUID V2RAY"
@@ -16,17 +15,17 @@ local RETURN="$(cat $HOST|cut -d'|' -f2)"
 local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
 if [[ -z $RETURN ]]; then
 echo -e "----- NINGUN USER REGISTRADO -----"
-msg -ne "Enter Para Continuar" && read enter
+echo -e "Enter Para Continuar" && read enter
 ${SCPinst}/v2ray.sh
 else
 i=1
 echo -e "\e[1;33m                 UUID                | USER | EXPIRACION \e[0m"
-msg -bar
+barra
 while read hostreturn ; do
 DateExp="$(cat ${USRdatabase}|grep -w "$hostreturn"|cut -d'|' -f3)"
 if [[ ! -z $DateExp ]]; then             
 DataSec=$(date +%s --date="$DateExp")
-[[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[91m[EXPIRADO]\e[0m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]\e[97m Dias"
+[[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[1;31m[EXP]\e[0m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]"
 else
 EXPTIME="\e[91m[ S/R ]"
 fi 
@@ -45,9 +44,10 @@ linesss=$(cat ${USRdatabase} | wc -l)
 	      echo -e "$contador_secuencial \n Numero de Registrados: $linesss"
 	}
 fi
-msg -bar
-msg -ne "Enter Para Continuar" && read enter
-${SCPinst}/v2ray.sh
+barra
+echo -e "Enter Para Continuar" && read enter
+#${SCPinst}/v2ray.sh
+v2plus
 }
 #fin_user
 TMPFILE="/root/tmp.json"
