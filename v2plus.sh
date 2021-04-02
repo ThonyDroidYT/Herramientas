@@ -1,53 +1,54 @@
 #!/bin/bash
 #UserData
 USRdatabase="/etc/newadm/RegV2ray"
-mostrar_usuarios () {
-for u in `awk -F : '$3 > 900 { print $1 }' /etc/passwd | grep -v "nobody" |grep -vi polkitd |grep -vi system-`; do
-echo "$u"
-done
-}
-detail_user () {
-red=$(tput setaf 1)
-gren=$(tput setaf 2)
-yellow=$(tput setaf 3)
-if [[ ! -e "${USRdatabase}" ]]; then
-msg -verm "$(fun_trans "No Fue Identificado una Base de Datos Con Usuarios")"
-msg -verm "$(fun_trans "Los Usuarios a Seguir No Contienen Ninguna Información")"
-msg -bar2
-fi
-txtvar=$(printf '%-16s' "USUARIO")
-#txtvar+=$(printf '%-16s' "CONTRASEÑA")
-txtvar+=$(printf '%-16s' "EXPIRACIÓN")
-#txtvar+=$(printf '%-6s' "LIMITE")
-#Final
-echo -e "\033[1;33m${txtvar}"
-msg -bar2
+mosusr_kk() {
+clear 
+clear
+msg -bar
+msg -tit
+msg -ama "         USUARIOS REGISTRADOS | UUID V2RAY"
+msg -bar
+# usersss=$(cat ${USRdatabase}|cut -d '|' -f1)
+# cat ${USRdatabase}|cut -d'|' -f3
 VPSsec=$(date +%s)
-while read user; do
-unset txtvar
-data_user=$(chage -l "$user" |grep -i co |awk -F ":" '{print $2}')
-txtvar=$(printf '%-21s' "${yellow}$user")
-if [[ -e "${USRdatabase}" ]]; then
-  if [[ $(cat ${USRdatabase}|grep -w "${user}") ]]; then
-    txtvar+="$(printf '%-21s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f2)")"
-    DateExp="$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f3)"
-    DataSec=$(date +%s --date="$DateExp")
-    if [[ "$VPSsec" -gt "$DataSec" ]]; then    
-    EXPTIME="${red}[Exp]"
-    else
-    EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
-    fi
-    txtvar+="$(printf '%-26s' "${yellow}${DateExp}${EXPTIME}")"
-    txtvar+="$(printf '%-11s' "${yellow}$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f4)")"
-    else
-    txtvar+="$(printf '%-21s' "${red}???")"
-    txtvar+="$(printf '%-21s' "${red}???")"
-    txtvar+="$(printf '%-11s' "${red}???")"
-  fi
+local HOST="${USRdatabase}"
+local HOST2="${USRdatabase}"
+local RETURN="$(cat $HOST|cut -d'|' -f2)"
+local IDEUUID="$(cat $HOST|cut -d'|' -f1)"
+if [[ -z $RETURN ]]; then
+echo -e "----- NINGUN USER REGISTRADO -----"
+msg -ne "Enter Para Continuar" && read enter
+${SCPinst}/v2ray.sh
+else
+i=1
+echo -e "\e[97m                 UUID                | USER | EXPIRACION \e[93m"
+msg -bar
+while read hostreturn ; do
+DateExp="$(cat ${USRdatabase}|grep -w "$hostreturn"|cut -d'|' -f3)"
+if [[ ! -z $DateExp ]]; then             
+DataSec=$(date +%s --date="$DateExp")
+[[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="\e[91m[EXPIRADO]\e[97m" || EXPTIME="\e[92m[$(($(($DataSec - $VPSsec)) / 86400))]\e[97m Dias"
+else
+EXPTIME="\e[91m[ S/R ]"
+fi 
+usris="$(cat ${USRdatabase}|grep -w "$hostreturn"|cut -d'|' -f2)"
+local contador_secuencial+="\e[93m$hostreturn \e[97m|\e[93m$usris\e[97m|\e[93m $EXPTIME \n"           
+      if [[ $i -gt 30 ]]; then
+	      echo -e "$contador_secuencial"
+	  unset contador_secuencial
+	  unset i
+	  fi
+let i++
+done <<< "$IDEUUID"
+
+[[ ! -z $contador_secuencial ]] && {
+linesss=$(cat ${USRdatabase} | wc -l)
+	      echo -e "$contador_secuencial \n Numero de Registrados: $linesss"
+	}
 fi
-echo -e "$txtvar"
-done <<< "$(mostrar_usuarios)"
-msg -bar2
+msg -bar
+msg -ne "Enter Para Continuar" && read enter
+${SCPinst}/v2ray.sh
 }
 #fin_user
 TMPFILE="/root/tmp.json"
