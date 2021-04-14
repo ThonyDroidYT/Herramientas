@@ -13,6 +13,10 @@ BARRA1="\e[0;31m----------------------------------------------------------------
 barra () {
 cd ${SCPdir} && bash menu --barra
 }
+#menu func
+menu_func () {
+cd ${SCPdir} && bash menu menu_func "$1" "$2" "$3" "$4" $5" "$6" "$7" "$8" "$9" "$10" "$11" "$12" "$13" "$14" "$15"
+}
 msg () {
  case $1 in
  "bar"|"bar2")cd ${SCPdir} && bash menu --barra;;
