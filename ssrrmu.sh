@@ -13,6 +13,16 @@ BARRA1="\e[0;31m----------------------------------------------------------------
 barra () {
 cd ${SCPdir} && bash menu --barra
 }
+msg () {
+ case $1 in
+ "bar"|"bar2")cd ${SCPdir} && bash menu --barra;;
+ "azu")cd ${SCPdir} && bash menu --azul $2;;
+ "ama")cd ${SCPdir} && bash menu --ama $2;;
+ "verd")cd ${SCPdir} && bash menu --verde $2;;
+ "verm2")cd ${SCPdir} && bash menu --rojo $2;;
+ "bra")cd ${SCPdir} && bash menu --blanco $2;;
+esac
+}
 sh_ver="1.0.26"
 filepath=$(cd "$(dirname "$0")"; pwd)
 file=$(echo -e "${filepath}"|awk -F "$0" '{print $1}')
