@@ -2006,32 +2006,39 @@ if [[ "${action}" == "clearall" ]]; then
 elif [[ "${action}" == "monitor" ]]; then
 	crontab_monitor_ssr
 else
-
-#echo -e "$(msg -tit) " 
+#menu
 msg -bar
-echo -e "        Controlador de ShadowSock-R  ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+menu_old () {
+#echo -e "        Controlador de ShadowSock-R  ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
 $(msg -bar)
   ${Green_font_prefix}1.${Font_color_suffix} Instalar ShadowsocksR 
   ${Green_font_prefix}2.${Font_color_suffix} Actualizar ShadowsocksR
   ${Green_font_prefix}3.${Font_color_suffix} Desinstalar ShadowsocksR
   ${Green_font_prefix}4.${Font_color_suffix} Instalar libsodium (chacha20)
-$(barra)”
+$(barra)
   ${Green_font_prefix}5.${Font_color_suffix} Verifique la informacion de la cuenta
   ${Green_font_prefix}6.${Font_color_suffix} Mostrar la informacion de conexion 
   ${Green_font_prefix}7.${Font_color_suffix} Agregar/Modificar/Eliminar la configuracion del usuario  
   ${Green_font_prefix}8.${Font_color_suffix} Modificar manualmente la configuracion del usuario
   ${Green_font_prefix}9.${Font_color_suffix} Borrar el trafico usado  
-$(barra)”
+$(barra)
  ${Green_font_prefix}10.${Font_color_suffix} Iniciar ShadowsocksR
  ${Green_font_prefix}11.${Font_color_suffix} Detener ShadowsocksR
  ${Green_font_prefix}12.${Font_color_suffix} Reiniciar ShadowsocksR
  ${Green_font_prefix}13.${Font_color_suffix} Verificar Registro de ShadowsocksR
-$(barra)”
+$(barra)
  ${Green_font_prefix}14.${Font_color_suffix} Otras Funciones
  ${Green_font_prefix}15.${Font_color_suffix} Actualizar Script 
 $(msg -bar)
  ${Green_font_prefix}16.${Font_color_suffix}${Red_font_prefix} SALIR"
-	
+}
+menu () {
+msg -bar
+msg -ama "Controlador de ShadowSock-R \033[1;32m[NEW-ADM-PLUS]\033[0m"
+msg -bar
+menu_func "Instalar ShadowsocksR" "Actualizar ShadowsocksR" "Desinstalar ShadowsocksR" "Instalar libsodium (chacha20)" "Verifique la informacion de la cuenta" "Mostrar la informacion de conexion" "Agregar/Modificar/Eliminar la configuracion del usuario" "Modificar manualmente la configuracion del usuario" "Borrar el trafico usado" "Iniciar ShadowsocksR" "Detener ShadowsocksR" "Reiniciar ShadowsocksR" "Verificar Registro de ShadowsocksR" "Otras Funciones" "Actualizar Script" "SALIR"
+}	
+menu
 	menu_status
 	msg -bar
     #stty erase '^H' && read -p "Porfavor seleccione una opcion [1-16]:" num
