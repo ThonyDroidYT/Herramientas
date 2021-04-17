@@ -5,7 +5,7 @@ msg -bar
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
-BARRA1="\e[0;31m--------------------------------------------------------------------\e[0m"
+BARRA1="$(msg -bar)"
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPfrm} ]] && mkdir ${SCPfrm}
 sh_ver="1.0.26"
 filepath=$(cd "$(dirname "$0")"; pwd)
@@ -27,7 +27,7 @@ Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_p
 Info="${Green_font_prefix}[ INFORMACION ]${Font_color_suffix}"
 Error="${Red_font_prefix}[# ERROR #]${Font_color_suffix}"
 Tip="${Green_font_prefix}[ NOTA ]${Font_color_suffix}"
-Separator_1="â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”"
+Separator_1="$(msg -bar)"
 
 check_root(){
 	[[ $EUID != 0 ]] && echo -e "${Error} La cuenta actual no es ROOT (no tiene permiso ROOT), no puede continuar la operacion, por favor ${Green_background_prefix} sudo su ${Font_color_suffix} Venga a ROOT (le pedire que ingrese la contraseÃ±a de la cuenta actual despues de la ejecucion)" && exit 1
@@ -345,17 +345,17 @@ View_User_info(){
 	clear 
 	echo -e " Usuario [{user_name}] Informacion de Cuenta:"
 msg -bar
-    echo -e " PANEL VPS-MX By @Kalix1"
+        msg -ama "CUENTA CREADA CON \033[1;32mNEW-ADM-PLUS]"
 	
 	echo -e " IP : ${Green_font_prefix}${ip}${Font_color_suffix}"
 
 	echo -e " Puerto : ${Green_font_prefix}${port}${Font_color_suffix}"
 
-	echo -e " ContraseÃ±a : ${Green_font_prefix}${password}${Font_color_suffix}"
+	echo -e " Contraseña : ${Green_font_prefix}${password}${Font_color_suffix}"
 
 	echo -e " Encriptacion : ${Green_font_prefix}${method}${Font_color_suffix}"
 
-	echo -e " Protocol : ${Red_font_prefix}${protocol}${Font_color_suffix}"
+	echo -e " Protocolo : ${Red_font_prefix}${protocol}${Font_color_suffix}"
 
 	echo -e " Obfs : ${Red_font_prefix}${obfs}${Font_color_suffix}"
 
@@ -1216,11 +1216,11 @@ msg -bar
 Modify_Config(){
 clear
 	SSR_installation_status
-	echo && echo -e "    ###Â¿Que desea realizar?###Mod By @Kalix1
+	echo && echo -e "    ¿Que desea realizar?
 $(msg -bar)
  ${Green_font_prefix}1.${Font_color_suffix}  Agregar y Configurar Usuario
  ${Green_font_prefix}2.${Font_color_suffix}  Eliminar la Configuracion del Usuario
-â€”â€”â€”â€”â€”â€”â€”â€”â€” Modificar la Configuracion del Usuario â€”â€”â€”â€”
+$(msg -bar) Modificar la Configuracion del Usuario $(msg -bar)
  ${Green_font_prefix}3.${Font_color_suffix}  Modificar contrasena de Usuario
  ${Green_font_prefix}4.${Font_color_suffix}  Modificar el metodo de Cifrado
  ${Green_font_prefix}5.${Font_color_suffix}  Modificar el Protocolo
@@ -1231,7 +1231,7 @@ $(msg -bar)
  ${Green_font_prefix}10.${Font_color_suffix} Modificar el Trafico Total del Usuario
  ${Green_font_prefix}11.${Font_color_suffix} Modificar los Puertos Prohibidos Del usuario
  ${Green_font_prefix}12.${Font_color_suffix} Modificar la Configuracion Completa
-â€”â€”â€”â€”â€”â€”â€”â€”â€” Otras Configuraciones â€”â€”â€”â€”â€”â€”â€”â€”â€”
+$(msg -bar) Otras Configuraciones $(msg -bar)
  ${Green_font_prefix}13.${Font_color_suffix} Modificar la IP o el nombre de dominio que\n se muestra en el perfil del usuario
 $(msg -bar)
  ${Tip} El nombre de usuario y el puerto del usuario\n no se pueden modificar. Si necesita modificarlos, use\n el script para modificar manualmente la funcion !"
@@ -1990,26 +1990,26 @@ if [[ "${action}" == "clearall" ]]; then
 elif [[ "${action}" == "monitor" ]]; then
 	crontab_monitor_ssr
 else
-echo -e "\033[1;37m       =====>>â–ºâ–º ðŸ² PANEL VPSâ€¢MX ðŸ² â—„â—„<<=====       \033[1;37m"
+#msg -ama "$(fun_trans "ADMINISTRADOR DE CUENTAS SHADOWSOCKS")\033[1;32m[NEW-ADM-PLUS]"
 msg -bar
-echo -e "        Controlador de ShadowSock-R  ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix}
+echo -e "        $(fun_trans "ADMINISTRADOR DE CUENTAS SHADOWSOCKS-R")  ${Red_font_prefix}[v${sh_ver}]${Font_color_suffix} \033[1;32m[NEW-ADM-PLUS]
 $(msg -bar)
   ${Green_font_prefix}1.${Font_color_suffix} Instalar ShadowsocksR 
   ${Green_font_prefix}2.${Font_color_suffix} Actualizar ShadowsocksR
   ${Green_font_prefix}3.${Font_color_suffix} Desinstalar ShadowsocksR
   ${Green_font_prefix}4.${Font_color_suffix} Instalar libsodium (chacha20)
-â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+$(msg -bar)
   ${Green_font_prefix}5.${Font_color_suffix} Verifique la informacion de la cuenta
   ${Green_font_prefix}6.${Font_color_suffix} Mostrar la informacion de conexion 
   ${Green_font_prefix}7.${Font_color_suffix} Agregar/Modificar/Eliminar la configuracion del usuario  
   ${Green_font_prefix}8.${Font_color_suffix} Modificar manualmente la configuracion del usuario
   ${Green_font_prefix}9.${Font_color_suffix} Borrar el trafico usado  
-â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+$(msg -bar)
  ${Green_font_prefix}10.${Font_color_suffix} Iniciar ShadowsocksR
  ${Green_font_prefix}11.${Font_color_suffix} Detener ShadowsocksR
  ${Green_font_prefix}12.${Font_color_suffix} Reiniciar ShadowsocksR
  ${Green_font_prefix}13.${Font_color_suffix} Verificar Registro de ShadowsocksR
-â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+$(msg -bar)
  ${Green_font_prefix}14.${Font_color_suffix} Otras Funciones
  ${Green_font_prefix}15.${Font_color_suffix} Actualizar Script 
 $(msg -bar)
