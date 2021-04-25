@@ -159,6 +159,7 @@ echo "
 #NUEVO
 <font color="blue">PUERTOS ACTIVOS</font>
 puertos_ssh
+<font color="yellow"> ➾ </font><font color="red"> $svcs : </font><font color="yellow"> ➢ </font><font color="green"> $porta </font>
 #NUEVO
 </body>
 </html>" >> $DIR/$ARCHIVO
