@@ -2016,7 +2016,7 @@ $(msg -bar)
 	
 	menu_status
 	msg -bar
-    stty erase '^H' && read -p "Porfavor seleccione una opcion [1-16]:" num
+    stty erase '^H' && read -p "Porfavor seleccione una opcion [1-16]: " num
 	msg -bar
 case "$num" in
 	1)
