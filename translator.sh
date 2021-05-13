@@ -2,7 +2,7 @@
 # uncomment and fix with appropriate values if you are behind a proxy
 #export https_proxy='http://localhost:3128'
 #sl=en
-al=$(cat /etc/newadm/menu)
+sl=$(cat /etc/newadm/menu)
 #tl=$(basename $0)
 #if [[ "${tl}" != "es" ]]; then
 #  sl=es
