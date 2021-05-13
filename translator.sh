@@ -3,7 +3,7 @@
 #export https_proxy='http://localhost:3128'
 #sl=en
 sl=es
-tl=$(cat /etc/newadm/menu)
+tl=$(cat /etc/newadm/idioma)
 #tl=$(basename $0)
 #if [[ "${tl}" != "es" ]]; then
 #  sl=es
