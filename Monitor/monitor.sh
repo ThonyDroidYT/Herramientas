@@ -47,12 +47,8 @@ echo "
 <h1>Monitor de Servicios By Thony_DroidYT</h1>
 <h2>Creditos: @Kalix1</h2>
 <p id='ultact'>Última actualización: $FECHA</p>
-<p>Puertos Activos Actualmente</p>
-<p>$(puertos_ssh)</p>
 <hr>
 " > $DIR/$ARCHIVO
-
-
 
 # Servicios a chequear (podemos agregar todos los que deseemos
 # PROTOCOLO SSH
@@ -125,6 +121,8 @@ echo "$svcs: $porta"
 #<font color="yellow"> ➾ </font><font color="red"> $svcs : </font><font color="yellow"> ➢ </font><font color="green"> $porta </font>
 done
 }
+<p>Puertos Activos Actualmente</p>
+<p>$(puertos_ssh)</p>
 
 #SERVICE PYTHON DIREC
 ureset_python () {
