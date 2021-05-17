@@ -27,8 +27,8 @@ fi
 #MONITOR DE SERVICIOS
 preparar () {
 echo -e "\033[1;32m$(fun_trans "Descargando Archivos Necesarios")\033[0m"
-apt-get install screen -y
-clear
+#apt-get install screen -y
+#clear
 #MONITOR.SH
 [[ ! -e /bin/monitor.sh ]] && wget -O /bin/monitor.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Monitor/monitor.sh &> /dev/null && chmod 777 /bin/monitor.sh
 #ESTILOS.CSS
