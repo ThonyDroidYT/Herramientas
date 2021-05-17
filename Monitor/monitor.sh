@@ -47,12 +47,13 @@ echo "
 <h1>Monitor de Servicios By Thony_DroidYT</h1>
 <h2>Creditos: @Kalix1</h2>
 <p id='ultact'>Última actualización: $FECHA</p>
+<p>Puertos Activos Actualmente</p>
+$(puertos_ssh)
 <hr>
 " > $DIR/$ARCHIVO
 
 
 
-echo "<p>Puertos Activos Actualmente</p>\n<p>$(puertos_ssh)</p>" >> $DIR/$ARCHIVO
 # Servicios a chequear (podemos agregar todos los que deseemos
 # PROTOCOLO SSH
 EstadoServicio ssh
@@ -119,7 +120,8 @@ puertos_ssh () {
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
 svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
-echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+#echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+echo "$svcs: $porta"
 #<font color="yellow"> ➾ </font><font color="red"> $svcs : </font><font color="yellow"> ➢ </font><font color="green"> $porta </font>
 done
 }
