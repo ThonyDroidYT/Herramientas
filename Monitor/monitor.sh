@@ -48,7 +48,7 @@ echo "
 <h2>Creditos: @Kalix1</h2>
 <p id='ultact'>Última actualización: $FECHA</p>
 <p>Puertos Activos Actualmente</p>
-$(puertos_ssh)
+<p>$(puertos_ssh)</p>
 <hr>
 " > $DIR/$ARCHIVO
 
